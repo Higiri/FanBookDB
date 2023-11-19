@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Regist</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body class="container">
+  <h2>Regist</h2>
+  
+  <form th:action="@{/result}" th:object="${fanBook}" method="post" class="p-3 border">
+    <div class="form-group mb-3">
+      <label class="form-label">タイトル</label>
+      <input type="text" id="form" th:field="*{title}" class="form-control" />
+   </div>
+     <div class="form-group mb-3">
+        <label class="form-label">作者</label>
+        <input type="text" id="form" th:field="*{author}" class="form-control" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label">サークル名</label>
+        <input type="text"  id="form" th:field="*{circle_name}" class="form-control" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label">日付</label>
+        <input type="date" th:field="*{date}" class="form-control">
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label">カテゴリ</label>
+        <select th:field="*{category}" class="form-select">
+            <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.name}"></option>
+        </select>
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label">元ネタ</label>
+        <select th:field="*{reference_work}" class="form-select">
+            <option th:each="ref : ${reference_works}" th:value="${ref.id}" th:text="${ref.name}"></option>
+        </select>
+    </div>
+    
+    <div class="form-group mb-3">
+      <input type="checkbox" th:field="*{is_adult}" class="form-check-input">
+      <label class="form-check-label">R-18</label>
+    </div>
+    
+    <div class="form-group mb-3">
+      <label class="form-label">ジャンル</label>
+      <textarea id="form" th:field="*{genre}" class="form-control"></textarea>
+    </div>
+    
+    <div class="form-group mb-3">
+    <input type="submit" value="送信" class="btn btn-primary" id="button" />
+    </div>
+  </form>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+
+</html>
