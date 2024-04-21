@@ -18,6 +18,7 @@ import com.example.demo.model.FanBook;
 import com.example.demo.model.Picture;
 import com.example.demo.model.ReferenceWork;
 import com.example.demo.service.CategoryService;
+import com.example.demo.service.EventService;
 import com.example.demo.service.FanBookService;
 import com.example.demo.service.PictureService;
 import com.example.demo.service.ReferenceWorkService;
@@ -33,19 +34,48 @@ public class FanBookController {
 	private ReferenceWorkService referenceWorkService;
 	@Autowired
 	private PictureService pictureService;
+	@Autowired
+	private EventService eventService;
 
 	@GetMapping("/")
 	public String show(Model model) {
-		List<FanBook> fanBookList = service.findAll();
-		fanBookList = fanBookList
+		List<FanBook> fanBookList = service
+				.findAll()
 				.stream()
 				.sorted(Comparator
-						.comparing(FanBook::getAuthor)
+						.comparing((FanBook fb) -> !fb.getIs_official_creator())
+						.reversed()
+						.thenComparing(FanBook::getIs_collaboration)
+						.reversed()
+						.thenComparing(s -> s.getReference_work().getKana())
+						.thenComparing(FanBook::getAuthor_kana)
+						.thenComparing(FanBook::getDate)
+						.thenComparing(FanBook::getTitle))
+				.toList();
+		fanBookList
+				.stream()
+				.filter(s -> s.getSummary() != null)
+				.forEach(fanBook -> {
+					fanBook.setSummary(toLineSeparateText(fanBook.getSummary()));
+				});
+		model.addAttribute("fanBookList", fanBookList);
+		return "fanBook/top";
+	}
+
+	@GetMapping("/table")
+	public String showTable(Model model) {
+		List<FanBook> fanBookList = service
+				.findAll()
+				.stream()
+				.sorted(Comparator
+						.comparing(FanBook::getCircle_name)
+						.thenComparing(s -> s.getCategory().getId())
+						.thenComparing(FanBook::getAuthor)
 						.thenComparing(FanBook::getDate)
 						.thenComparing(FanBook::getTitle))
 				.toList();
 		model.addAttribute("fanBookList", fanBookList);
-		return "fanBook/top";
+		return "fanBook/table";
 	}
 
 	@GetMapping("/regist")
@@ -78,6 +108,20 @@ public class FanBookController {
 		return "fanBook/result";
 	}
 
+	@GetMapping("/id={id}")
+	public String update(Model model, @PathVariable Integer id) {
+		FanBook fanBook = service.findById(id);
+		model.addAttribute("fanBook", fanBook);
+
+		List<Category> categories = categoryService.findAll();
+		model.addAttribute("categories", categories);
+
+		List<ReferenceWork> reference_works = referenceWorkService.findAll();
+		model.addAttribute("reference_works", reference_works);
+
+		return "fanBook/update";
+	}
+
 	@GetMapping("/getFanBookData/{id}")
 	public ResponseEntity<FanBook> getFanBookData(@PathVariable Integer id) {
 		FanBook fanBook = service.findById(id);
@@ -87,6 +131,10 @@ public class FanBookController {
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+	}
+
+	public String toLineSeparateText(String str) {
+		return str.replaceAll("\r\n|\r|\n", "<br>");
 	}
 
 }

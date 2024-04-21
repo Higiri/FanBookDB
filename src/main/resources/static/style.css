@@ -5,10 +5,12 @@
 	;
 
 body {
+	/*
 	font-family: -apple-system, "BlinkMacSystemFont", "Helvetica Neue",
 		Helvetica, "Arial", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo,
 		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
 		"Noto Color Emoji";
+		*/
 }
 /*
 .row>* {
@@ -24,12 +26,17 @@ body {
 	box-sizing: content-box;
 }
 
+.modal_bg_padding {
+	overflow: hidden;
+	padding-right: 17px;
+}
+
 .editForm {
-    display: none;
+	display: none;
 }
 
 .dataTable {
-    display: table;
+	display: table;
 }
 
 .card-img-area {
@@ -41,8 +48,7 @@ body {
 	position: absolute;
 	bottom: 3px;
 	right: 3px;
-	margin-bottom: 3px;
-	margin-right: 3px;
+	margin: 3px 3px 3px 0;
 }
 
 .edit-button {
@@ -52,19 +58,38 @@ body {
 	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
+.badge-area {
+	background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%,
+		rgba(255, 255, 255, 0.5) 100%);
+	width: 100%;
+}
+
 .title-container {
-	background: linear-gradient(to bottom, transparent 0%, white 50%, white 50%);
+	background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0),
+		rgba(255, 255, 255, 0.595) 50%,
+		rgba(255, 255, 255, 0.7225) 65%,
+		rgba(255, 255, 255, 0.78625) 75.5%,
+		rgba(255, 255, 255, 0.81855) 82.85%,
+		rgba(255, 255, 255, 0.83385) 88%,
+		rgba(255, 255, 255, 0.85));
 	width: 100%;
 }
 
 .title-area {
 	margin-right: 44px;
 	padding: 24px 2px 6px 6px;
+	
 }
 
-.title-container h5 {
+.title-container h3 {
 	font-size: 14px;
-	font-weight: 300;
+	font-weight: 400;
+	text-shadow:
+	  2px  0 5px #ffffff,
+	 -2px  0 5px #ffffff,
+	  0  2px 5px #ffffff,
+	  0 -2px 5px #ffffff;
 }
 
 .th-nowrap th {
@@ -73,4 +98,88 @@ body {
 
 .word-wrap {
 	word-break: auto-phrase;
+}
+
+.image-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.4);
+	backdrop-filter: blur(10px);
+}
+
+.pe-015 {
+    padding-right: .15rem !important;
+}
+
+
+.badge-dark-bg {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 
+.modal-dialog-scrollable {
+    height: auto;
+} */
+
+/*========= LoadingのためのCSS ===============*/
+
+/* Loading背景画面設定　*/
+#splash {
+	/*fixedで全面に固定*/
+	position: fixed;
+	z-index: 2000;
+	width: 100%;
+	height: 100%;
+	background: #333;
+	text-align: center;
+	color: #fff;
+}
+
+/* Loadingバー中央配置　*/
+#splash_text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 2000;
+	width: 100%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+}
+
+/*========= サイドボタン ===============*/
+.side-button {
+	display: block;
+	position: fixed;
+	border: 1px solid #0d6efd;
+	color: #0d6efd;
+	right: 20px;
+	z-index: 100;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: #fff;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.page-top {
+	bottom: 110px;
+	opacity: 1;
+	transition: opacity 0.3s ease-out;
+}
+
+.regist-page {
+	bottom: 50px;
+}
+
+.side-button:hover {
+	background: #0d6efd;
+	color: #fff;
+}
+
+.side-button-modal {
+	right: 37px;
 }

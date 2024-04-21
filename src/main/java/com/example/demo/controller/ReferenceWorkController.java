@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,6 +39,16 @@ public class ReferenceWorkController {
 		// serviceクラスのinsertメソッドを呼び出し、DBに入力値を登録
 		service.insert(reference_work);
 		return "reference_work/result";
+	}
+
+	@GetMapping("/getReferenceWorks/")
+	public ResponseEntity<List<ReferenceWork>> getCategories() {
+		List<ReferenceWork> referenceWorkList = service.findAll();
+		if (referenceWorkList != null) {
+			return new ResponseEntity<>(referenceWorkList, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 }
