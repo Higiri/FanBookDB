@@ -107,6 +107,7 @@ body {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(255, 255, 255, 0.4);
+	-webkit-backdrop-filter: blur(10px);
 	backdrop-filter: blur(10px);
 }
 
@@ -169,13 +170,13 @@ body {
 }
 
 .page-top {
-	bottom: 110px;
+	bottom: 130px;
 	opacity: 1;
 	transition: opacity 0.3s ease-out;
 }
 
 .regist-page {
-	bottom: 50px;
+	bottom: 70px;
 }
 
 .side-button:hover {
