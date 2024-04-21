@@ -15,6 +15,7 @@
 <body class="modal_bg">
 	<div id="splash">
 		<div id="splash_text"></div>
+		<!--/splash-->
 	</div>
 	<nav class="navbar sticky-top bg-body-tertiary navbar-expand">
 		<div class="container-fluid container">
@@ -25,6 +26,10 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link active" aria-current="page" href="./">ホーム</a></li>
+					<li class="nav-item"><a class="nav-link" aria-current="page" href="./table">テーブル表示</a></li>
+					<li class="nav-item"><a class="nav-link" href="./category/">カテゴリ</a></li>
+					<li class="nav-item"><a class="nav-link" href="./reference_work/">元ネタ</a></li>
+          <li class="nav-item"><a class="nav-link" href="./event/">イベント</a></li>
 				</ul>
 			</div>
 	    <div class="form-check form-switch m-2">
@@ -35,6 +40,16 @@
 	</nav>
 	<main class="container">
 	<p class="pt-2">同人誌の蔵書管理用のやつ。</p>
+	<div class="d-flex align-items-center">
+		<div class="btn-group btn-group-sm m-2" role="group" aria-label="Basic radio toggle button group">
+			<input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+			<label class="btn btn-outline-primary" for="btnradio1">ジャンル・作者</label>
+			<input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+			<label class="btn btn-outline-primary" for="btnradio2">XX順</label>
+			<input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+			<label class="btn btn-outline-primary" for="btnradio3">XX順</label>
+		</div>
+	</div>
 	<div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 row-cols-x3l-8 row-cols-x4l-10 row-cols-x5l-12 row-cols-x6l-16 mx-0">
 		<div class="col m-0 p-1">
 			<div class="card h-100">
@@ -54,7 +69,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal5" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -71,7 +85,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/005.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/005.png" class="card-img" alt="転生王女と天才令嬢の回想日記">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -148,7 +162,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal136" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -165,7 +178,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/136.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/136.jpg" class="card-img" alt="リコリス・リコイル　BOTU・BON★">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -242,7 +255,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal153" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -259,7 +271,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/153.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/153.jpg" class="card-img" alt="とりしろじま絵日記">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -336,7 +348,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal26" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -353,7 +364,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/026.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/026.jpg" class="card-img" alt="Stand by Me ちさたきアンソロジー">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -430,7 +441,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal27" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -447,7 +457,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/027.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/027.jpg" class="card-img" alt="Stay with You ちさたきアンソロジー2">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -524,7 +534,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal6" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -541,7 +550,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/006.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/006.jpg" class="card-img" alt="寵愛">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -618,7 +627,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal112" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -635,7 +643,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/112.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/112.jpg" class="card-img" alt="楽園">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -712,7 +720,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal44" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -729,7 +736,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/044.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/044.png" class="card-img" alt="尽日">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -806,7 +813,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal123" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -823,7 +829,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/123.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/123.png" class="card-img" alt="Maybe it was like this...">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -900,7 +906,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal25" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -917,7 +922,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/025.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/025.jpg" class="card-img" alt="この時間が全部好き。">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -994,7 +999,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal109" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -1011,7 +1015,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/109.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/109.png" class="card-img" alt="unceasing rhyme">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -1088,7 +1092,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal154" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -1105,7 +1108,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/154.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/154.jpg" class="card-img" alt="冬ポケ本。">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -1182,7 +1185,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal156" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -1199,7 +1201,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/156.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/156.png" class="card-img" alt="魅惑のボンボンショコラ　上巻">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -1276,7 +1278,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal155" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -1293,7 +1294,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/155.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/155.jpg" class="card-img" alt="可愛いって言うの禁止">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -1370,7 +1371,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal165" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -1387,7 +1387,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/165.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/165.jpg" class="card-img" alt="女王陛下のそらもよう。">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -1467,7 +1467,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal163" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -1484,7 +1483,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/163.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/163.jpg" class="card-img" alt="転生王女と天才令嬢の催淫革命">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -1561,7 +1560,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal164" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -1578,7 +1576,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/164.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/164.jpg" class="card-img" alt="あの日々をもう一度">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -1658,7 +1656,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal148" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -1675,7 +1672,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/148.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/148.jpg" class="card-img" alt="とあるファーストの寝かしつけ方">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -1752,7 +1749,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal149" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -1769,7 +1765,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/149.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/149.jpg" class="card-img" alt="Subsolar Point">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -1846,7 +1842,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal91" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -1863,7 +1858,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/091.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/091.jpg" class="card-img" alt="Where there is a will, there is a way">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -1940,7 +1935,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal102" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -1957,7 +1951,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/102.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/102.jpg" class="card-img" alt="利己々の本">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -2034,7 +2028,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal1" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -2051,7 +2044,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/001.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/001.jpg" class="card-img" alt="Angraecum">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -2128,7 +2121,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal3" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -2145,7 +2137,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/003.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/003.jpg" class="card-img" alt="Lupinus">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -2222,7 +2214,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal4" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -2239,7 +2230,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/004.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/004.jpg" class="card-img" alt="Tulip">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -2316,7 +2307,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal7" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -2333,7 +2323,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/007.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/007.jpg" class="card-img" alt="Tulip〜after that〜">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -2410,7 +2400,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal89" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -2427,7 +2416,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/089.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/089.jpg" class="card-img" alt="RIDE or DIE">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -2504,7 +2493,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal88" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -2521,7 +2509,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/088.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/088.jpg" class="card-img" alt="Same Shit Different Day">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -2598,7 +2586,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal30" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -2615,7 +2602,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/030.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/030.jpg" class="card-img" alt="遊泳">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -2692,7 +2679,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal31" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -2709,7 +2695,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/031.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/031.jpg" class="card-img" alt="キミとしたいこと。">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -2786,7 +2772,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal32" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -2803,7 +2788,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/032.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/032.png" class="card-img" alt="ペンギンの女神さま">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -2880,7 +2865,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal33" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -2897,7 +2881,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/033.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/033.png" class="card-img" alt="かげふみハイビスカス">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -2974,7 +2958,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal122" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -2991,7 +2974,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/122.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/122.jpg" class="card-img" alt="一生、離すもんですか。責任とってもらいますよ。">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -3068,7 +3051,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal67" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -3085,7 +3067,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/067.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/067.jpg" class="card-img" alt="Lilium・Relation">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -3162,7 +3144,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal17" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -3179,7 +3160,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/017.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/017.jpg" class="card-img" alt="Tea Time">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -3256,7 +3237,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal18" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -3273,7 +3253,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/018.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/018.jpg" class="card-img" alt="First Emotion">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -3350,7 +3330,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal19" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -3367,7 +3346,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/019.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/019.jpg" class="card-img" alt="Season">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -3444,7 +3423,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal74" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -3461,7 +3439,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/074.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/074.jpg" class="card-img" alt="Star gazer">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -3538,7 +3516,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal73" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -3555,7 +3532,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/073.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/073.jpg" class="card-img" alt="first night">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -3632,7 +3609,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal96" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -3649,7 +3625,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/096.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/096.jpg" class="card-img" alt="fall in love, lycoris">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -3726,7 +3702,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal97" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -3743,7 +3718,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/097.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/097.jpg" class="card-img" alt="君と私の、関係の、証明。">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -3820,7 +3795,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal98" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -3837,7 +3811,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/098.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/098.jpg" class="card-img" alt="Mating between Spider Lilies">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -3914,7 +3888,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal140" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -3931,7 +3904,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/140.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/140.png" class="card-img" alt="リコリスの逃避行">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -4008,7 +3981,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal39" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -4025,7 +3997,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/039.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/039.jpg" class="card-img" alt="New Year’s Day">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -4102,7 +4074,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal75" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -4119,7 +4090,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/075.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/075.jpg" class="card-img" alt="ふたり目線">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -4196,7 +4167,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal138" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -4213,7 +4183,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/138.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/138.jpg" class="card-img" alt="めっちゃLOVEホリデー">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -4290,7 +4260,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal40" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -4307,7 +4276,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/040.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/040.jpg" class="card-img" alt="ぼくにはちょっぴり ぜいたくなきみへ">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -4384,7 +4353,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal76" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -4401,7 +4369,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/076.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/076.jpg" class="card-img" alt="ちぃとたきな">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -4478,7 +4446,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal77" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -4495,7 +4462,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/077.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/077.jpg" class="card-img" alt="たぁと千束">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -4572,7 +4539,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal41" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -4589,7 +4555,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/041.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/041.jpg" class="card-img" alt="少しだけ、覗き見。">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -4666,7 +4632,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal42" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -4683,7 +4648,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/042.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/042.jpg" class="card-img" alt="何でもないよ">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -4760,7 +4725,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal8" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -4777,7 +4741,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/008.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/008.jpg" class="card-img" alt="また会える日を楽しみに">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -4857,7 +4821,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal135" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -4874,7 +4837,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/135.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/135.jpg" class="card-img" alt="リンガーリンガー">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -4951,7 +4914,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal78" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -4968,7 +4930,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/078.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/078.jpg" class="card-img" alt="徒花に咲く">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -5045,7 +5007,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal79" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -5062,7 +5023,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/079.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/079.jpg" class="card-img" alt="当たり前になるまでに">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -5139,7 +5100,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal43" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -5156,7 +5116,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/043.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/043.jpg" class="card-img" alt="キミのトリコ">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -5233,7 +5193,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal28" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -5250,7 +5209,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/028.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/028.jpg" class="card-img" alt="もしもキミが">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -5327,7 +5286,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal29" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -5344,7 +5302,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/029.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/029.jpg" class="card-img" alt="The Little First !">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -5421,7 +5379,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal82" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -5438,7 +5395,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/082.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/082.jpg" class="card-img" alt="夢と意志">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -5515,7 +5472,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal81" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -5532,7 +5488,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/081.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/081.jpg" class="card-img" alt="傷には弾丸を">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -5609,7 +5565,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal80" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -5626,7 +5581,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/080.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/080.jpg" class="card-img" alt="言葉を使わなくても">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -5703,7 +5658,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal85" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -5720,7 +5674,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/085.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/085.png" class="card-img" alt="てぇてぇしないと出れない島。">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -5797,7 +5751,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal86" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -5814,7 +5767,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/086.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/086.png" class="card-img" alt="君が好きで好きでしかたがない">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -5891,7 +5844,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal151" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -5908,7 +5860,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/151.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/151.jpg" class="card-img" alt="恋するなら君と">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -5985,7 +5937,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal83" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -6002,7 +5953,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/083.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/083.png" class="card-img" alt="ふたりごと">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -6079,7 +6030,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal84" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -6096,7 +6046,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/084.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/084.png" class="card-img" alt="キスしないと出れない部屋">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -6173,7 +6123,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal121" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -6190,7 +6139,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/121.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/121.jpg" class="card-img" alt="シャッターを切って">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -6267,7 +6216,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal132" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -6284,7 +6232,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/132.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/132.jpg" class="card-img" alt="二人の紡ぐ未来Ⅰ">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -6361,7 +6309,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal60" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -6378,7 +6325,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/060.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/060.png" class="card-img" alt="桜吹雪">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -6455,7 +6402,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal106" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -6472,7 +6418,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/106.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/106.jpg" class="card-img" alt="2人はなかよし">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -6549,7 +6495,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal12" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -6566,7 +6511,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/012.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/012.png" class="card-img" alt="My Dear Flower">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -6643,7 +6588,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal11" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -6660,7 +6604,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/011.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/011.jpg" class="card-img" alt="Pact of Flower">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -6737,7 +6681,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal9" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -6754,7 +6697,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/009.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/009.png" class="card-img" alt="リュコーリアス">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -6831,7 +6774,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal10" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -6848,7 +6790,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/010.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/010.png" class="card-img" alt="常夜童子に花簪">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -6925,7 +6867,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal13" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -6942,7 +6883,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/013.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/013.png" class="card-img" alt="Move Forward">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -7019,7 +6960,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal14" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -7036,7 +6976,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/014.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/014.png" class="card-img" alt="Not Terminate">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -7113,7 +7053,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal15" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -7130,7 +7069,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/015.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/015.png" class="card-img" alt="とある探偵の事件簿１">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -7207,7 +7146,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal161" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -7224,7 +7162,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/161.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/161.jpg" class="card-img" alt="Love begets love">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -7301,7 +7239,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal87" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -7318,7 +7255,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/087.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/087.jpg" class="card-img" alt="Lycoris Color">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -7395,7 +7332,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal137" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -7412,7 +7348,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/137.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/137.jpg" class="card-img" alt="たいくつな映画は××の合図">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -7489,7 +7425,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal130" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -7506,7 +7441,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/130.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/130.png" class="card-img" alt="WANNA TOUCH YOU, SINCERELY">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -7583,7 +7518,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal110" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -7600,7 +7534,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/110.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/110.jpg" class="card-img" alt="Koi">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -7677,7 +7611,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal92" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -7694,7 +7627,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/092.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/092.jpg" class="card-img" alt="リコリコリフレイン">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -7771,7 +7704,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal141" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -7788,7 +7720,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/141.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/141.jpg" class="card-img" alt="リコリコリフレインvol.2">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -7865,7 +7797,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal93" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -7882,7 +7813,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/093.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/093.jpg" class="card-img" alt="ちさたきのその後">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -7959,7 +7890,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal94" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -7976,7 +7906,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/094.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/094.jpg" class="card-img" alt="ちさたきとその後2">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -8053,7 +7983,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal147" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -8070,7 +7999,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/147.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/147.jpg" class="card-img" alt="ちさたきのその後3">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -8147,7 +8076,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal167" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -8164,7 +8092,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/167.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/167.jpg" class="card-img" alt="Lustrousness">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -8241,7 +8169,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal133" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -8258,7 +8185,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/133.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/133.jpg" class="card-img" alt="Their other story">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -8335,7 +8262,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal95" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -8352,7 +8278,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/095.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/095.jpg" class="card-img" alt="Lycoris Kemomimi Book">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -8429,7 +8355,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal66" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -8446,7 +8371,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/066.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/066.png" class="card-img" alt="Live, love, laugh and be happy">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -8523,7 +8448,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal145" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -8540,7 +8464,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/145.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/145.png" class="card-img" alt="雪が溶けたら">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -8617,7 +8541,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal166" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -8634,7 +8557,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/166.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/166.jpg" class="card-img" alt="はじめまして、運命のひと">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -8711,7 +8634,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal48" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -8728,7 +8650,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/048.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/048.png" class="card-img" alt="きみのひとみの りんごにしてよ">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -8805,7 +8727,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal49" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -8822,7 +8743,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/049.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/049.jpg" class="card-img" alt="荒廃に足跡を刻む">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -8899,7 +8820,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal62" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -8916,7 +8836,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/062.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/062.jpg" class="card-img" alt="Snatched!">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -8993,7 +8913,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal99" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -9010,7 +8929,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/099.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/099.jpg" class="card-img" alt="ふたりの時間、大切な宝物">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -9087,7 +9006,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal52" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -9104,7 +9022,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/052.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/052.jpg" class="card-img" alt="わたしのすきなもの">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -9181,7 +9099,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal69" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -9198,7 +9115,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/069.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/069.jpg" class="card-img" alt="この夜を越えたら">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -9275,7 +9192,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal68" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -9292,7 +9208,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/068.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/068.jpg" class="card-img" alt="体温、鼓動">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -9369,7 +9285,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal70" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -9386,7 +9301,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/070.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/070.jpg" class="card-img" alt="映画を観よう">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -9463,7 +9378,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal72" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -9480,7 +9394,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/072.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/072.jpg" class="card-img" alt="喫茶リコリコ限定生配信 -LycoReco Limited Live-">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -9557,7 +9471,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal71" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -9574,7 +9487,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/071.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/071.jpg" class="card-img" alt="痕-KIZUATO-">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -9651,7 +9564,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal143" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -9668,7 +9580,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/143.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/143.jpg" class="card-img" alt="たきなかわいい!">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -9745,7 +9657,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal101" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -9762,7 +9673,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/101.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/101.jpg" class="card-img" alt="LOL LOL">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -9839,7 +9750,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal103" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -9856,7 +9766,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/103.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/103.jpg" class="card-img" alt="夕日と君に未来を誓う">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -9933,7 +9843,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal104" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -9950,7 +9859,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/104.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/104.jpg" class="card-img" alt="Spring">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -10027,7 +9936,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal105" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -10044,7 +9952,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/105.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/105.png" class="card-img" alt="LYCORIS SCHOOL LIFE">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -10121,7 +10029,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal56" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -10138,7 +10045,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/056.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/056.jpg" class="card-img" alt="たきなとちさと。">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -10215,7 +10122,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal55" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -10232,7 +10138,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/055.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/055.jpg" class="card-img" alt="ワタシ似">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -10309,7 +10215,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal57" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -10326,7 +10231,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/057.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/057.jpg" class="card-img" alt="受け入れて全力!">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -10403,7 +10308,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal117" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -10420,7 +10324,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/117.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/117.png" class="card-img" alt="これからもずっと">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -10497,7 +10401,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal118" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -10514,7 +10417,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/118.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/118.jpg" class="card-img" alt="朝と幕間と夜">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -10591,7 +10494,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal168" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -10608,7 +10510,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/168.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/168.png" class="card-img" alt="peace time planet">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -10685,7 +10587,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal36" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -10702,7 +10603,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/036.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/036.jpg" class="card-img" alt="Record &amp; Recording">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -10779,7 +10680,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal37" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -10796,7 +10696,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/037.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/037.jpg" class="card-img" alt="Surprise &amp; Seduce">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -10873,7 +10773,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal38" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -10890,7 +10789,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/038.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/038.jpg" class="card-img" alt="Tempt &amp; Throb">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -10967,7 +10866,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal139" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -10984,7 +10882,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/139.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/139.jpg" class="card-img" alt="端と端">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -11061,7 +10959,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal53" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -11078,7 +10975,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/053.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/053.jpg" class="card-img" alt="きみと会えて嬉しい">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -11155,7 +11052,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal107" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -11172,7 +11068,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/107.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/107.jpg" class="card-img" alt="ちさたきのあったかもしれない話">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -11249,7 +11145,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal108" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -11266,7 +11161,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/108.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/108.jpg" class="card-img" alt="お互いの香りに誘われるちさたきの話">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -11343,7 +11238,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal142" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -11360,7 +11254,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/142.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/142.jpg" class="card-img" alt="千束とたきなの初デート記念日">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -11437,7 +11331,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal54" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -11454,7 +11347,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/054.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/054.jpg" class="card-img" alt="愛のしるし ‘A‘ohe mea ‘imi a ka maka.">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -11531,7 +11424,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal127" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -11548,7 +11440,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/127.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/127.jpg" class="card-img" alt="なっとるやろがい！">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -11625,7 +11517,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal124" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -11642,7 +11533,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/124.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/124.jpg" class="card-img" alt="九月二三日、漸く頬を殴られた。">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -11719,7 +11610,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal126" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -11736,7 +11626,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/126.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/126.jpg" class="card-img" alt="星が瞬く夜に">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -11813,7 +11703,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal170" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -11830,7 +11719,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/170.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/170.jpg" class="card-img" alt="YOLO">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -11907,7 +11796,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal128" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -11924,7 +11812,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/128.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/128.png" class="card-img" alt="Flowers of Unfaded">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -12001,7 +11889,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal58" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -12018,7 +11905,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/058.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/058.png" class="card-img" alt="白の季節">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -12095,7 +11982,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal59" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -12112,7 +11998,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/059.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/059.png" class="card-img" alt="虹の季節">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -12189,7 +12075,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal146" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -12206,7 +12091,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/146.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/146.jpg" class="card-img" alt="Blue Attack">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -12283,7 +12168,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal162" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -12300,7 +12184,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/162.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/162.jpg" class="card-img" alt="Dear My Baby!">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -12377,7 +12261,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal61" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -12394,7 +12277,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/061.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/061.jpg" class="card-img" alt="フォーカスモード">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -12471,7 +12354,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal111" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -12488,7 +12370,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/111.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/111.jpg" class="card-img" alt="イッヌとメガネ">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -12565,7 +12447,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal144" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -12582,7 +12463,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/144.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/144.jpg" class="card-img" alt="フラグは壊すもの">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -12659,7 +12540,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal150" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -12676,7 +12556,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/150.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/150.jpg" class="card-img" alt="リ・マトメ">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -12753,7 +12633,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal157" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -12770,7 +12649,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/157.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/157.png" class="card-img" alt="My Sweet Bodyguard">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -12847,7 +12726,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal158" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -12864,7 +12742,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/158.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/158.png" class="card-img" alt="私の嫁になりませんか？">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -12941,7 +12819,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal159" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -12958,7 +12835,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/159.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/159.jpg" class="card-img" alt="君のことずっと覚えていたい">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -13035,7 +12912,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal160" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -13052,7 +12928,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/160.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/160.png" class="card-img" alt="キミへの愛は本能に">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -13129,7 +13005,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal120" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -13146,7 +13021,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/120.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/120.jpg" class="card-img" alt="BlueBird">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -13223,7 +13098,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal129" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -13240,7 +13114,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/129.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/129.jpg" class="card-img" alt="ダイヤモンドリリーの花びら">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -13317,7 +13191,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal16" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -13334,7 +13207,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/016.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/016.jpg" class="card-img" alt="Too Loud a Solitude">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -13411,7 +13284,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal64" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -13428,7 +13300,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/064.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/064.png" class="card-img" alt="始まりへの鼓動">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -13505,7 +13377,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal63" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -13522,7 +13393,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/063.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/063.jpg" class="card-img" alt="ちさたきの学パロ本">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -13599,7 +13470,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal65" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -13616,7 +13486,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/065.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/065.png" class="card-img" alt="ちさたき合同本">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -13693,7 +13563,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal24" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -13710,7 +13579,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/024.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/024.jpg" class="card-img" alt="君にもらったものばかり">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -13787,7 +13656,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal45" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -13804,7 +13672,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/045.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/045.jpg" class="card-img" alt="千束とたきなは絶対いっしょ">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -13881,7 +13749,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal46" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -13898,7 +13765,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/046.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/046.jpg" class="card-img" alt="リコリス・リコイル Special Days">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -13975,7 +13842,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal47" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -13992,7 +13858,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/047.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/047.jpg" class="card-img" alt="いかにして錦木千束と井ノ上たきなは愛し合うようになったか">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -14069,7 +13935,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal113" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -14086,7 +13951,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/113.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/113.jpg" class="card-img" alt="Teacher × Teacher">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -14163,7 +14028,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal114" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -14180,7 +14044,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/114.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/114.jpg" class="card-img" alt="Ribbon">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -14257,7 +14121,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal115" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -14274,7 +14137,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/115.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/115.jpg" class="card-img" alt="SAY Cheese!">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -14351,7 +14214,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal169" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -14368,7 +14230,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/169.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/169.jpg" class="card-img" alt="kametter">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -14445,7 +14307,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal50" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -14462,7 +14323,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/050.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/050.jpg" class="card-img" alt="はなのいろ">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -14539,7 +14400,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal152" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -14556,7 +14416,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/152.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/152.jpg" class="card-img" alt="彼女と彼女の物語">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -14633,7 +14493,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal131" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -14650,7 +14509,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/131.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/131.jpg" class="card-img" alt="焦燥">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -14727,7 +14586,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal119" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -14744,7 +14602,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/119.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/119.jpg" class="card-img" alt="永遠に満たして。">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -14821,7 +14679,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal51" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -14838,7 +14695,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/051.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/051.jpg" class="card-img" alt="ひとりごとにしないで">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -14915,7 +14772,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal134" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -14932,7 +14788,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/134.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/134.png" class="card-img" alt="SECRET REPORT">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -15009,7 +14865,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal125" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -15026,7 +14881,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/125.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/125.jpg" class="card-img" alt="鳴かぬ蛍が身を焦がす">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -15103,7 +14958,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal116" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -15120,7 +14974,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/116.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/116.jpg" class="card-img" alt="ねむれるけもの">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -15197,7 +15051,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal100" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -15214,7 +15067,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/100.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/100.jpg" class="card-img" alt="HANEHON-LycoRecoVer-">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -15291,7 +15144,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal23" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -15308,7 +15160,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/023.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/023.jpg" class="card-img" alt="キミと私ともう一度">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -15385,7 +15237,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal34" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -15402,7 +15253,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/034.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/034.jpg" class="card-img" alt="Especially for you">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -15479,7 +15330,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal35" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -15496,7 +15346,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/035.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/035.jpg" class="card-img" alt="Feel Good?">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -15573,7 +15423,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal2" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -15590,7 +15439,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/002.png" class="card-img" alt="${fanBook.title}">
+									<img src="/images/002.png" class="card-img" alt="いとしい人は、ずるい人。">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -15667,7 +15516,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal20" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -15684,7 +15532,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/020.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/020.jpg" class="card-img" alt="Three Months">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -15761,7 +15609,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal21" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -15778,7 +15625,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/021.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/021.jpg" class="card-img" alt="キミガスキ">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -15855,7 +15702,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal22" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -15872,7 +15718,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/022.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/022.jpg" class="card-img" alt="これからもヨロシク">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -15949,7 +15795,6 @@
 						</div>
 					</div>
 					<div class="edit-button-container">
-						<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
 						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal90" onclick="handleModalShown()">
 							<i class="bi bi-box-arrow-up-right"></i>
 						</button>
@@ -15966,7 +15811,7 @@
 						<div class="modal-body">
 							<div class="row g-3">
 								<div class="col-lg-6">
-									<img src="/images/090.jpg" class="card-img" alt="${fanBook.title}">
+									<img src="/images/090.jpg" class="card-img" alt="純潔の才能">
 								</div>
 								<div class="col-lg-6">
 									<div class="mb-2">
@@ -16027,6 +15872,20 @@
 		</div>
 	</div>
 	</main>
+  <!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
+	<!-- Button trigger modal 
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal">追加(modal)</button>
+  -->
+	<!-- detailModal 
+	<div class="modal modal-lg fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="fanBookModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+			<div class="modal-content">
+				<div id="detailModalContent"></div>
+			</div>
+		</div>
+	</div>
+	-->
+	<!-- updateModal -->
 	<div class="modal modal-lg fade" id="updateModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="fanBookModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
 			<div class="modal-content">
@@ -16034,6 +15893,7 @@
 			</div>
 		</div>
 	</div>
+	<!--<p id="page-top"><a href="#">Page Top</a></p>-->
 	<button id="page-top" class="page-top side-button">
 		<i class="bi bi-chevron-bar-up"></i>
 	</button>
