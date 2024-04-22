@@ -120,6 +120,14 @@ body {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
+.btn.text-white {
+  color: #fff;
+}
+
+.btn.hover-white:hover {
+  color: #fff;
+}
+
 /* 
 .modal-dialog-scrollable {
     height: auto;
@@ -184,10 +192,11 @@ body {
 	color: #fff;
 }
 
-.side-button-modal {
-	right: 37px;
+@media (min-width: 768px) {
+	.side-button-modal {
+		right: 37px;
+	}
 }
-
 /*
  * navbar hamburger button
  */
