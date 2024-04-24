@@ -10,11 +10,9 @@
 <script type="text/javascript" src="modal.js"></script>
 <script type="text/javascript" src="blurry.js"></script>
 </head>
-
 <body class="modal_bg">
 	<div id="splash">
 		<div id="splash_text"></div>
-		<!--/splash-->
 	</div>
 	<nav class="navbar bg-body-tertiary navbar-expand-md pb-1">
 		<div class="container-fluid container align-items-center">
@@ -36,125 +34,150 @@
 		</div>
 	</nav>
 	<main class="container">
-	<p class="pt-2">同人誌の蔵書管理用のやつ。</p>
-	<div class="d-flex align-items-center">
-		<div class="btn-group btn-group-sm m-2" role="group" aria-label="Basic radio toggle button group">
-			<input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-			<label class="btn btn-outline-primary" for="btnradio1">ジャンル・作者</label>
-			<input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-			<label class="btn btn-outline-primary" for="btnradio2">XX順</label>
-			<input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-			<label class="btn btn-outline-primary" for="btnradio3">XX順</label>
+	<div id="fanBookList">
+		<div class="d-flex align-items-center py-2">
+			<div class="btn-group btn-group-sm pe-2" role="group" aria-label="Basic radio toggle button group">
+				<input type="radio" class="btn-check sort" data-sort="default" name="dataSort" id="default-sort" autocomplete="off" checked>
+				<label class="btn btn-outline-primary" for="default-sort">ジャンル・作者</label>
+				<input type="radio" class="btn-check sort" data-sort="date" name="dataSort" id="date-sort" autocomplete="off">
+				<label class="btn btn-outline-primary" for="date-sort">日付</label>
+        <input type="radio" class="btn-check sort" data-sort="title" name="dataSort" id="title-sort" autocomplete="off">
+        <label class="btn btn-outline-primary" for="title-sort">タイトル</label>
+			</div>
+			<div class="btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
+				<input type="radio" class="btn-check sort-order" data-order="asc" name="dataSortOrder" id="asc-sort" autocomplete="off" checked>
+				<label class="btn btn-outline-primary" for="asc-sort">昇順</label>
+				<input type="radio" class="btn-check sort-order" data-order="desc" name="dataSortOrder" id="desc-sort" autocomplete="off">
+				<label class="btn btn-outline-primary" for="desc-sort">降順</label>
+			</div>
+			<div>
+				<input type="search" class="search form-control" placeholder="検索">
+			</div>
 		</div>
-	</div>
-	<div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 row-cols-x3l-8 row-cols-x4l-10 row-cols-x5l-12 row-cols-x6l-16 mx-0">
-		<div class="col m-0 p-1" th:each="fanBook : ${fanBookList}" th:object="${fanBook}">
-			<div class="card h-100">
-				<div class="card-img-area">
-					<img th:if="${fanBook.picture != null}" th:src="${fanBook.picture.filepath} + ${fanBook.picture.filename}" class="card-img" th:alt="*{title}">
-					<div th:if="${fanBook.is_adult}" class="image-overlay"></div>
-					<div class="badge-area pt-1 ps-2 position-absolute top-0 start-0 end-0">
-						<div class="d-flex justify-content-start">
-							<div th:if="${fanBook.is_adult}" class="pe-1">
-								<span class="badge text-bg-danger badge-dark-bg">R-18</span>
-							</div>
-							<div th:if="${fanBook.is_official_creator}" class="pe-1">
-								<span class="badge text-bg-primary badge-dark-bg">準公式</span>
-							</div>
-							<div th:if="${fanBook.is_collaboration}" class="pe-1">
-								<span class="badge text-bg-primary badge-dark-bg"><i class="bi bi-people"></i></span>
+		<div class="list row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 row-cols-x3l-8 row-cols-x4l-10 row-cols-x5l-12 row-cols-x6l-16 mx-0">
+			<div class="col m-0 p-1" th:each="fanBook, iterStat : ${fanBookList}" th:object="${fanBook}">
+				<div class="card h-100">
+					<div class="d-none default" th:text="${iterStat.count}"></div>
+					<div class="card-img-area">
+						<img th:if="${fanBook.picture != null}" th:src="${fanBook.picture.filepath} + ${fanBook.picture.filename}" class="card-img" th:alt="*{title}">
+						<div th:if="${fanBook.is_adult}" class="image-overlay"></div>
+						<div class="badge-area pt-1 px-2 position-absolute top-0 start-0 end-0">
+							<div class="row g-1 pb-2">
+								<div class="col-auto" th:if="${fanBook.is_adult}">
+									<span class="badge text-bg-danger badge-dark-bg">R-18</span>
+								</div>
+								<div class="col-auto" th:if="${fanBook.is_official_creator}">
+									<span class="badge text-bg-primary badge-dark-bg">準公式</span>
+								</div>
+								<div class="col-auto" th:if="${fanBook.is_collaboration}">
+									<span class="badge text-bg-primary badge-dark-bg"><i class="bi bi-people"></i></span>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="title-container position-absolute bottom-0 start-0 end-0">
-						<div class="title-area">
-							<h3 class="card-title word-wrap mb-0" th:text="*{title}"></h3>
+						<div class="title-container position-absolute bottom-0 start-0 end-0">
+							<div class="title-area">
+								<h3 class="card-title word-wrap mb-0" th:text="*{title}"></h3>
+							</div>
 						</div>
-					</div>
-					<div class="edit-button-container">
-						<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" th:data-bs-target="'#detailModal' + ${fanBook.id}" onclick="handleModalShown()">
-							<i class="bi bi-box-arrow-up-right"></i>
-						</button>
+						<div class="edit-button-container">
+							<button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" th:data-bs-target="'#detailModal' + ${fanBook.id}" onclick="handleModalShown()">
+								<i class="bi bi-box-arrow-up-right"></i>
+							</button>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="modal modal-lg fade" th:id="'detailModal' + ${fanBook.id}" tabindex="-1" role="dialog" aria-labelledby="fanBookModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h1 class="modal-title fs-5" id="fanBookModalLabel" th:text="*{title}"></h1>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div class="modal-body">
-							<div class="row g-3">
-								<div class="col-lg-6">
-									<img th:if="${fanBook.picture != null}" th:src="${fanBook.picture.filepath} + ${fanBook.picture.filename}" class="card-img" th:alt="*{title}">
-								</div>
-								<div class="col-lg-6">
-									<div>
-										<button th:if="${fanBook.is_adult}" type="button" class="btn btn-sm btn-danger mb-2">R-18</button>
-										<button th:if="${fanBook.is_official_creator}" type="button" class="btn btn-sm btn-primary mb-2">準公式</button>
-										<button th:if="${fanBook.category}" type="button" class="btn btn-sm btn-lime mb-2" th:text="*{category.name}"></button>
-										<button th:if="${fanBook.reference_work}" type="button" class="btn btn-sm btn-cyan mb-2" th:text="*{reference_work.name}"></button>
+				<div class="modal modal-lg fade" th:id="'detailModal' + ${fanBook.id}" tabindex="-1" role="dialog" aria-labelledby="fanBookModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="fanBookModalLabel" th:text="*{title}"></h1>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<div class="row g-3">
+									<div class="col-lg-6">
+										<img th:if="${fanBook.picture != null}" th:src="${fanBook.picture.filepath} + ${fanBook.picture.filename}" class="card-img" th:alt="*{title}">
 									</div>
-									<table class="table th-nowrap">
-										<tbody class="th-nowrap">
-											<tr>
-												<th scope="col">タイトル</th>
-												<td class="word-wrap" th:text="*{title}"></td>
-											</tr>
-											<tr>
-												<th scope="col">作者</th>
-												<td class="word-wrap" th:text="*{author}"></td>
-											</tr>
-											<tr>
-												<th scope="col">サークル</th>
-												<td th:text="*{circle_name}"></td>
-											</tr>
-											<tr>
-												<th scope="col">イベント</th>
-												<td>
-													<ul class="list-unstyled mb-0">
-														<li class="word-wrap" th:text="*{event.name}"></li>
-														<li class="word-wrap text-body-secondary" th:text="*{event.place}"></li>
-													</ul>
-												</td>
-											</tr>
-											<tr>
-												<th scope="col">日付</th>
-												<td th:text="*{date}"></td>
-											</tr>
-											<tr>
-												<th scope="col">ジャンル</th>
-												<td class="word-wrap" th:utext="*{genre}"></td>
-											</tr>
-											<tr>
-												<th scope="col">概要</th>
-												<td class="word-wrap" th:utext="*{summary}"></td>
-											</tr>
-											<tr th:if="${fanBook.memo}">
-												<th scope="col">メモ</th>
-												<td class="word-wrap" th:utext="*{memo}"></td>
-											</tr>
-										</tbody>
-									</table>
+									<div class="col-lg-6">
+										<div class="row g-1 pb-2">
+											<div class="col-auto" th:if="${fanBook.is_adult}">
+												<button type="button" class="btn btn-sm btn-danger">R-18</button>
+											</div>
+											<div class="col-auto" th:if="${fanBook.is_official_creator}">
+												<button type="button" class="btn btn-sm btn-primary is_official_creator">準公式</button>
+											</div>
+											<div class="col-auto" th:if="${fanBook.category}">
+												<button type="button" class="btn btn-sm btn-lime category" th:text="*{category.name}"></button>
+											</div>
+											<div class="col-auto" th:if="${fanBook.reference_work}">
+												<button type="button" class="btn btn-sm btn-cyan" th:text="*{reference_work.name}"></button>
+											</div>
+										</div>
+										<table class="table th-nowrap">
+											<tbody class="th-nowrap">
+												<tr>
+													<th scope="col">タイトル</th>
+													<td class="word-wrap title" th:text="*{title}"></td>
+												</tr>
+												<tr>
+													<th scope="col">作者</th>
+													<td class="word-wrap author" th:text="*{author}"></td>
+												</tr>
+												<tr>
+													<th scope="col">サークル</th>
+													<td th:text="*{circle_name}"></td>
+												</tr>
+												<tr>
+													<th scope="col">イベント</th>
+													<td>
+														<ul class="list-unstyled mb-0">
+															<li class="word-wrap" th:text="*{event.name}"></li>
+															<li class="word-wrap text-body-secondary" th:text="*{event.place}"></li>
+														</ul>
+													</td>
+												</tr>
+												<tr>
+													<th scope="col">日付</th>
+													<td class="date" th:text="*{date}"></td>
+												</tr>
+												<tr>
+													<th scope="col">ジャンル</th>
+													<td class="word-wrap" th:utext="*{genre}"></td>
+												</tr>
+												<tr>
+													<th scope="col">概要</th>
+													<td class="word-wrap" th:utext="*{summary}"></td>
+												</tr>
+												<tr th:if="${fanBook.memo}">
+													<th scope="col">メモ</th>
+													<td class="word-wrap" th:utext="*{memo}"></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="modal-footer d-flex justify-content-between">
-							<div>
-								<a th:if="${fanBook.url != null}" th:href="${fanBook.url}" class="btn btn-outline-pink hover-white" role="button" target="_blank"><i class="bi bi-box-arrow-up-left"></i> 詳細</a>
-							</div>
-							<div>
-								<button type="button" class="btn btn-sm btn-ligh" th:text="*{'id: '+id}"></button>
-								<a class="btn btn-primary" th:href="'/id=' + ${fanBook.id}" role="button">編集</a>
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+							<div class="modal-footer d-flex justify-content-between">
+								<div>
+									<a th:if="${fanBook.url != null}" th:href="${fanBook.url}" class="btn btn-outline-pink hover-white" role="button" target="_blank"><i class="bi bi-box-arrow-up-left"></i> 詳細</a>
+								</div>
+								<div>
+									<button type="button" class="btn btn-sm btn-ligh" th:text="*{'id: '+id}"></button>
+									<a class="btn btn-primary" th:href="'/id=' + ${fanBook.id}" role="button">編集</a>
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<nav aria-label="Page Navigation">
+			<ul id="pagenation" class="pagination justify-content-center">
+				<li id="list-item">
+				</li>
+			</ul>
+		</nav>
 	</div>
 	</main>
 	<!-- <button type="button" class="btn btn-success edit-button" data-bs-toggle="modal" data-bs-target="#detailModal" th:onclick="|openFanBookDetailsModal(${fanBook.id})|"> -->
@@ -203,6 +226,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 	<script src="loading.js"></script>
 	<script src="goTop.js"></script>
+	<script src="list.js"></script>
+	<script src="listSetting.js"></script>
 </body>
 
 </html>
