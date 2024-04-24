@@ -5,7 +5,7 @@ var options = {
     // 並び替え項目
     valueNames: ["default", "date", "title", "author"],
 
-    page: getDefaultPageSize(),
+    page: getWindowSize() < 768 ? 24 : 96,
     // ページネーション
     pagination: {
         innerWindow: 1,
