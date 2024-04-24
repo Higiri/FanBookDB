@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.Category;
+import com.example.demo.model.Event;
 import com.example.demo.model.FanBook;
 import com.example.demo.model.Picture;
 import com.example.demo.model.ReferenceWork;
@@ -59,6 +60,16 @@ public class FanBookController {
 					fanBook.setSummary(toLineSeparateText(fanBook.getSummary()));
 				});
 		model.addAttribute("fanBookList", fanBookList);
+
+		List<Category> categories = categoryService.findAll();
+		model.addAttribute("categories", categories);
+
+		List<ReferenceWork> reference_works = referenceWorkService.findAll();
+		model.addAttribute("reference_works", reference_works);
+
+		List<Event> events = eventService.findAll();
+		model.addAttribute("events", events);
+
 		return "fanBook/top";
 	}
 

@@ -1,8 +1,7 @@
 @CHARSET "UTF-8";
 
 @import
-	url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css")
-	;
+	url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
 body {
 	/*
@@ -133,6 +132,32 @@ body {
     height: auto;
 } */
 
+
+input.sort.asc:checked + label::after {
+	width: 1rem;
+	height: 1rem;
+  display: inline-block;
+  content: "";
+  vertical-align: -.25em;
+  margin-left: 0.5rem;
+  background-image: url("sort-down-alt.svg");
+  background-repeat: no-repeat;
+  background-size: 1rem 1rem;
+}
+
+/* DESCアイコンの表示 */
+input.sort.desc:checked + label::after {
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  content: "";
+  vertical-align: -.25em;
+  margin-left: 0.5rem;
+  background-image: url("sort-down.svg");
+  background-repeat: no-repeat;
+  background-size: 1rem 1rem;
+}
+
 /*========= LoadingのためのCSS ===============*/
 
 /* Loading背景画面設定　*/
@@ -197,6 +222,7 @@ body {
 		right: 37px;
 	}
 }
+
 /*
  * navbar hamburger button
  */
