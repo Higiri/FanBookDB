@@ -36,17 +36,58 @@
 	</nav>
 	<main class="container">
 	<div id="fanBookList">
-		<div class="d-flex align-items-center py-2">
-			<div class="btn-group btn-group-sm pe-2" role="group" aria-label="Basic radio toggle button group">
+		<div class="py-2">
+			<div class="col-auto btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
 				<input type="radio" class="btn-check sort asc" data-sort="default" name="dataSort" id="default-sort" autocomplete="off" checked>
 				<label class="btn btn-outline-primary" for="default-sort">ジャンル・作者</label>
 				<input type="radio" class="btn-check sort" data-sort="date" name="dataSort" id="date-sort" autocomplete="off">
 				<label class="btn btn-outline-primary" for="date-sort">日付</label>
-        <input type="radio" class="btn-check sort" data-sort="title" name="dataSort" id="title-sort" autocomplete="off">
-        <label class="btn btn-outline-primary" for="title-sort">タイトル</label>
+				<input type="radio" class="btn-check sort" data-sort="title" name="dataSort" id="title-sort" autocomplete="off">
+				<label class="btn btn-outline-primary" for="title-sort">タイトル</label>
 			</div>
-			<div>
-				<input type="search" class="search form-control" placeholder="検索">
+			<div class="row g-2 py-2">
+				<div class="col-auto"> 
+					<select class="form-select form-select-sm" aria-label="categorySelector">
+						<option data-filter="any" selected>カテゴリ</option>
+						<option data-filter="漫画" value="漫画">漫画</option>
+						<option data-filter="小説" value="小説">小説</option>
+						<option data-filter="イラスト" value="イラスト">イラスト</option>
+						<option data-filter="アンソロジー" value="アンソロジー">アンソロジー</option>
+						<option data-filter="合同誌" value="合同誌">合同誌</option>
+						<option data-filter="その他" value="その他">その他</option>
+					</select>
+				</div>
+        <div class="col-auto">
+          <select class="form-select form-select-sm" aria-label="referenceWorkSelector">
+            <option data-filter="any" selected>元ネタ</option>
+            <option data-filter="Summer Pockets" value="Summer Pockets">Summer Pockets</option>
+            <option data-filter="転生王女と天才令嬢の魔法革命" value="転生王女と天才令嬢の魔法革命">転生王女と天才令嬢の魔法革命</option>
+            <option data-filter="リコリス・リコイル" value="リコリス・リコイル">リコリス・リコイル</option>
+          </select>
+        </div>
+				<div class="col-auto">
+					<select class="form-select form-select-sm" aria-label="eventSelector">
+						<option data-filter="any" selected>イベント</option>
+						<option data-filter="通販のみ" value="通販のみ">通販のみ</option>
+						<option data-filter="海外イベント" value="海外イベント">海外イベント</option>
+						<option data-filter="KeyPoints14＋KTX" value="KeyPoints14＋KTX">KeyPoints14＋KTX</option>
+						<option data-filter="陸海空魔合同演習フレンズ2022秋季" value="陸海空魔合同演習フレンズ2022秋季">陸海空魔合同演習フレンズ2022秋季</option>
+						<option data-filter="リリリ(Girls Love Festival36)" value="リリリ(Girls Love Festival36)">リリリ(Girls Love Festival36)</option>
+						<option data-filter="コミックマーケット101" value="コミックマーケット101">コミックマーケット101</option>
+						<option data-filter="私は君と会えて" value="私は君と会えて">私は君と会えて</option>
+						<option data-filter="リコリスナット4 (サンライズクリエイション京都2023)" value="リコリスナット4 (サンライズクリエイション京都2023)">リコリスナット4 (サンライズクリエイション京都2023)</option>
+						<option data-filter="COMIC1☆22" value="COMIC1☆22">COMIC1☆22</option>
+						<option data-filter="喫茶リコリコ営業中 4杯目" value="喫茶リコリコ営業中 4杯目">喫茶リコリコ営業中 4杯目</option>
+						<option data-filter="コミックマーケット102" value="コミックマーケット102">コミックマーケット102</option>
+						<option data-filter="私は君と会えて 2" value="私は君と会えて 2">私は君と会えて 2</option>
+						<option data-filter="GirlsLoveFestival39（ラブフェス202310）" value="GirlsLoveFestival39（ラブフェス202310）">GirlsLoveFestival39（ラブフェス202310）</option>
+						<option data-filter="コミックマーケット103" value="コミックマーケット103">コミックマーケット103</option>
+						<option data-filter="リコリスナット8 (サンライズクリエイション京都2024春)" value="リコリスナット8 (サンライズクリエイション京都2024春)">リコリスナット8 (サンライズクリエイション京都2024春)</option>
+					</select>
+				</div>
+				<div class="col-auto">
+					<input type="search" class="search form-control form-control-sm" placeholder="検索">
+				</div>
 			</div>
 		</div>
 		<div class="list row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 row-cols-x3l-8 row-cols-x4l-10 row-cols-x5l-12 row-cols-x6l-16 mx-0">
@@ -17854,8 +17895,7 @@
 		</div>
 		<nav aria-label="Page Navigation">
 			<ul id="pagenation" class="pagination my-3 justify-content-center">
-				<li id="list-item">
-				</li>
+				<li id="list-item"></li>
 			</ul>
 		</nav>
 	</div>

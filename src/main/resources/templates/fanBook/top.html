@@ -35,17 +35,37 @@
 	</nav>
 	<main class="container">
 	<div id="fanBookList">
-		<div class="d-flex align-items-center py-2">
-			<div class="btn-group btn-group-sm pe-2" role="group" aria-label="Basic radio toggle button group">
+		<div class="py-2">
+			<div class="col-auto btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
 				<input type="radio" class="btn-check sort asc" data-sort="default" name="dataSort" id="default-sort" autocomplete="off" checked>
 				<label class="btn btn-outline-primary" for="default-sort">ジャンル・作者</label>
 				<input type="radio" class="btn-check sort" data-sort="date" name="dataSort" id="date-sort" autocomplete="off">
 				<label class="btn btn-outline-primary" for="date-sort">日付</label>
-        <input type="radio" class="btn-check sort" data-sort="title" name="dataSort" id="title-sort" autocomplete="off">
-        <label class="btn btn-outline-primary" for="title-sort">タイトル</label>
+				<input type="radio" class="btn-check sort" data-sort="title" name="dataSort" id="title-sort" autocomplete="off">
+				<label class="btn btn-outline-primary" for="title-sort">タイトル</label>
 			</div>
-			<div>
-				<input type="search" class="search form-control" placeholder="検索">
+			<div class="row g-2 py-2">
+				<div class="col-auto"> 
+					<select class="form-select form-select-sm" aria-label="categorySelector">
+						<option data-filter="any" selected>カテゴリ</option>
+						<option th:each="category : ${categories}" th:object="${category}" th:data-filter="${category.name}" th:value="${category.name}" th:text="${category.name}"></option>
+					</select>
+				</div>
+        <div class="col-auto">
+          <select class="form-select form-select-sm" aria-label="referenceWorkSelector">
+            <option data-filter="any" selected>元ネタ</option>
+            <option th:each="reference_work : ${reference_works}" th:object="${reference_works}" th:data-filter="${reference_work.name}" th:value="${reference_work.name}" th:text="${reference_work.name}"></option>
+          </select>
+        </div>
+				<div class="col-auto">
+					<select class="form-select form-select-sm" aria-label="eventSelector">
+						<option data-filter="any" selected>イベント</option>
+						<option th:each="event : ${events}" th:object="${events}" th:data-filter="${event.name}" th:value="${event.name}" th:text="${event.name}"></option>
+					</select>
+				</div>
+				<div class="col-auto">
+					<input type="search" class="search form-control form-control-sm" placeholder="検索">
+				</div>
 			</div>
 		</div>
 		<div class="list row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 row-cols-x3l-8 row-cols-x4l-10 row-cols-x5l-12 row-cols-x6l-16 mx-0">
@@ -168,8 +188,7 @@
 		</div>
 		<nav aria-label="Page Navigation">
 			<ul id="pagenation" class="pagination my-3 justify-content-center">
-				<li id="list-item">
-				</li>
+				<li id="list-item"></li>
 			</ul>
 		</nav>
 	</div>
