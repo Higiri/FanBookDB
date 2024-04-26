@@ -28,9 +28,10 @@
 			</div>
 		</div>
 	</nav>
-	<main class="container pb-3">
+	<main class="container py-3">
 	<div id="fanBookList">
-		<div class="row g-2 py-2">
+    <div class="alert" role="alert" id="matchingItemsAlert"></div>
+		<div class="row g-2 pb-2">
 			<div class="col-12 col-md-auto btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
 				<input type="radio" class="btn-check sort asc" data-sort="default" name="dataSort" id="default-sort" autocomplete="off" checked>
 				<label class="btn btn-outline-primary" for="default-sort">ジャンル・作者</label>
@@ -52,7 +53,7 @@
 				</select>
 			</div>
 			<div class="col-12 col-md-auto">
-				<input type="search" class="search form-control form-control-sm" placeholder="検索">
+				<input type="search" class="search form-control form-control-sm" id="searchInput" placeholder="検索">
 			</div>
 		</div>
 		<div class="list row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 row-cols-x3l-8 row-cols-x4l-10 row-cols-x5l-12 row-cols-x6l-16 mx-0">

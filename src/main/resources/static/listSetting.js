@@ -59,6 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 selectedReferenceWork === "anyReferenceWorks" || item.values().reference_work.indexOf(selectedReferenceWork) !== -1;
             return categoryFilter && referenceWorkFilter;
         });
+
+        alertSetting();
     }
 
     categorySelector.addEventListener("change", applyFilters);
@@ -66,3 +68,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     applyFilters();
 });
+
+document.getElementById("searchInput").addEventListener("input", function () {
+    const searchString = this.value;
+    fanbooks.search(searchString);
+    alertSetting();
+});
+
+function alertSetting() {
+    const element = document.getElementById("matchingItemsAlert");
+    if (fanbooks.matchingItems.length > 0) {
+        element.className = "alert alert-success";
+        element.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i>' + fanbooks.matchingItems.length + " 件登録されています。";
+    } else {
+        element.className = "alert alert-danger";
+        element.innerHTML = '<i class="bi bi-x-circle-fill me-2"></i>' + "指定の本は登録されていません。";
+    }
+}
