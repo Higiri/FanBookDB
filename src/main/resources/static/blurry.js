@@ -1,16 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
-    var toggleSwitch = document.getElementById("blurrySwitch");
-    var imageOverlays = document.querySelectorAll(".image-overlay");
+    var blurrySwitch = document.getElementById("blurrySwitch");
 
-    toggleSwitch.addEventListener("change", function () {
-        if (toggleSwitch.checked) {
-            imageOverlays.forEach(function (imageOverlay) {
-                imageOverlay.style.display = "block"; // トグルスイッチがオンの場合、オブジェクトを表示する
-            });
-        } else {
-            imageOverlays.forEach(function (imageOverlay) {
-                imageOverlay.style.display = "none"; // トグルスイッチがオフの場合、オブジェクトを非表示にする
-            });
+    document.addEventListener("change", function (event) {
+        if (event.target && event.target.id === "blurrySwitch") {
+            var imageOverlays = document.querySelectorAll(".image-overlay");
+
+            if (blurrySwitch.checked) {
+                imageOverlays.forEach(function (imageOverlay) {
+                    imageOverlay.style.display = "block";
+                });
+            } else {
+                imageOverlays.forEach(function (imageOverlay) {
+                    imageOverlay.style.display = "none";
+                });
+            }
         }
     });
 });

@@ -17,6 +17,7 @@ body {
     padding-left: 5px;
 }
 */
+
 .modal_bg {
 	/*
   overflow: hidden;
@@ -169,7 +170,7 @@ input.sort.asc:checked + label::after {
 }
 
 input.sort.desc:checked + label::after {
-  margin-left: .05rem;
+  margin-left: .25rem;
   content: "\F575";
   font-family: bootstrap-icons;
   font-size: 1.25rem;
