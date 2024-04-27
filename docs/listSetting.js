@@ -50,13 +50,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const referenceWorkSelector = document.getElementById("referenceWorkSelector");
     const ratingSelector = document.getElementById("ratingSelector");
     const eventSelector = document.getElementById("eventSelector");
+    const officialSelector = document.getElementById("officialSelector");
 
     function applyFilters() {
         const selectedCategory = categorySelector.options[categorySelector.selectedIndex].dataset.filter;
         const selectedReferenceWork = referenceWorkSelector.options[referenceWorkSelector.selectedIndex].dataset.filter;
         const selectedEvent = eventSelector.options[eventSelector.selectedIndex].dataset.filter;
         const selectedRating = ratingSelector.options[ratingSelector.selectedIndex].dataset.filter;
-        const selectedOfficial = ratingSelector.options[officialSelector.selectedIndex].dataset.filter;
+        const selectedOfficial = officialSelector.options[officialSelector.selectedIndex].dataset.filter;
 
         fanbooks.filter(function (item) {
             const categoryFilter = selectedCategory === "any" || item.values().category.indexOf(selectedCategory) !== -1;
