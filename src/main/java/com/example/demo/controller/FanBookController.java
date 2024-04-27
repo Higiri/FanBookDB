@@ -1,8 +1,10 @@
 package com.example.demo.controller;
 
+import java.text.Collator;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -48,11 +50,12 @@ public class FanBookController {
 						.comparing((FanBook fb) -> !fb.getIs_official_creator())
 						.reversed()
 						.thenComparing(FanBook::getIs_collaboration)
+						.thenComparing(fb -> fb.getReference_work().getKana())
 						.reversed()
-						.thenComparing(s -> s.getReference_work().getKana())
-						.thenComparing(FanBook::getAuthor_kana)
+						.thenComparing(
+								Comparator.comparing(FanBook::getAuthor_kana, Collator.getInstance(Locale.JAPANESE)))
 						.thenComparing(FanBook::getDate)
-						.thenComparing(FanBook::getTitle))
+						.thenComparing(Comparator.comparing(FanBook::getTitle, Collator.getInstance(Locale.JAPANESE))))
 				.toList();
 		fanBookList
 				.stream()

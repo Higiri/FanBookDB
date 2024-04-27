@@ -1,5 +1,5 @@
 var options = {
-    valueNames: ["default", "date", "title", "author", "category", "reference_work", "event"],
+    valueNames: ["default", "date", "title", "author", "category", "reference_work", "event", "rating", "official"],
 
     page: getWindowSize() < 768 ? 16 : getWindowSize() < 992 ? 36 : getWindowSize() < 1200 ? 64 : getWindowSize() < 1800 ? 96 : 120,
     pagination: {
@@ -46,18 +46,32 @@ function getWindowSize() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    var categorySelector = document.querySelector('[aria-label="categorySelector"]');
-    var referenceWorkSelector = document.querySelector('[aria-label="referenceWorkSelector"]');
+    const categorySelector = document.getElementById("categorySelector");
+    const referenceWorkSelector = document.getElementById("referenceWorkSelector");
+    const ratingSelector = document.getElementById("ratingSelector");
+    const eventSelector = document.getElementById("eventSelector");
 
     function applyFilters() {
-        var selectedCategory = categorySelector.options[categorySelector.selectedIndex].dataset.filter;
-        var selectedReferenceWork = referenceWorkSelector.options[referenceWorkSelector.selectedIndex].dataset.filter;
+        const selectedCategory = categorySelector.options[categorySelector.selectedIndex].dataset.filter;
+        const selectedReferenceWork = referenceWorkSelector.options[referenceWorkSelector.selectedIndex].dataset.filter;
+        const selectedEvent = eventSelector.options[eventSelector.selectedIndex].dataset.filter;
+        const selectedRating = ratingSelector.options[ratingSelector.selectedIndex].dataset.filter;
+        const selectedOfficial = ratingSelector.options[officialSelector.selectedIndex].dataset.filter;
 
         fanbooks.filter(function (item) {
-            var categoryFilter = selectedCategory === "anyCategory" || item.values().category.indexOf(selectedCategory) !== -1;
-            var referenceWorkFilter =
-                selectedReferenceWork === "anyReferenceWorks" || item.values().reference_work.indexOf(selectedReferenceWork) !== -1;
-            return categoryFilter && referenceWorkFilter;
+            const categoryFilter = selectedCategory === "any" || item.values().category.indexOf(selectedCategory) !== -1;
+            const referenceWorkFilter =
+                selectedReferenceWork === "any" || item.values().reference_work.indexOf(selectedReferenceWork) !== -1;
+            const eventFilter = selectedEvent === "any" || item.values().event.indexOf(selectedEvent) !== -1;
+            const ratingFilter =
+                selectedRating === "any" ||
+                (selectedRating === "only" && item.values().rating.length !== 0) ||
+                (selectedRating === "without" && item.values().rating.length === 0);
+            const officialFilter =
+                selectedOfficial === "any" ||
+                (selectedOfficial === "only" && item.values().official.length !== 0) ||
+                (selectedOfficial === "without" && item.values().official.length === 0);
+            return categoryFilter && referenceWorkFilter && eventFilter && ratingFilter && officialFilter;
         });
 
         alertSetting();
@@ -65,6 +79,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     categorySelector.addEventListener("change", applyFilters);
     referenceWorkSelector.addEventListener("change", applyFilters);
+    eventSelector.addEventListener("change", applyFilters);
+    ratingSelector.addEventListener("change", applyFilters);
+    officialSelector.addEventListener("change", applyFilters);
 
     applyFilters();
 });
@@ -76,12 +93,25 @@ document.getElementById("searchInput").addEventListener("input", function () {
 });
 
 function alertSetting() {
-    const element = document.getElementById("matchingItemsAlert");
+    const element = getAlertElement();
+
     if (fanbooks.matchingItems.length > 0) {
         element.className = "alert alert-success";
         element.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i>' + fanbooks.matchingItems.length + " 件登録されています。";
     } else {
         element.className = "alert alert-danger";
         element.innerHTML = '<i class="bi bi-x-circle-fill me-2"></i>' + "指定の本は登録されていません。";
+    }
+}
+
+function getAlertElement() {
+    if (!document.getElementById("matchingItemsAlert")) {
+        const fanBookListArea = document.getElementById("fanBookList");
+        element = fanBookListArea.insertBefore(document.createElement("div"), fanBookListArea.firstChild);
+        element.id = "matchingItemsAlert";
+        element.className = "alert";
+        return element;
+    } else {
+        return document.getElementById("matchingItemsAlert");
     }
 }

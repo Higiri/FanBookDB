@@ -10,6 +10,7 @@ body {
 		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
 		"Noto Color Emoji";
 		*/
+		overflow-y: scroll;
 }
 /*
 .row>* {
@@ -64,6 +65,10 @@ body {
 	width: 100%;
 }
 
+.sort-and-filter-area {
+	background: #E9F9FC;
+}
+
 .title-container {
 	background: linear-gradient(to bottom,
     rgba(255, 255, 255, 0),
@@ -74,6 +79,13 @@ body {
 		rgba(255, 255, 255, 0.83385) 88%,
 		rgba(255, 255, 255, 0.85));
 	width: 100%;
+	max-height: calc(100% - 1rem);
+  font-size: 12px;
+  text-shadow:
+    2px  0 5px #ffffff,
+   -2px  0 5px #ffffff,
+    0  2px 5px #ffffff,
+    0 -2px 5px #ffffff;
 }
 
 .title-area {
@@ -85,11 +97,6 @@ body {
 .title-container h3 {
 	font-size: 14px;
 	font-weight: 400;
-	text-shadow:
-	  2px  0 5px #ffffff,
-	 -2px  0 5px #ffffff,
-	  0  2px 5px #ffffff,
-	  0 -2px 5px #ffffff;
 }
 
 .th-nowrap th {

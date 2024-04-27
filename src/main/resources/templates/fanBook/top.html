@@ -30,30 +30,55 @@
 	</nav>
 	<main class="container py-3">
 	<div id="fanBookList">
-    <div class="alert" role="alert" id="matchingItemsAlert"></div>
-		<div class="row g-2 pb-2">
-			<div class="col-12 col-md-auto btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
-				<input type="radio" class="btn-check sort asc" data-sort="default" name="dataSort" id="default-sort" autocomplete="off" checked>
-				<label class="btn btn-outline-primary" for="default-sort">ジャンル・作者</label>
-				<input type="radio" class="btn-check sort" data-sort="date" name="dataSort" id="date-sort" autocomplete="off">
-				<label class="btn btn-outline-primary" for="date-sort">日付</label>
-				<input type="radio" class="btn-check sort" data-sort="title" name="dataSort" id="title-sort" autocomplete="off">
-				<label class="btn btn-outline-primary" for="title-sort">タイトル</label>
+	 <div class="p-2 mb-3 rounded sort-and-filter-area">
+			<div class="row g-2 py-1">
+				<div class="col-12 col-md-6 col-lg-4 col-xl-3 col-x3l-2 btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
+					<input type="radio" class="btn-check sort asc" data-sort="default" name="dataSort" id="default-sort" autocomplete="off" checked>
+					<label class="btn btn-outline-primary" for="default-sort">作者順</label>
+					<input type="radio" class="btn-check sort" data-sort="date" name="dataSort" id="date-sort" autocomplete="off">
+					<label class="btn btn-outline-primary" for="date-sort">日付順</label>
+					<input type="radio" class="btn-check sort" data-sort="title" name="dataSort" id="title-sort" autocomplete="off">
+					<label class="btn btn-outline-primary" for="title-sort">タイトル順</label>
+				</div>
 			</div>
-			<div class="col-5 col-md-auto">
-				<select class="form-select form-select-sm" aria-label="categorySelector">
-					<option data-filter="anyCategory" selected>全種類</option>
-					<option th:each="category : ${categories}" th:object="${category}" th:data-filter="${category.name}" th:value="${category.name}" th:text="${category.name}"></option>
-				</select>
-			</div>
-			<div class="col-7 col-md-auto">
-				<select class="form-select form-select-sm" aria-label="referenceWorkSelector">
-					<option data-filter="anyReferenceWorks" selected>全元ネタ</option>
-					<option th:each="reference_work : ${reference_works}" th:object="${reference_works}" th:data-filter="${reference_work.name}" th:value="${reference_work.name}" th:text="${reference_work.name}"></option>
-				</select>
-			</div>
-			<div class="col-12 col-md-auto">
-				<input type="search" class="search form-control form-control-sm" id="searchInput" placeholder="検索">
+	    <div class="row g-2 py-1">
+	      <div class="col-4 col-xl-3 col-x3l-2">
+	        <select class="form-select form-select-sm" aria-label="categorySelector" id="categorySelector">
+	          <option data-filter="any" selected>全カテゴリ</option>
+	          <option th:each="category : ${categories}" th:object="${category}" th:data-filter="${category.name}" th:value="${category.name}" th:text="${category.name}"></option>
+	        </select>
+	      </div>
+	      <div class="col-4 col-xl-3 col-x3l-2">
+	        <select class="form-select form-select-sm" aria-label="ratingSelector" id="ratingSelector">
+	          <option data-filter="any" selected>全レーティング</option>
+	          <option data-filter="without">全年齢のみ</option>
+	          <option data-filter="only">R18のみ</option>
+	        </select>
+	      </div>
+	      <div class="col-4 col-xl-3 col-x3l-2">
+	        <select class="form-select form-select-sm" aria-label="officialSelector" id="officialSelector">
+	          <option data-filter="any" selected>全作者</option>
+	          <option data-filter="only">公式のみ</option>
+	          <option data-filter="without">公式以外</option>
+	        </select>
+	      </div>
+	    </div>
+	    <div class="row g-2 py-1">
+				<div class="col-6 col-md-5 col-lg-4 col-xl-3">
+					<select class="form-select form-select-sm" aria-label="referenceWorkSelector" id="referenceWorkSelector">
+						<option data-filter="any" selected>全元ネタ</option>
+						<option th:each="reference_work : ${reference_works}" th:object="${reference_works}" th:data-filter="${reference_work.name}" th:value="${reference_work.name}" th:text="${reference_work.name}"></option>
+					</select>
+				</div>
+	      <div class="col-6 col-md-7 col-lg-5 col-xl-3">
+	        <select class="form-select form-select-sm" aria-label="eventSelector" id="eventSelector">
+	          <option data-filter="any" selected>全イベント</option>
+	          <option th:each="event : ${events}" th:object="${events}" th:data-filter="${event.name}" th:value="${event.name}" th:text="${event.name}"></option>
+	        </select>
+	      </div>
+				<div class="col-12 col-md-8 col-lg-3 col-xl-3 offset-xl-3 col-x3l-2 offset-x3l-4">
+					<input type="search" class="search form-control form-control-sm" id="searchInput" placeholder="検索">
+				</div>
 			</div>
 		</div>
 		<div class="list row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 row-cols-x3l-8 row-cols-x4l-10 row-cols-x5l-12 row-cols-x6l-16 mx-0">
@@ -66,18 +91,19 @@
 						<div class="badge-area pt-1 px-2 position-absolute top-0 start-0 end-0">
 							<div class="row g-1 pb-2">
 								<div class="col-auto" th:if="${fanBook.is_adult}">
-									<span class="badge text-bg-danger badge-dark-bg">R-18</span>
+									<span class="badge rating text-bg-danger badge-dark-bg">R-18</span>
 								</div>
 								<div class="col-auto" th:if="${fanBook.is_official_creator}">
-									<span class="badge text-bg-primary badge-dark-bg">準公式</span>
+									<span class="badge official text-bg-primary badge-dark-bg">準公式</span>
 								</div>
 								<div class="col-auto" th:if="${fanBook.is_collaboration}">
 									<span class="badge text-bg-primary badge-dark-bg"><i class="bi bi-people"></i></span>
 								</div>
 							</div>
 						</div>
-						<div class="title-container position-absolute bottom-0 start-0 end-0">
+						<div class="title-container position-absolute bottom-0 start-0 end-0 overflow-hidden">
 							<div class="title-area">
+                <div class="text-truncate text-body-secondary" th:text="*{author}"></div>
 								<h3 class="card-title word-wrap mb-0" th:text="*{title}"></h3>
 							</div>
 						</div>
