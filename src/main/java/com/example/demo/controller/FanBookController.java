@@ -50,8 +50,8 @@ public class FanBookController {
 						.comparing((FanBook fb) -> !fb.getIs_official_creator())
 						.reversed()
 						.thenComparing(FanBook::getIs_collaboration)
-						.thenComparing(fb -> fb.getReference_work().getKana())
 						.reversed()
+						.thenComparing(fb -> fb.getReference_work().getKana())
 						.thenComparing(
 								Comparator.comparing(FanBook::getAuthor_kana, Collator.getInstance(Locale.JAPANESE)))
 						.thenComparing(FanBook::getDate)

@@ -6,7 +6,7 @@ var options = {
         innerWindow: 1,
         outerWindow: 2,
         paginationClass: "pagination",
-        item: '<li class="page-item"><a class="page page-link" " href="#""></a></li>',
+        item: '<li class="page-item"><a class="page page-link" href="javascript:"></a></li>',
     },
     searchColumns: ["title", "author", "event"],
 };
@@ -16,6 +16,11 @@ var fanbooks = new List("fanBookList", options);
 //ソート切り替え時に1ページ目へ
 fanbooks.on("sortStart", function (list) {
     list.i = 1;
+});
+
+//更新時にぼかしスイッチの確認
+fanbooks.on("updated", function () {
+    handleBlurrySwitch();
 });
 
 // ウィンドウサイズが変更されたときの処理
@@ -91,6 +96,7 @@ document.getElementById("searchInput").addEventListener("input", function () {
     const searchString = this.value;
     fanbooks.search(searchString);
     alertSetting();
+    handleBlurrySwitch();
 });
 
 function alertSetting() {
@@ -114,5 +120,32 @@ function getAlertElement() {
         return element;
     } else {
         return document.getElementById("matchingItemsAlert");
+    }
+}
+
+//ぼかしスイッチの切り替えを確認
+document.addEventListener("DOMContentLoaded", function () {
+    var blurrySwitch = document.getElementById("blurrySwitch");
+
+    document.addEventListener("change", function (event) {
+        if (event.target && event.target.id === "blurrySwitch") {
+            handleBlurrySwitch();
+        }
+    });
+});
+
+//ぼかしスイッチ切り替え時の処理
+function handleBlurrySwitch() {
+    var blurrySwitch = document.getElementById("blurrySwitch");
+    var imageOverlays = document.querySelectorAll(".image-overlay");
+
+    if (blurrySwitch.checked) {
+        imageOverlays.forEach(function (imageOverlay) {
+            imageOverlay.style.display = "block";
+        });
+    } else {
+        imageOverlays.forEach(function (imageOverlay) {
+            imageOverlay.style.display = "none";
+        });
     }
 }
