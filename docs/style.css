@@ -150,31 +150,15 @@ body {
     height: auto;
 } */
 
-/*
-input.sort.asc:checked + label::after {
-	width: 1rem;
-	height: 1rem;
-  display: inline-block;
-  content: "";
-  vertical-align: -.25em;
-  margin-left: 0.5rem;
-  background-image: url("sort-down-alt.svg");
-  background-repeat: no-repeat;
-  background-size: 1rem 1rem;
+input.sort:checked + label::after {
+  margin-left: .25rem;
+  content: "\F3C6";
+  font-family: bootstrap-icons;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+  vertical-align: -.275em;
 }
-
-input.sort.desc:checked + label::after {
-  width: 1rem;
-  height: 1rem;
-  display: inline-block;
-  content: "";
-  vertical-align: -.25em;
-  margin-left: 0.5rem;
-  background-image: url("sort-down.svg");
-  background-repeat: no-repeat;
-  background-size: 1rem 1rem;
-}
-*/
 
 input.sort.asc:checked + label::after {
   margin-left: .25rem;
