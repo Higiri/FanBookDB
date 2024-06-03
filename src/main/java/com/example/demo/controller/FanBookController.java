@@ -55,7 +55,8 @@ public class FanBookController {
 						.thenComparing(
 								Comparator.comparing(FanBook::getAuthor_kana, Collator.getInstance(Locale.JAPANESE)))
 						.thenComparing(FanBook::getDate)
-						.thenComparing(Comparator.comparing(FanBook::getTitle, Collator.getInstance(Locale.JAPANESE))))
+						.thenComparing(
+								Comparator.comparing(FanBook::getTitle_kana, Collator.getInstance(Locale.JAPANESE))))
 				.toList();
 		fanBookList
 				.stream()

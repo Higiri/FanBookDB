@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
 
@@ -29,7 +28,7 @@ public class EventController {
 				.findAll()
 				.stream()
 				.sorted(Comparator
-						.comparing((Event event) -> event.getDate() == null ? LocalDate.MIN : event.getDate())
+						.comparing(Event::getDate, Comparator.nullsFirst(Comparator.naturalOrder()))
 						.thenComparing(Event::getId))
 				.toList();
 		model.addAttribute("eventList", eventList);
