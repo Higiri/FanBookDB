@@ -58,6 +58,12 @@ public class FanBook {
 	private String memo;
 	@Column(name = "url")
 	private String url;
+	@Column(name = "pixiv")
+	private String pixiv;
+	@Column(name = "twitter")
+	private String twitter;
+	@Column(name = "shop")
+	private String shop;
 
 	public String titleSubstring() {
 		if (this.title.length() < 24) {

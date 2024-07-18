@@ -48,15 +48,12 @@ public class FanBookController {
 				.stream()
 				.sorted(Comparator
 						.comparing((FanBook fb) -> !fb.getIs_official_creator())
-						.reversed()
-						.thenComparing(FanBook::getIs_collaboration)
-						.reversed()
+						.thenComparing((FanBook fb) -> fb.getIs_official_creator() && fb.getCategory().getId() != 5).reversed()
+						.thenComparing(FanBook::getIs_collaboration).reversed()
 						.thenComparing(fb -> fb.getReference_work().getKana())
-						.thenComparing(
-								Comparator.comparing(FanBook::getAuthor_kana, Collator.getInstance(Locale.JAPANESE)))
+						.thenComparing(Comparator.comparing(FanBook::getAuthor_kana, Collator.getInstance(Locale.JAPANESE)))
 						.thenComparing(FanBook::getDate)
-						.thenComparing(
-								Comparator.comparing(FanBook::getTitle_kana, Collator.getInstance(Locale.JAPANESE))))
+						.thenComparing(Comparator.comparing(FanBook::getTitle_kana, Collator.getInstance(Locale.JAPANESE))))
 				.toList();
 		fanBookList
 				.stream()

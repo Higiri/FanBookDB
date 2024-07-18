@@ -1,14 +1,26 @@
 var options = {
-    valueNames: ["default", "date", "title", "author", "category", "reference_work", "event", "rating", "official"],
+    valueNames: [
+        "default",
+        "date",
+        "title",
+        "author",
+        "circle",
+        "author-kana",
+        "category",
+        "reference_work",
+        "event",
+        "rating",
+        "official",
+    ],
 
     page: getWindowSize() < 768 ? 16 : getWindowSize() < 992 ? 36 : getWindowSize() < 1200 ? 64 : getWindowSize() < 1800 ? 96 : 120,
     pagination: {
         innerWindow: 1,
         outerWindow: 2,
         paginationClass: "pagination",
-        item: '<li class="page-item"><a class="page page-link" href="javascript:"></a></li>',
+        item: '<li class="page-item"><a class="page page-link" href="javascript:window.scrollTo(0, 0);"></a></li>',
     },
-    searchColumns: ["title", "author", "event"],
+    searchColumns: ["title", "title-kana", "author", "author-kana", "event", "circle", "date"],
 };
 
 var fanbooks = new List("fanBookList", options);
@@ -68,7 +80,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const categoryFilter = selectedCategory === "any" || item.values().category.indexOf(selectedCategory) !== -1;
             const referenceWorkFilter =
                 selectedReferenceWork === "any" || item.values().reference_work.indexOf(selectedReferenceWork) !== -1;
+            /*
             const eventFilter = selectedEvent === "any" || item.values().event.indexOf(selectedEvent) !== -1;
+            */
+            const eventFilter = selectedEvent === "any" || item.values().event === selectedEvent;
+
             const ratingFilter =
                 selectedRating === "any" ||
                 (selectedRating === "only" && item.values().rating.length !== 0) ||

@@ -19,6 +19,8 @@ public class Event {
 	private LocalDate date;
 	@Column(name = "name")
 	private String name;
-	@Column(name = "place")
-	private String place;
+	@Column(name = "venue")
+	private String venue;
+	@Column(name = "location")
+	private String location;
 }
