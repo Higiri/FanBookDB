@@ -1,27 +1,16 @@
-// モーダルが表示されたときの処理
-function handleModalShown() {
-    // ページ上部に戻るボタンの要素を取得
-    document.getElementById("page-top").classList.add("side-button-modal");
-    document.getElementById("regist-page").classList.add("side-button-modal");
-}
-
-// モーダルが非表示になったときの処理
-function handleModalHidden() {
-    // ページ上部に戻るボタンの要素を取得
-    document.getElementById("page-top").classList.remove("side-button-modal");
-    document.getElementById("regist-page").classList.remove("side-button-modal");
-}
-
 // 'detailModal' で始まるすべてのモーダルに対してイベントリスナーを追加
-document.addEventListener("shown.bs.modal", function (event) {
+document.addEventListener("shown.bs.modal", (event) => {
     if (event.target.id.startsWith("detailModal")) {
-        handleModalShown();
+        document.getElementById("page-top").classList.add("side-button-modal");
+        document.getElementById("regist-page").classList.add("side-button-modal");
     }
 });
 
-document.addEventListener("hidden.bs.modal", function (event) {
+// ページ上部に戻るボタンの要素を取得
+document.addEventListener("hidden.bs.modal", (event) => {
     if (event.target.id.startsWith("detailModal")) {
-        handleModalHidden();
+        document.getElementById("page-top").classList.remove("side-button-modal");
+        document.getElementById("regist-page").classList.remove("side-button-modal");
     }
 });
 
