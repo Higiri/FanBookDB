@@ -42,7 +42,7 @@ body {
 
 .card-img-area {
 	width: 100%;
-	height: calc(100% * 1.414);
+	aspect-ratio: 1 / 1.41421356;
 }
 
 .detail-button-container {
@@ -145,7 +145,7 @@ body {
   color: #fff;
 }
 
-/* 
+/*
 .modal-dialog-scrollable {
     height: auto;
 } */
@@ -259,7 +259,7 @@ input.sort.desc:checked + label::after {
   outline:0;
 }
 .navbar-toggler-icon {
-  background-image: none; 
+  background-image: none;
   background-color: #4a4a4a;
   left: 0;
   width: 100%;
