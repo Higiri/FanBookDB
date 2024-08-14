@@ -11,7 +11,7 @@ const options = {
         innerWindow: 1,
         outerWindow: 2,
         paginationClass: "pagination",
-        item: '<li class="page-item"><a class="page page-link" href="javascript:"></a></li>',
+        item: `<li class="page-item"><a class="page page-link" href="javascript: void(0)"></a></li>`,
     },
     searchColumns: ["title", "author", "event"],
 };
@@ -127,11 +127,21 @@ document.getElementById("searchInput").addEventListener("input", () => {
     handleBlurrySwitch();
 });
 
-//ぼかしスイッチの切り替えを確認
 document.addEventListener("DOMContentLoaded", () => {
+    //ぼかしスイッチの切り替えを確認
     document.addEventListener("change", (event) => {
         if (event.target && event.target.id === "blurrySwitch") {
             handleBlurrySwitch();
+        }
+    });
+
+    // ページネーション押下時の処理
+    document.querySelector(".pagination").addEventListener("click", (event) => {
+        if (event.target.tagName === "LI" || event.target.tagName === "A") {
+            window.scroll({
+                top: 0,
+                behavior: "smooth",
+            });
         }
     });
 });
