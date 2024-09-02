@@ -8,10 +8,9 @@
 //     }
 // });
 
-const pagetopBtn = document.querySelector('#page-top');
-pagetopBtn.addEventListener('click', () => {
+document.querySelector("#page-top").addEventListener("click", () => {
     window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: "smooth",
     });
 });
