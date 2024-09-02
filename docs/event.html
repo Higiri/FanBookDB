@@ -1,13 +1,12 @@
 
 <!DOCTYPE HTML>
 <html>
-
 <head>
 <title>イベント一覧</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="bootstrap_Higiri.css">
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="/bootstrap_Higiri.css">
+<link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
@@ -19,125 +18,167 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" aria-current="page" href="./">ホーム</a></li>
-					<li class="nav-item"><a class="nav-link" aria-current="page" href="./">テーブル表示</a></li>
-					<li class="nav-item"><a class="nav-link" href="../category/">カテゴリ</a></li>
-					<li class="nav-item"><a class="nav-link" href="../reference_work/">元ネタ</a></li>
-					<li class="nav-item"><a class="nav-link active" href="./event.html">イベント</a></li>
+					<li class="nav-item"><a class="nav-link" aria-current="page" href="/">ホーム</a></li>
+					<li class="nav-item"><a class="nav-link" aria-current="page" href="/table">テーブル表示</a></li>
+					<li class="nav-item"><a class="nav-link" href="/category/">カテゴリ</a></li>
+					<li class="nav-item"><a class="nav-link" href="/reference_work/">元ネタ</a></li>
+					<li class="nav-item"><a class="nav-link active" href="/event/">イベント</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	<div class="container">
+	<div class="container my-4">
 		<h2>イベント一覧</h2>
-		<table class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">日付</th>
-					<th scope="col">イベント名</th>
-					<th scope="col">場所</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>1</td>
-					<td></td>
-					<td>通販のみ</td>
-					<td>通販</td>
-				</tr>
-				<tr>
-					<td>13</td>
-					<td></td>
-					<td>海外イベント</td>
-					<td>海外</td>
-				</tr>
-				<tr>
-					<td>12</td>
-					<td>2018-10-07</td>
-					<td>KeyPoints14＋KTX</td>
-					<td>大田区産業プラザPiO</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>2022-09-25</td>
-					<td>陸海空魔合同演習2022秋フレンズ</td>
-					<td>東京ビッグサイト</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>2022-11-23</td>
-					<td>リリリ(Girls Love Festival36)</td>
-					<td>都立産業貿易センター台東館</td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>2022-12-30</td>
-					<td>コミックマーケット101</td>
-					<td>東京ビッグサイト</td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td>2023-02-18</td>
-					<td>私は君と会えて</td>
-					<td>東京文具共和会館</td>
-				</tr>
-				<tr>
-					<td>6</td>
-					<td>2023-04-16</td>
-					<td>リコリスナット4 (サンライズクリエイション京都2023)</td>
-					<td>京都みやこめっせ</td>
-				</tr>
-				<tr>
-					<td>7</td>
-					<td>2023-05-07</td>
-					<td>COMIC1☆22</td>
-					<td>東京ビッグサイト</td>
-				</tr>
-				<tr>
-					<td>8</td>
-					<td>2023-05-28</td>
-					<td>喫茶リコリコ営業中 4杯目</td>
-					<td>大田区産業プラザPiO</td>
-				</tr>
-				<tr>
-					<td>9</td>
-					<td>2023-08-12</td>
-					<td>コミックマーケット102</td>
-					<td>東京ビッグサイト</td>
-				</tr>
-				<tr>
-					<td>10</td>
-					<td>2023-09-10</td>
-					<td>私は君と会えて 2</td>
-					<td>川崎市産業振興会館</td>
-				</tr>
-				<tr>
-					<td>14</td>
-					<td>2023-10-09</td>
-					<td>GirlsLoveFestival39（ラブフェス202310）</td>
-					<td>都立産業貿易センター台東館</td>
-				</tr>
-				<tr>
-					<td>11</td>
-					<td>2023-12-30</td>
-					<td>コミックマーケット103</td>
-					<td>東京ビッグサイト</td>
-				</tr>
-				<tr>
-					<td>15</td>
-					<td>2024-04-07</td>
-					<td>リコリスナット8 (サンライズクリエイション京都2024春)</td>
-					<td>京都みやこめっせ</td>
-				</tr>
-				<tr>
-					<td>16</td>
-					<td>2024-04-29</td>
-					<td>リコリスナット9 (陸海空魔合同演習2024年春)</td>
-					<td>都立産業貿易センター台東館</td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="row">
+		  <div class="col-auto">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">日付</th>
+							<th scope="col">イベント名</th>
+							<th scope="col">会場</th>
+              <th scope="col">場所</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td></td>
+							<td>通販のみ</td>
+							<td>通販</td>
+              <td>通販</td>
+						</tr>
+						<tr>
+							<td>13</td>
+							<td></td>
+							<td>海外イベント</td>
+							<td>海外</td>
+              <td>海外</td>
+						</tr>
+						<tr>
+							<td>12</td>
+							<td>2018-10-07</td>
+							<td>KeyPoints14＋KTX</td>
+							<td>大田区産業プラザPiO</td>
+              <td>東京都 大田区</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>2022-09-25</td>
+							<td>陸海空魔合同演習2022秋フレンズ</td>
+							<td>東京ビッグサイト</td>
+              <td>東京都 江東区</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>2022-11-23</td>
+							<td>リリリ(Girls Love Festival36)</td>
+							<td>都立産業貿易センター台東館</td>
+              <td>東京都 台東区</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>2022-12-30</td>
+							<td>コミックマーケット101</td>
+							<td>東京ビッグサイト</td>
+              <td>東京都 江東区</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>2023-02-18</td>
+							<td>私は君と会えて</td>
+							<td>東京文具共和会館</td>
+              <td>東京都 台東区</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>2023-04-16</td>
+							<td>リコリスナット4 (サンライズクリエイション京都2023)</td>
+							<td>京都みやこめっせ</td>
+              <td>京都府 京都市</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>2023-05-07</td>
+							<td>COMIC1☆22</td>
+							<td>東京ビッグサイト</td>
+              <td>東京都 江東区</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>2023-05-28</td>
+							<td>喫茶リコリコ営業中 4杯目</td>
+							<td>大田区産業プラザPiO</td>
+              <td>東京都 大田区</td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>2023-08-12</td>
+							<td>コミックマーケット102</td>
+							<td>東京ビッグサイト</td>
+              <td>東京都 江東区</td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>2023-09-10</td>
+							<td>私は君と会えて 2</td>
+							<td>川崎市産業振興会館</td>
+              <td>神奈川県 川崎市</td>
+						</tr>
+						<tr>
+							<td>14</td>
+							<td>2023-10-09</td>
+							<td>GirlsLoveFestival39（ラブフェス202310）</td>
+							<td>都立産業貿易センター台東館</td>
+              <td>東京都 台東区</td>
+						</tr>
+						<tr>
+							<td>11</td>
+							<td>2023-12-30</td>
+							<td>コミックマーケット103</td>
+							<td>東京ビッグサイト</td>
+              <td>東京都 江東区</td>
+						</tr>
+						<tr>
+							<td>15</td>
+							<td>2024-04-07</td>
+							<td>リコリスナット8 (サンライズクリエイション京都2024春)</td>
+							<td>京都みやこめっせ</td>
+              <td>京都府 京都市</td>
+						</tr>
+						<tr>
+							<td>16</td>
+							<td>2024-04-29</td>
+							<td>リコリスナット9 (陸海空魔合同演習2024年春)</td>
+							<td>都立産業貿易センター台東館</td>
+              <td>東京都 台東区</td>
+						</tr>
+						<tr>
+							<td>17</td>
+							<td>2024-06-02</td>
+							<td>DAの休日</td>
+							<td>KFC Hall Annex</td>
+              <td>東京都 墨田区</td>
+						</tr>
+						<tr>
+							<td>18</td>
+							<td>2024-07-06</td>
+							<td>私は君と会えて 3</td>
+							<td>東京文具共和会館</td>
+              <td>東京都 台東区</td>
+						</tr>
+						<tr>
+							<td>19</td>
+							<td>2024-08-11</td>
+							<td>コミックマーケット104</td>
+							<td>東京ビッグサイト</td>
+              <td>東京都 江東区</td>
+						</tr>
+					</tbody>
+				</table>
+	    </div>
+		</div>
 	</div>
 
 	<footer class="navbar sticky-bottom navbar-expand">
