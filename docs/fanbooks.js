@@ -256,6 +256,19 @@ document.addEventListener("DOMContentLoaded", () => {
         score: (search) => (item) =>
             [item.value, item.venue, item.date, item.location].filter((field) => field).some((field) => field.toLowerCase().includes(search.toLowerCase())) ? 1 : 0,
     });
+
+    const loadWindow = document.getElementById("loadWindow");
+    const spinner = document.querySelector("#loadWindow .spinner-grow");
+    setTimeout(() => {
+        if (!loadWindow.classList.contains("hidden")) {
+            loadWindow.classList.add("hidden");
+            spinner.classList.add("hidden");
+            setTimeout(() => {
+                loadWindow.style.display = "none";
+                spinner.style.display = "none";
+            }, 500);
+        }
+    }, 5000);
 });
 
 window.addEventListener("load", () => {
