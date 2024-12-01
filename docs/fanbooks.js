@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 : 60,
         pagination: {
             innerWindow: 2,
-            outerWindow: 3,
+            outerWindow: 2,
             paginationClass: "pagination",
             item: `<li class="page-item"><button class="page page-link" type="button"></button></li>`,
         },
