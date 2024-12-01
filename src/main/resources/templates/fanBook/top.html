@@ -1,90 +1,203 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" data-bs-theme="auto">
+
 <head>
-<title>同人誌DB</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="bootstrap_Higiri.css">
-<link rel="stylesheet" href="style.css">
+	<title>同人誌DB</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="tom-select.css">
+	<link rel="stylesheet" href="bootstrap_Higiri.css">
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="list.js"></script>
+	<script type="text/javascript" src="tom-select.js"></script>
+	<script type="text/javascript" src="fanbooks.js"></script>
+	<script type="text/javascript" src="bs-theme.js"></script>
 </head>
+
 <body class="modal_bg">
-	<div id="splash">
-		<div id="splash_text"></div>
+	<div id="loadWindow">
+		<div class="spinner-grow" role="status" style="width: 4rem; height: 4rem;">
+			<span class="visually-hidden">Loading...</span>
+		</div>
 	</div>
-	<nav class="navbar bg-body-tertiary navbar-expand-md">
+	<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+		<symbol id="check2" viewBox="0 0 16 16">
+			<path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+		</symbol>
+		<symbol id="circle-half" viewBox="0 0 16 16">
+			<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+		</symbol>
+		<symbol id="moon-stars-fill" viewBox="0 0 16 16">
+			<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+			<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+		</symbol>
+		<symbol id="sun-fill" viewBox="0 0 16 16">
+			<path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+		</symbol>
+	</svg>
+	<div class="dropdown position-fixed bottom-0 start-0 mb-2 ms-2 bd-mode-toggle">
+		<button class="btn btn-primary btn-sm dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
+			<svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+				<use href="#circle-half"></use>
+			</svg>
+			<span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+		</button>
+		<ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+			<li>
+				<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+					<svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+						<use href="#sun-fill"></use>
+					</svg>
+					Light
+					<svg class="bi ms-auto d-none" width="1em" height="1em">
+						<use href="#check2"></use>
+					</svg>
+				</button>
+			</li>
+			<li>
+				<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+					<svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+						<use href="#moon-stars-fill"></use>
+					</svg>
+					Dark
+					<svg class="bi ms-auto d-none" width="1em" height="1em">
+						<use href="#check2"></use>
+					</svg>
+				</button>
+			</li>
+			<li>
+				<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+					<svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+						<use href="#circle-half"></use>
+					</svg>
+					Auto
+					<svg class="bi ms-auto d-none" width="1em" height="1em">
+						<use href="#check2"></use>
+					</svg>
+				</button>
+			</li>
+		</ul>
+	</div>
+	<nav class="navbar bg-body-tertiary fixed-top">
+		<!-- navbar-expand-md  -->
 		<div class="container-fluid container align-items-center">
-			<a class="navbar-brand" href="./">同人誌DB</a>
-			<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span> <span class="navbar-toggler-icon"></span> <span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav mb-lg-0">
-					<li class="nav-item"><a class="nav-link active" aria-current="page" href="./">ホーム</a></li>
-					<li class="nav-item"><a class="nav-link" aria-current="page" href="./table">テーブル表示</a></li>
-					<li class="nav-item"><a class="nav-link" href="./category/">カテゴリ</a></li>
-					<li class="nav-item"><a class="nav-link" href="./reference_work/">元ネタ</a></li>
-					<li class="nav-item"><a class="nav-link" href="./event/">イベント</a></li>
-				</ul>
+			<div class="d-flex align-items-center">
+				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<a class="navbar-brand" href="./">同人誌DB</a>
+			</div>
+			<div class="d-flex justify-content-between align-items-center flex-grow-1">
+				<div class="">
+					<ul class="navbar-nav d-none d-md-block">
+						<li class="nav-item dropdown">
+							<button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">リンク</button>
+							<ul class="dropdown-menu" data-bs-popper="absolute">
+								<li><a class="dropdown-item active" href="./">ホーム</a></li>
+								<li><a class="dropdown-item" href="./table">テーブル表示</a></li>
+								<li><a class="dropdown-item" href="./regist">追加</a></li>
+								<li>
+									<hr class="dropdown-divider">
+								</li>
+								<li><a class="dropdown-item" href="./category/">カテゴリ</a></li>
+								<li><a class="dropdown-item" href="./reference_work/">元ネタ</a></li>
+								<li><a class="dropdown-item" href="./event/">イベント</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="form-check form-switch ps-0 my-0">
+					<input type="checkbox" id="blurrySwitch" class="form-check-input form-switch mx-1" checked />
+					<label for="blurrySwitch" class="form-check-label ms-2">フィルター</label>
+				</div>
 			</div>
 		</div>
 	</nav>
-	<main class="container py-3">
-		<div id="fanBookList">
-			<div class="mb-3 mx-0 row">
-				<div class="p-2 col-12 col-lg-9 col-xxl-8 col-x3l-6 col-x4l-4 rounded sort-and-filter-area">
-					<div class="row g-2 py-1">
-						<div class="col-12 col-md-6 btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
-							<input type="radio" class="btn-check sort asc" data-sort="default" name="dataSort" id="default-sort" autocomplete="off" checked />
-							<label class="btn btn-outline-primary" for="default-sort">作者順</label>
-							<input type="radio" class="btn-check sort" data-sort="date" name="dataSort" id="date-sort" autocomplete="off" />
-							<label class="btn btn-outline-primary" for="date-sort">日付順</label>
-							<input type="radio" class="btn-check sort" data-sort="title" name="dataSort" id="title-sort" autocomplete="off" />
-							<label class="btn btn-outline-primary" for="title-sort">タイトル順</label>
+	<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+		<div class="offcanvas-header bg-body-tertiary" style="height: 56px;">
+			<h5 class="offcanvas-title" id="offcanvasScrollingLabel">同人誌DB</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<div id="matchingItemsAlert" class="alert"></div>
+			<div class="row g-2 mb-3">
+				<div class="col btn-group btn-group-sm" id="sortButtons" role="group" aria-label="Radio toggle button group">
+					<input type="radio" class="btn-check" data-sort="default" name="dataSort" id="default-sort" autocomplete="off" checked />
+					<label class="btn btn-outline-primary" for="default-sort">作者順</label>
+					<input type="radio" class="btn-check" data-sort="date" name="dataSort" id="date-sort" autocomplete="off" />
+					<label class="btn btn-outline-primary" for="date-sort" data-key="date">日付順</label>
+					<input type="radio" class="btn-check" data-sort="title" name="dataSort" id="title-sort" autocomplete="off" />
+					<label class="btn btn-outline-primary" for="title-sort" data-key="title">タイトル順</label>
+				</div>
+				<div class="col-auto btn-group btn-group-sm" id="sortTypeButtons" role="group" aria-label="Radio toggle button group">
+					<input type="radio" class="btn-check" name="sortType" id="sortTypeAsc" data-sort_type="asc" autocomplete="off" checked />
+					<label class="btn btn-outline-primary col-6" for="sortTypeAsc">昇順</label>
+					<input type="radio" class="btn-check sort" name="sortType" id="sortTypeDesc" data-sort_type="desc" autocomplete="off" />
+					<label class="btn btn-outline-primary col-6" for="sortTypeDesc">降順</label>
+				</div>
+			</div>
+			<div class="row g-2 mb-3">
+				<label class="col-auto col-form-label col-form-label-sm" for="searchInput">検索</label>
+				<div class="col"><input type="search" class="search form-control form-control-sm" id="searchInput" placeholder=""></div>
+			</div>
+			<div class="row g-2 mb-3">
+				<div class="col-6">
+					<fieldset class="checkbox-field">
+						<legend>カテゴリ</legend>
+						<div class="ms-3">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="categoryAll" value="any" checked>
+								<label class="form-check-label" for="categoryAll">すべて</label>
+							</div>
+							<fieldset id="categoryCheckboxes">
+								<div class="form-check" th:each="category : ${categories}">
+									<input class="form-check-input" type="checkbox" th:id="'category-' + ${category.id}" th:value="${category.name}" checked>
+									<label class="form-check-label" th:for="'category-' + ${category.id}" th:text="${category.name}"></label>
+								</div>
+							</fieldset>
 						</div>
-						<div class="col-12 col-md-6">
-							<input type="search" class="search form-control form-control-sm" id="searchInput" placeholder="検索" />
-						</div>
-						<div class="col-4">
-							<select class="form-select form-select-sm" aria-label="categorySelector" id="categorySelector">
-								<option data-filter="any" selected>全範疇</option>
-								<option th:each="category : ${categories}" th:object="${category}" th:data-filter="${category.name}" th:value="${category.name}" th:text="${category.name}"></option>
-							</select>
-						</div>
-						<div class="col-4">
-							<select class="form-select form-select-sm" aria-label="ratingSelector" id="ratingSelector">
-								<option data-filter="any" selected>全区分</option>
-								<option data-filter="without">全年齢のみ</option>
-								<option data-filter="only">R18のみ</option>
-							</select>
-						</div>
-						<div class="col-4">
-							<select class="form-select form-select-sm" aria-label="officialSelector" id="officialSelector">
-								<option data-filter="any" selected>全作者</option>
-								<option data-filter="only">公式作者のみ</option>
-								<option data-filter="without">公式作者以外</option>
-							</select>
-						</div>
-						<div class="col-12 col-md-5  col-x5l-6">
-							<select class="form-select form-select-sm" aria-label="referenceWorkSelector" id="referenceWorkSelector">
-								<option data-filter="any" selected>全元ネタ</option>
-								<option th:each="reference_work : ${reference_works}" th:object="${reference_works}" th:data-filter="${reference_work.name}" th:value="${reference_work.name}" th:text="${reference_work.name}"></option>
-							</select>
-						</div>
-						<div class="col-12 col-md-7  col-x5l-6">
-							<select class="form-select form-select-sm" aria-label="eventSelector" id="eventSelector">
-								<option data-filter="any" selected>全イベント</option>
-								<option th:each="event : ${events}" th:object="${events}" th:data-filter="${event.name}" th:value="${event.name}" th:text="${event.name}"></option>
-							</select>
-						</div>
+					</fieldset>
+				</div>
+				<div class="col-6">
+					<div class="mb-4">
+						<label class="form-label" for="ratingSelector">年齢制限</label>
+						<select class="form-select" id="ratingSelector" required>
+							<option value="all" selected>すべて</option>
+							<option value="without">全年齢のみ</option>
+							<option value="only">R-18のみ</option>
+						</select>
+					</div>
+					<div class="">
+						<label class="form-label" for="officialSelector">作者分類</label>
+						<select class="form-select" id="officialSelector" required>
+							<option value="all" selected>すべて</option>
+							<option value="only">公式作者</option>
+							<option value="without">公式作者以外</option>
+						</select>
 					</div>
 				</div>
 			</div>
-			<div class="list row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 row-cols-x3l-8 row-cols-x4l-10 row-cols-x5l-12 row-cols-x6l-16 g-2 mx-0">
-				<div class="col" th:each="fanBook, iterStat : ${fanBookList}" th:object="${fanBook}">
+			<div class="mb-3">
+				<label class="form-label" for="referenceWorkSelector">元ネタ</label>
+				<select class="form-select" id="referenceWorkSelector" required>
+					<option data-filter="any" selected>すべて</option>
+					<option th:each="reference_work : ${reference_works}" th:object="${reference_works}" th:data-id="${reference_work.id}" th:data-name="${reference_work.name}" th:data-kana="${reference_work.kana}" th:text="${reference_work.name}"></option>
+				</select>
+			</div>
+			<div class="mb-3" style="height: 352px">
+				<label class="form-label" for="eventSelector">イベント</label>
+				<select class="form-select" id="eventSelector" required>
+					<option data-filter="any" selected>すべて</option>
+					<option th:each="event : ${events}" th:object="${events}" th:data-name="${event.name}" th:data-date="${event.date}" th:data-venue="${event.venue}" th:data-location="${event.location}" th:text="${event.name}"></option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<main class="container py-3">
+		<div id="fanBookList">
+			<div class="list row row-cols-2 row-cols-md-3 row-cols-xl-4 row-cols-xxl-5 row-cols-fhd-8 row-cols-wqp-10 row-cols-uhd-12 g-2 mx-0">
+				<div class="col" th:each="fanBook, iterStat : ${fanBookList}" th:object="${fanBook}" th:data-default="${iterStat.count}" th:data-title_kana="*{title_kana}" th:data-author_kana="*{author_kana}">
 					<div class="card h-100">
-						<div class="d-none default" th:text="${iterStat.count}"></div>
-						<div class="d-none title-kana" th:text="*{title_kana}"></div>
-						<div class="d-none author-kana" th:text="*{author_kana}"></div>
 						<div class="card-img-area">
 							<img th:if="${fanBook.picture != null}" th:src="${fanBook.picture.filepath} + ${fanBook.picture.filename}" class="card-img" th:alt="*{title}" loading="lazy">
 							<div th:if="${fanBook.is_adult}" class="image-overlay"></div>
@@ -108,8 +221,8 @@
 								</div>
 							</div>
 							<div class="detail-button-container">
-								<button type="button" class="btn btn-sm btn-success detail-button" data-bs-toggle="modal" th:data-bs-target="'#detailModal' + ${fanBook.id}" onclick="handleModalShown()">
-									<i class="bi bi-box-arrow-up-right"></i>
+								<button type="button" class="btn btn-sm btn-success detail-button" data-bs-toggle="modal" th:data-bs-target="'#detailModal' + ${fanBook.id}" title="詳細表示">
+									<i class="bi bi-table"></i>
 								</button>
 							</div>
 						</div>
@@ -127,16 +240,10 @@
 											<img th:if="${fanBook.picture != null}" th:src="${fanBook.picture.filepath} + ${fanBook.picture.filename}" class="card-img" th:alt="*{title}" />
 										</div>
 										<div class="col-lg-6">
-											<div class="row g-1 pb-2">
-												<div class="col-auto" th:if="${fanBook.is_adult}">
-													<button type="button" class="btn btn-sm btn-danger">R-18</button>
-												</div>
-												<div class="col-auto" th:if="${fanBook.category}">
-													<button type="button" class="btn btn-sm btn-lime category" th:text="*{category.name}"></button>
-												</div>
-												<div class="col-auto" th:if="${fanBook.reference_work}">
-													<button type="button" class="btn btn-sm btn-cyan reference_work" th:text="*{reference_work.name}"></button>
-												</div>
+											<div class="d-flex gap-1 mb-2">
+												<button type="button" class="btn btn-sm btn-danger" th:if="*{is_adult}">R-18</button>
+												<button type="button" class="btn btn-sm btn-lime category" th:if="*{category}" th:data-category-id="*{category.id}" th:text="*{category.name}"></button>
+												<button type="button" class="btn btn-sm btn-cyan reference_work" th:if="*{reference_work}" th:data-reference_work-id="*{reference_work.id}"  th:text="*{reference_work.name}"></button>
 											</div>
 											<table class="table th-nowrap">
 												<tbody class="th-nowrap">
@@ -155,26 +262,26 @@
 													<tr>
 														<th scope="col">イベント</th>
 														<td>
-															<ul class="list-unstyled mb-0">
-																<li class="word-wrap event" th:text="*{event.name}"></li>
-																<li class="word-wrap text-body-secondary" th:text="*{event.venue}"></li>
-																<li class="word-wrap text-body-secondary" th:text="*{event.location}"></li>
-															</ul>
+															<div class="word-wrap event" th:text="*{event.name}"></div>
+															<div class="d-flex gap-1">
+																<div class="word-wrap text-body-secondary fs-7" th:text="*{event.venue}"></div>
+																<div class="word-wrap text-body-secondary fs-7 supplementary" th:text="*{event.location}"></div>
+															</div>
 														</td>
 													</tr>
 													<tr>
 														<th scope="col">日付</th>
 														<td class="date" th:text="*{date}"></td>
 													</tr>
-													<tr>
+													<tr th:if="*{genre}">
 														<th scope="col">ジャンル</th>
 														<td class="word-wrap" th:utext="*{genre}"></td>
 													</tr>
-													<tr>
+													<tr th:if="*{summary}">
 														<th scope="col">概要</th>
 														<td class="word-wrap" th:utext="*{summary}"></td>
 													</tr>
-													<tr th:if="${fanBook.memo}">
+													<tr th:if="*{memo}">
 														<th scope="col">メモ</th>
 														<td class="word-wrap" th:utext="*{memo}"></td>
 													</tr>
@@ -184,14 +291,14 @@
 									</div>
 								</div>
 								<div class="modal-footer d-flex justify-content-between">
-									<div class="d-flex align-items-center">
+									<div class="d-flex align-items-start">
 										<div class="pe-2" th:if="${fanBook.pixiv != null}"><a th:href="${fanBook.pixiv}" class="icon_link_pixiv" target="_blank"></a></div>
 										<div class="pe-2" th:if="${fanBook.twitter != null}"><a th:href="${fanBook.twitter}" class="icon_link_x" target="_blank"></a></div>
-										<div class="pe-2" th:if="${fanBook.shop != null}"><a th:href="${fanBook.shop}" class="btn btn-outline-pink hover-white" role="button" target="_blank"><i class="bi bi-cart-fill me-2"></i>Shop</a></div>
-										<div class="pe-2" th:if="${fanBook.url != null}"><a th:href="${fanBook.url}" class="btn btn-outline-pink hover-white" role="button" target="_blank"><i class="bi bi-box-arrow-up-left me-2"></i>Web</a></div>
+										<div class="pe-2" th:if="${fanBook.shop != null}"><a th:href="${fanBook.shop}" class="btn btn-pink hover-white" role="button" target="_blank"><i class="bi bi-cart-fill"></i></a></div>
+										<div class="pe-2" th:if="${fanBook.url != null}"><a th:href="${fanBook.url}" class="btn btn-success hover-white" role="button" target="_blank"><i class="bi bi-box-arrow-up-right"></i></a></div>
 									</div>
-									<div class="d-flex align-items-center">
-										<div class="ps-2"><button type="button" class="btn btn-light" th:text="*{'id: '+id}"></button></div>
+									<div class="d-flex align-items-end">
+										<div class="ps-2"><button type="button" class="btn" th:text="*{'id: '+id}"></button></div>
 										<div class="ps-2"><a class="btn btn-primary" th:href="'/id=' + ${fanBook.id}" role="button">編集</a></div>
 										<div class="ps-2"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button></div>
 									</div>
@@ -201,32 +308,18 @@
 					</div>
 				</div>
 			</div>
-			<nav class="pb-5" aria-label="Page Navigation">
+			<nav class="pb-3" aria-label="Page Navigation">
 				<ul id="pagenation" class="pagination my-3 justify-content-center">
 					<li id="list-item"></li>
 				</ul>
 			</nav>
 		</div>
 		<button id="page-top" class="page-top side-button"><i class="bi bi-chevron-bar-up"></i></button>
-		<a href="./regist" role="button"><button id="regist-page" class="regist-page side-button"><i class="bi bi-plus-lg"></i></button></a>
 	</main>
-	<footer class="navbar fixed-bottom bg-body-tertiary">
-		<div class="container-fluid container">
-			<a href="./regist" class="btn btn-sm btn-outline-primary" role="button">追加</a>
-			<div class="form-check form-switch m-2">
-				<input type="checkbox" id="blurrySwitch" class="form-check-input form-switch mx-1" checked />
-				<label for="blurrySwitch" class="form-check-label mx-1">フィルター</label>
-			</div>
-		</div>
-	</footer>
-	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-	<script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
-	<script src="https://unpkg.com/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-	<script src="loading.js"></script>
-	<script src="goTop.js"></script>
-	<script src="list.js"></script>
-	<script src="listSetting.js"></script>
-	<script src="modal.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
+	<!-- <script src="https://unpkg.com/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+	</script>
 </body>
+
 </html>

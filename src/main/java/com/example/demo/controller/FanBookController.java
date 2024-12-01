@@ -109,11 +109,27 @@ public class FanBookController {
 		FanBook fanBook = new FanBook();
 		model.addAttribute("fanBook", fanBook);
 
-		List<Category> categories = categoryService.findAll();
+		List<Category> categories = categoryService
+				.findAll()
+				.stream()
+				.sorted(Comparator.comparing(Category::getId))
+				.toList();
 		model.addAttribute("categories", categories);
 
-		List<ReferenceWork> reference_works = referenceWorkService.findAll();
+		List<ReferenceWork> reference_works = referenceWorkService
+				.findAll()
+				.stream()
+				.sorted(Comparator.comparing(ReferenceWork::getId))
+				.toList();
 		model.addAttribute("reference_works", reference_works);
+
+		List<Event> events = eventService.findAll()
+				.stream()
+				.sorted(Comparator
+						.comparing((Event event) -> event.getDate() == null ? LocalDate.MIN : event.getDate())
+						.thenComparing(Event::getId))
+				.toList();
+		model.addAttribute("events", events);
 
 		return "fanBook/regist";
 	}

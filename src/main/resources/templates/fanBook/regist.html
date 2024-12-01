@@ -4,61 +4,148 @@
 <head>
 <title>Regist</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link rel="stylesheet" href="tom-select.css">
+<link rel="stylesheet" href="bootstrap_Higiri.css">
+<link rel="stylesheet" href="style.css">
+<script src="tom-select.js"></script>
+<script src="fanbooksRegist.js"></script>
 </head>
 
-<body class="container">
-	<h2>Regist</h2>
-
-	<form th:action="@{/result}" th:object="${fanBook}" method="post" class="p-3 needs-validation" novalidate>
-		<div class="form-group mb-3">
-			<label class="form-label">タイトル</label>
-			<input type="text" id="form" th:field="*{title}" class="form-control" required>
-		</div>
-		<div class="form-group mb-3">
-			<label class="form-label">作者</label>
-			<input type="text" id="form" th:field="*{author}" class="form-control" />
-		</div>
-
-		<div class="form-group mb-3">
-			<label class="form-label">サークル名</label>
-			<input type="text" id="form" th:field="*{circle_name}" class="form-control" />
-		</div>
-
-		<div class="form-group mb-3">
-			<label class="form-label">日付</label>
-			<input type="date" th:field="*{date}" class="form-control">
-		</div>
-
-		<div class="form-group mb-3">
-			<label class="form-label">カテゴリ</label>
-			<select th:field="*{category}" class="form-select" required>
-				<option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.name}"></option>
-			</select>
-		</div>
-
-		<div class="form-group mb-3">
-			<label class="form-label">元ネタ</label>
-			<select th:field="*{reference_work}" class="form-select">
-				<option th:each="ref : ${reference_works}" th:value="${ref.id}" th:text="${ref.name}"></option>
-			</select>
-		</div>
-
-		<div class="form-group mb-3">
-			<input type="checkbox" th:field="*{is_adult}" class="form-check-input">
-			<label class="form-check-label">R-18</label>
-		</div>
-
-		<div class="form-group mb-3">
-			<label class="form-label">ジャンル</label>
-			<textarea id="form" th:field="*{genre}" class="form-control"></textarea>
-		</div>
-
-		<div class="form-group mb-3">
-			<input type="submit" value="送信" class="btn btn-primary" id="button" />
-		</div>
-	</form>
-
+<body class="bg-body-tertiary">
+	<header>
+		<nav class="navbar bg-body-secondary navbar-expand-md fixed-top">
+			<div class="container-fluid container container-max-lg align-items-center">
+				<a class="navbar-brand" href="./">同人誌DB</a>
+				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span> <span class="navbar-toggler-icon"></span> <span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav mb-lg-0">
+						<li class="nav-item"><a class="nav-link" aria-current="page" href="./">ホーム</a></li>
+						<li class="nav-item"><a class="nav-link" aria-current="page" href="./table">テーブル表示</a></li>
+						<li class="nav-item"><a class="nav-link" href="./category/">カテゴリ</a></li>
+						<li class="nav-item"><a class="nav-link" href="./reference_work/">元ネタ</a></li>
+						<li class="nav-item"><a class="nav-link" href="./event/">イベント</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<main class="container container-max-lg py-3">
+		<h2>Regist</h2>
+		<form th:action="@{/result}" th:object="${fanBook}" method="post" class="p-3 needs-validation" novalidate>
+			<div class="row g-3 mb-3">
+				<div class="col-12">
+					<div class="">
+						<label class="form-label" for="title">タイトル</label>
+						<input type="text" id="title" th:field="*{title}" class="form-control" placeholder="" required>
+					</div>
+				</div>
+				<div class="col-12">
+					<div class="">
+						<label class="form-label" for="author">作者</label>
+						<input type="text" id="author" th:field="*{author}" class="form-control" placeholder=""  />
+					</div>
+				</div>
+				<div class="col-12">
+					<div class="">
+						<label class="form-label" for="circle_name">サークル名</label>
+						<input type="text" id="circle_name" th:field="*{circle_name}" class="form-control" placeholder=""  />
+					</div>
+				</div>
+				<div class="col-12">
+					<div class="">
+						<label class="form-label" for="date">日付</label>
+						<input type="date" id="date" th:field="*{date}" class="form-control" placeholder="" >
+					</div>
+				</div>
+				<div class="col-12">
+					<label class="form-label" for="event">イベント</label>
+					<select id="event" th:field="*{event}" class="form-select" required>
+						<option value="" selected hidden>イベントを選ぶ</option>
+						<option value="new">&#xF8AF 追加する</option>
+						<option th:each="event : ${events}" th:value="${event.id}" th:text="${event.name}"></option>
+					</select>
+					<fieldset id="newEvent" class="mx-5 my-3 d-none">
+						<div class="row g-3">
+							<div class="col-12">
+								<label class="form-label" for="newEventDate">日付</label>
+								<input type="date" class="form-control" id="newEventDate" name="newEventDate" />
+							</div>
+							<div class="col-12">
+								<label class="form-label" for="newEventName">イベント名</label>
+								<input type="text" class="form-control" id="newEventName" name="newCategoryName" placeholder="コミックマーケット103" />
+							</div>
+							<div class="col-12">
+								<label class="form-label" for="newEventVenue">会場</label>
+								<input type="text" class="form-control" id="newEventVenue" name="newEventVenue" placeholder="東京ビッグサイト" />
+							</div>
+							<div class="col-12">
+								<label class="form-label" for="newEventLocation">場所</label>
+								<input type="text" class="form-control" id="newEventLocation" name="newEventLocation" placeholder="東京都 江東区" />
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="col-12">
+					<div class="mb-3">
+						<label class="form-label" for="category">カテゴリ</label>
+						<select id="category" th:field="*{category}" class="form-select" required>
+							<option value="" selected hidden>カテゴリを選ぶ</option>
+							<option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+						</select>
+					</div>
+				</div>
+				<fieldset id="newCategory" class="ms-3 d-none">
+					<label class="form-label" for="newCategoryName">カテゴリ名</label>
+					<input type="text" class="form-control" id="newCategoryName" name="newCategoryName" />
+				</fieldset>
+				<div class="col-12">
+					<div class="mb-3">
+						<label class="form-label" for="reference_work">元ネタ</label>
+						<select id="reference_work" th:field="*{reference_work}" class="form-select">
+							<option value="" selected hidden>元ネタを選ぶ</option>
+							<option value="new">&#xF8AF 追加する</option>
+							<option th:each="reference_work : ${reference_works}" th:value="${reference_work.id}" th:text="${reference_work.name}"></option>
+						</select>
+					</div>
+					<fieldset id="newReferenceWork" class="ms-3 d-none">
+						<div class="mb-3">
+							<label class="form-label" for="newReferenceWorkName">作品名</label>
+							<input type="text" class="form-control" id="newReferenceWorkName" name="newReferenceWorkName" />
+						</div>
+						<div class="mb-3">
+							<label class="form-label" for="newReferenceWorkKana">作品名（かな）</label>
+							<input type="text" class="form-control" id="newReferenceWorkKana" name="newReferenceWorkKana" />
+						</div>
+					</fieldset>
+				</div>
+				<div class="mb-3">
+					<label class="form-label" for="genre">ジャンル</label>
+					<input type="text" id="genre" th:field="*{genre}" class="form-control" />
+				</div>
+			</div>
+			<fieldset id="" class="mb-2">
+				<div class="mb-3">
+					<div class="form-check form-switch">
+						<input type="checkbox" role="switch" id="is_adult" th:field="*{is_adult}" class="form-check-input">
+						<label class="form-check-label" for="is_adult">R-18</label>
+					</div>
+					<div class="form-check form-switch">
+						<input type="checkbox" role="switch" id="is_collaboration" th:field="*{is_collaboration}" class="form-check-input">
+						<label class="form-check-label" for="is_collaboration">合同誌・アンソロジー</label>
+					</div>
+					<div class="form-check form-switch">
+						<input type="checkbox" role="switch" id="is_official_creator" th:field="*{is_official_creator}" class="form-check-input">
+						<label class="form-check-label" for="is_official_creator">オリジナル・公式関係</label>
+					</div>
+				</div>
+				</fieldset>
+			<div class="mb-3">
+				<input type="submit" value="送信" class="btn btn-primary" id="button" />
+			</div>
+		</form>
+	</main>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
