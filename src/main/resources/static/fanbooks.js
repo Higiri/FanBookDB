@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 spinner.style.display = "none";
             }, 500);
         }
-    }, 5000);
+    }, 10000);
 });
 
 window.addEventListener("load", () => {
