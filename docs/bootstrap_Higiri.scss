@@ -13,26 +13,12 @@ $theme-colors: (
     "orange": #fd971f,
     "pink": #f92672,
     "purpule": #ae81ff,
-    /*
-    "hamidashi":    #f73a37,
-    "hiyori_izumi": #fdc164,
-    "kano_tokiwa":  #f57da6,
-    "asumi_nishiki" #49bbf2,
-    "shio_kamakura" #9b7aef,
-
-    "tsukasa" #ff8485,
-    "shocho": #f45242,
-    "tohko": #e7bf68,
-    "melissa": #6dadc2,
-    "ren": #6a416f,
-
-    */
 );
 
 $blue: #005da0;
 
-$font-family-sans-serif: -apple-system, "BlinkMacSystemFont", "Helvetica Neue", Helvetica, "Arial", "Hiragino Kaku Gothic ProN", "メイリオ",
-    Meiryo, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-sans-serif: -apple-system, "BlinkMacSystemFont", "Helvetica Neue", Helvetica, "Arial", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "bootstrap-icons";
 $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 
 $font-size-base: 1rem;
@@ -43,6 +29,9 @@ $line-height-lg: 2;
 
 //見出し
 $headings-font-weight: 500;
+
+// ラベルのマージン 0.5 -> 0.25
+$form-label-margin-bottom: 0.25rem;
 
 //row-cols-xxの最大値
 $grid-row-columns: 16 !default;
@@ -56,10 +45,10 @@ $grid-breakpoints: (
     xl: 1200px,
     xxl: 1400px,
     //以下追加
-    x3l: 1800px,
-    x4l: 2400px,
-    x5l: 3200px,
-    x6l: 3800px,
+    fhd: 1900px,
+    qhd: 2500px,
+    wqp: 3150px,
+    uhd: 3800px,
 );
 
 //各ブレークポイントのコンテナサイズ
@@ -70,10 +59,10 @@ $container-max-widths: (
     xl: 1140px,
     xxl: 1320px,
     //以下追加
-    x3l: 1600px,
-    x4l: 2180px,
-    x5l: 2960px,
-    x6l: 3520px,
+    fhd: 1800px,
+    qhd: 2400px,
+    wqp: 3000px,
+    uhd: 3600px,
 );
 
 @import "../bootstrap/scss/bootstrap";

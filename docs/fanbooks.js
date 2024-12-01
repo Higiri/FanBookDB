@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     Array.from(document.getElementsByClassName("detail-button")).forEach((btn) =>
         btn.addEventListener("click", () => {
             document.getElementById("page-top").classList.add("side-button-modal");
-            document.getElementById("regist-page").classList.add("side-button-modal");
         })
     );
 
@@ -18,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("hidden.bs.modal", (event) => {
         if (event.target.id.startsWith("detailModal")) {
             document.getElementById("page-top").classList.remove("side-button-modal");
-            document.getElementById("regist-page").classList.remove("side-button-modal");
         }
     });
 
@@ -260,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-window.onload = () => {
+document.addEventListener("load", () => {
     const loadWindow = document.getElementById("loadWindow");
     const spinner = document.querySelector("#loadWindow .spinner-grow");
     setTimeout(() => {
@@ -271,4 +269,4 @@ window.onload = () => {
             spinner.style.display = "none";
         }, 500);
     }, 500);
-};
+}); 

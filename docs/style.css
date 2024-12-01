@@ -457,5 +457,5 @@ input.sort.desc:checked+label::after {
 	fill: currentColor;
 }
 .bd-mode-toggle {
-	z-index: 1500;
+	z-index: 1024;
 }
