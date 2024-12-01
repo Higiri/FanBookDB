@@ -237,7 +237,7 @@
 								<div class="modal-body">
 									<div class="row g-3">
 										<div class="col-lg-6">
-											<img th:if="${fanBook.picture != null}" th:src="${fanBook.picture.filepath} + ${fanBook.picture.filename}" class="card-img" th:alt="*{title}" />
+											<img th:if="${fanBook.picture != null}" th:src="${fanBook.picture.filepath} + ${fanBook.picture.filename}" class="card-img" th:alt="*{title}" loading="lazy" />
 										</div>
 										<div class="col-lg-6">
 											<div class="d-flex gap-1 mb-2">

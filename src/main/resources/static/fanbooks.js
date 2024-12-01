@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-document.addEventListener("load", () => {
+window.addEventListener("load", () => {
     const loadWindow = document.getElementById("loadWindow");
     const spinner = document.querySelector("#loadWindow .spinner-grow");
     setTimeout(() => {
@@ -269,4 +269,4 @@ document.addEventListener("load", () => {
             spinner.style.display = "none";
         }, 500);
     }, 500);
-}); 
+});
