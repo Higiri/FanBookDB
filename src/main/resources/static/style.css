@@ -447,6 +447,7 @@ input.sort.desc:checked+label::after {
 
 .combo-subtext {
 	font-size: 12px;
+	color: var(--bs-secondary-color);
 }
 .ts-dropdown-content {
 	max-height: 240px;
@@ -458,4 +459,13 @@ input.sort.desc:checked+label::after {
 }
 .bd-mode-toggle {
 	z-index: 1024;
+}
+
+
+[data-bs-theme=dark] .ts-dropdown .active {
+  background-color: #99c8ff;
+  color: #1f2228;
+}
+[data-bs-theme=dark] .ts-dropdown .active .combo-subtext {
+	color: #3b3b3b;
 }

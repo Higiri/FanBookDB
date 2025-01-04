@@ -2,7 +2,7 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org" data-bs-theme="auto">
 
 <head>
-	<title>同人誌DB</title>
+	<title>蔵書DB</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="tom-select.css">
@@ -85,7 +85,7 @@
 				<button class="navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<a class="navbar-brand" href="./">同人誌DB</a>
+				<a class="navbar-brand" href="./">蔵書DB</a>
 			</div>
 			<div class="d-flex justify-content-between align-items-center flex-grow-1">
 				<div class="">
@@ -115,7 +115,7 @@
 	</nav>
 	<div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
 		<div class="offcanvas-header bg-body-tertiary" style="height: 56px;">
-			<h5 class="offcanvas-title" id="offcanvasScrollingLabel">同人誌DB</h5>
+			<h5 class="offcanvas-title" id="offcanvasScrollingLabel">蔵書検索・絞り込み</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 		</div>
 		<div class="offcanvas-body">
@@ -240,11 +240,11 @@
 											<img th:if="${fanBook.picture != null}" th:src="${fanBook.picture.filepath} + ${fanBook.picture.filename}" class="card-img" th:alt="*{title}" loading="lazy" />
 										</div>
 										<div class="col-lg-6">
-											<div class="d-flex gap-1 mb-2">
+											<div class="d-flex flex-wrap gap-1 mb-2">
+												<button type="button" class="btn btn-sm btn-secondary" th:text="*{id}"></button>
 												<button type="button" class="btn btn-sm btn-danger" th:if="*{is_adult}">R-18</button>
 												<button type="button" class="btn btn-sm btn-lime category" th:if="*{category}" th:data-category-id="*{category.id}" th:text="*{category.name}"></button>
 												<button type="button" class="btn btn-sm btn-cyan reference_work" th:if="*{reference_work}" th:data-reference_work-id="*{reference_work.id}"  th:text="*{reference_work.name}"></button>
-												<button type="button" class="btn btn-sm btn-secondary" th:text="*{id}"></button>
 											</div>
 											<table class="table th-nowrap">
 												<tbody class="th-nowrap">

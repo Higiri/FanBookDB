@@ -123,7 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const alertSetting = () => {
         const element = document.getElementById("matchingItemsAlert");
-        const errorElement = document.getElementById("matchingItemsAlert");
         if (fanbooks.matchingItems.length > 0) {
             element.className = "alert alert-success mb-3";
             element.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i>' + fanbooks.matchingItems.length + " 件登録されています。";
@@ -245,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const html =
                     "<div>" +
                     escape(data.value) +
-                    (data.date || data.venue ? '<div class="ms-4 d-flex flex-wrap gap-0 column-gap-2 text-body-secondary">' : "") +
+                    (data.date || data.venue ? '<div class="ms-4 d-flex flex-wrap gap-0 column-gap-2">' : "") +
                     (data.date ? '<span class="combo-subtext">' + escape(data.date) + "</span>" : "") +
                     (data.venue ? '<span class="combo-subtext">' + escape(data.venue) + "</span>" : "") +
                     (data.date || data.venue ? "</div>" : "") +
