@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ページネーション押下時の処理
     document.querySelector(".pagination").addEventListener("click", (event) => {
-        if (event.target.tagName === "LI" || event.target.tagName === "BUTTON") {
+        if ((event.target.tagName === "BUTTON") && !event.target.parentNode.disabled && !event.target.parentNode.classList.contains('active')) {
             window.scroll({
                 top: 0,
                 behavior: "smooth",
