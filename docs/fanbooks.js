@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ウィンドウサイズに応じたページサイズを返す関数
     const getPageSize = () => {
-        var windowWidth = getWindowSize();
+        const windowWidth = getWindowSize();
         if (windowWidth < 768) {
             return 12;
         } else if (windowWidth < 992) {
@@ -109,9 +109,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return 56;
         } else if (windowWidth < 3800) {
             return 60;
-        } else {
-            return 60;
         }
+        return 60;
     };
 
     // list.js
@@ -119,11 +118,18 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", () => {
         fanbooks.page = getPageSize();
         fanbooks.update();
+
+        // ページネーションのサイズ
+        const pagenation = document.getElementById('pagenation');
+        if (getWindowSize() < 768) {
+            pagenation.classList.add('pagination-sm');
+        } else {
+            pagenation.classList.remove('pagination-sm');
+        }
     });
 
     const alertSetting = () => {
         const element = document.getElementById("matchingItemsAlert");
-        const errorElement = document.getElementById("matchingItemsAlert");
         if (fanbooks.matchingItems.length > 0) {
             element.className = "alert alert-success mb-3";
             element.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i>' + fanbooks.matchingItems.length + " 件登録されています。";
@@ -245,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const html =
                     "<div>" +
                     escape(data.value) +
-                    (data.date || data.venue ? '<div class="ms-4 d-flex flex-wrap gap-0 column-gap-2 text-body-secondary">' : "") +
+                    (data.date || data.venue ? '<div class="ms-4 d-flex flex-wrap gap-0 column-gap-2">' : "") +
                     (data.date ? '<span class="combo-subtext">' + escape(data.date) + "</span>" : "") +
                     (data.venue ? '<span class="combo-subtext">' + escape(data.venue) + "</span>" : "") +
                     (data.date || data.venue ? "</div>" : "") +

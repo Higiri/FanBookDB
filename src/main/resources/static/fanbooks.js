@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ウィンドウサイズに応じたページサイズを返す関数
     const getPageSize = () => {
-        var windowWidth = getWindowSize();
+        const windowWidth = getWindowSize();
         if (windowWidth < 768) {
             return 12;
         } else if (windowWidth < 992) {
@@ -109,9 +109,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return 56;
         } else if (windowWidth < 3800) {
             return 60;
-        } else {
-            return 60;
         }
+        return 60;
     };
 
     // list.js
@@ -119,6 +118,14 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", () => {
         fanbooks.page = getPageSize();
         fanbooks.update();
+
+        // ページネーションのサイズ
+        const pagenation = document.getElementById('pagenation');
+        if (getWindowSize() < 768) {
+            pagenation.classList.add('pagination-sm');
+        } else {
+            pagenation.classList.remove('pagination-sm');
+        }
     });
 
     const alertSetting = () => {
