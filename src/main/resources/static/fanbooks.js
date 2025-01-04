@@ -113,12 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return 60;
     };
 
-    // list.js
-    // ウィンドウサイズが変更されたときの処理
-    window.addEventListener("resize", () => {
-        fanbooks.page = getPageSize();
-        fanbooks.update();
-
+    const settingPagenation = () => {
         // ページネーションのサイズ
         const pagenation = document.getElementById('pagenation');
         if (getWindowSize() < 768) {
@@ -126,6 +121,14 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             pagenation.classList.remove('pagination-sm');
         }
+    }
+
+    // list.js
+    // ウィンドウサイズが変更されたときの処理
+    window.addEventListener("resize", () => {
+        fanbooks.page = getPageSize();
+        fanbooks.update();
+        settingPagenation();
     });
 
     const alertSetting = () => {
@@ -148,6 +151,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     };
+
+    settingPagenation();
     alertSetting();
 
     //ぼかしスイッチの切り替えを確認
