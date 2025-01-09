@@ -129,31 +129,13 @@ document.addEventListener("DOMContentLoaded", () => {
         fanbooks.page = getPageSize();
         fanbooks.update();
         settingPagenation();
+        if (getWindowSize() < 768) {
+            document.getElementById('filter-area').classList.add('hidden-filter');
+            document.getElementById('btn-filter').checked = false;
+        }
     });
 
-    const alertSetting = () => {
-        const element = document.getElementById("matchingItemsAlert");
-        if (fanbooks.matchingItems.length > 0) {
-            element.className = "alert alert-success mb-3";
-            element.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i>' + fanbooks.matchingItems.length + " 件登録されています。";
-            if (document.getElementById("errorMessageAlert")) {
-                document.getElementById("errorMessageAlert").remove();
-            }
-        } else {
-            element.className = "alert alert-danger mb-3";
-            element.innerHTML = '<i class="bi bi-x-circle-fill me-2"></i>' + "指定の本は登録されていません。";
-            if (!document.getElementById("errorMessageAlert")) {
-                const fanbooksArea = document.getElementById("fanBookList");
-                const errorMessageElement = fanbooksArea.insertBefore(document.createElement("div"), fanbooksArea.firstChild);
-                errorMessageElement.id = "errorMessageAlert";
-                errorMessageElement.className = "alert alert-danger mb-3";
-                errorMessageElement.innerHTML = '<i class="bi bi-x-circle-fill me-2"></i>' + "絞り込み・検索条件の本は登録されていません。";
-            }
-        }
-    };
-
     settingPagenation();
-    alertSetting();
 
     //ぼかしスイッチの切り替えを確認
     document.addEventListener("change", (event) => {
@@ -169,6 +151,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 top: 0,
                 behavior: "smooth",
             });
+        }
+    });
+
+    // フィルタ表示制御
+    document.getElementById('btn-filter').addEventListener('click', () => {
+        if (document.getElementById('btn-filter').checked) {
+            document.getElementById('filter-area').classList.remove('hidden-filter');
+        } else {
+            document.getElementById('filter-area').classList.add('hidden-filter');
         }
     });
 
@@ -192,7 +183,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 (eventSelected === "すべて" || eventSelected.includes(item.values().event))
             );
         });
-        alertSetting();
         handleBlurrySwitch();
     };
     document.getElementById("categoryAll").addEventListener("change", () => applyFilters());
@@ -208,7 +198,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("searchInput").addEventListener("input", () => {
         const searchString = document.getElementById("searchInput").value;
         fanbooks.search(searchString);
-        alertSetting();
         handleBlurrySwitch();
     });
 
