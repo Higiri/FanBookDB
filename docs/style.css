@@ -472,7 +472,7 @@ input.sort.desc:checked+label::after {
 
 
 .fanBook-content {
-	padding-: 1rem 0;
+	padding: 1rem 0;
 }
 
 @media (min-width: 992px) {
