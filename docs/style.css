@@ -470,6 +470,11 @@ input.sort.desc:checked+label::after {
 	color: #3b3b3b;
 }
 
+
+.fanBook-content {
+	padding-: 1rem 0;
+}
+
 @media (min-width: 992px) {
 	.sidebar .offcanvas-body {
 		background: var(--bs-body-bg);
@@ -497,15 +502,16 @@ input.sort.desc:checked+label::after {
 		position: relative;
 		display: block;
 		transition: all 0.2s ease-in-out;
+		padding-left: 1rem;
 	}
 	
-	.sidebar ~ .fanBook-content {
+	.sidebar:not(.hidden-filter) ~ .fanBook-content {
 		margin-left: 340px;
 		margin-right: 0px;
 	}
 	
 	.sidebar.hidden-filter ~ .fanBook-content {
-		margin-left: 170px !important;
-		margin-right: 170px !important;
+		margin-left: 170px;
+		margin-right: 170px;
 	}
 }
