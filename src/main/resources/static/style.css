@@ -502,16 +502,15 @@ input.sort.desc:checked+label::after {
 		position: relative;
 		display: block;
 		transition: all 0.2s ease-in-out;
-		padding-left: 1rem;
 	}
 	
 	.sidebar:not(.hidden-filter) ~ .fanBook-content {
-		margin-left: 340px;
+		margin-left: 356px;
 		margin-right: 0px;
 	}
 	
 	.sidebar.hidden-filter ~ .fanBook-content {
-		margin-left: 170px;
-		margin-right: 170px;
+		margin-left: 178px;
+		margin-right: 178px;
 	}
 }
