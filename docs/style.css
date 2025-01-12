@@ -106,6 +106,7 @@ body {
 	background: linear-gradient(to top, rgba(var(--bs-body-bg-rgb), 0) 0%,
 		rgba(var(--bs-body-bg-rgb), 0.5) 100%);
 	width: 100%;
+	border-radius: var(--bs-card-border-radius) var(--bs-card-border-radius) 0 0;
 }
 
 .sort-and-filter-area {
@@ -249,7 +250,7 @@ input.sort.desc:checked+label::after {
 }
 
 .icon_link_pixiv::before {
-	background-image: url('/pixiv_r.png');
+	background-image: url('pixiv_r.png');
 	content: '';
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -277,7 +278,7 @@ input.sort.desc:checked+label::after {
 	display: block;
 	width: 22px;
 	height: 22px;
-	background: url('/x.png') no-repeat center center;
+	background: url('x.png') no-repeat center center;
 	background-size: contain;
 	position: absolute;
 	top: 50%;
