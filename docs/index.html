@@ -6,6 +6,7 @@
 	<title>蔵書DB</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" /> -->
 	<link rel="stylesheet" href="tom-select.css">
 	<link rel="stylesheet" href="bootstrap_Higiri.css">
 	<link rel="stylesheet" href="style.css">
@@ -79,192 +80,180 @@
 			</li>
 		</ul>
 	</div>
-	<nav class="navbar bg-body-tertiary fixed-top">
-		<!-- navbar-expand-md  -->
-		<div class="container-fluid align-items-center px-md-3">
-			<a class="navbar-brand" href="./">蔵書DB</a>
-			<div class="d-flex justify-content-between align-items-center flex-grow-1">
-				<div class="">
-					<ul class="navbar-nav d-none d-md-block">
-						<li class="nav-item dropdown">
-							<button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">リンク</button>
-							<ul class="dropdown-menu" data-bs-popper="absolute">
-								<li><a class="dropdown-item active" href="./">ホーム</a></li>
-								<li><a class="dropdown-item" href="./table">テーブル表示</a></li>
-								<li><a class="dropdown-item" href="./regist">追加</a></li>
-								<li>
-									<hr class="dropdown-divider">
-								</li>
-								<li><a class="dropdown-item" href="./category/">カテゴリ</a></li>
-								<li><a class="dropdown-item" href="./reference_work/">元ネタ</a></li>
-								<li><a class="dropdown-item" href="./event/">イベント</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-				<div class="d-flex align-items-center">
-					<div class="form-check form-switch ps-0 my-0">
-						<input type="checkbox" id="blurrySwitch" class="form-check-input form-switch mx-1" checked />
-						<label for="blurrySwitch" class="form-check-label ms-2">フィルター</label>
-					</div>
-					<button class="d-lg-none navbar-toggler collapsed" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
-						<span class="navbar-toggler-icon"></span>
-					</button>
+	<nav class="main-header">
+		<div class="d-flex flex-wrap gap-2">
+			<div class="search-group col-12 col-md-auto order-md-2">
+				<label class="col-form-label material-symbols-outlined" for="searchInput">search</label>
+				<div class="flex-grow-1">
+					<input type="search" class="form-control" id="searchInput" placeholder="作品を検索">
 				</div>
 			</div>
+			<div class="d-none d-lg-block order-md-1">
+				<input type="checkbox" class="btn-check" id="btn-filter" autocomplete="off">
+				<label class="btn btn-outline-primary rounded-pill" for="btn-filter"><i class="bi material-symbols-outlined me-1">tune</i>Filters</label>
+			</div>
+			<div class="d-lg-none order-md-1">
+				<button class="btn btn-outline-primary rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
+					<i class="bi material-symbols-outlined me-1">tune</i>Filters
+				</button>
+			</div>
+			<div class="order-md-3 me-auto">
+				<input type="checkbox" class="btn-check" id="blurrySwitch" autocomplete="off" checked>
+				<label class="btn btn-outline-primary rounded-pill" for="blurrySwitch"><i class="bi material-symbols-outlined me-1">blur_on</i>Blur</label>
+			</div>
+			<div class="align-self-end dropdown order-md-4 d-none d-sm-block">
+				<button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Link</button>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item active" href="./">ホーム</a></li>
+					<li><a class="dropdown-item" href="./table">テーブル表示</a></li>
+					<li><a class="dropdown-item" href="./regist">追加</a></li>
+					<li><hr class="dropdown-divider"></li>
+					<li><a class="dropdown-item" href="./category/">カテゴリ</a></li>
+					<li><a class="dropdown-item" href="./reference_work/">元ネタ</a></li>
+					<li><a class="dropdown-item" href="./event/">イベント</a></li>
+				</ul>
+			</div>
+			<div id="numberOfData" class="numberOfData order-md-5"></div>
 		</div>
 	</nav>
 	<div class="container-fluid">
 		<nav id="filter-area" class="sidebar hidden-filter">
 			<div class="offcanvas-lg offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvas">
-				<div class="offcanvas-header bg-body-tertiary" style="height: 56px;">
-					<h5 class="offcanvas-title" id="offcanvasScrollingLabel">蔵書検索・絞り込み</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvas" aria-label="Close"></button>
+				<div class="offcanvas-header bg-body-tertiary d-md-flex" style="height: 56px;">
+					<h4 class="offcanvas-title" id="offcanvasScrollingLabel"><i class="bi material-symbols-outlined me-2">manage_search</i>Sort & Filter</h4>
+					<button type="button" class="btn-close d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#offcanvas" aria-label="Close"></button>
+					<label class="btn-close d-none d-lg-block" for="btn-filter" aria-label="Close"></label>
 				</div>
 				<div class="offcanvas-body d-md-flex flex-column">
-					<div class="row g-2 mb-3">
-						<div class="col btn-group btn-group-sm" id="sortButtons" role="group" aria-label="Radio toggle button group">
-							<input type="radio" class="btn-check" data-sort="default" name="dataSort" id="default-sort" autocomplete="off" checked />
-							<label class="btn btn-outline-primary" for="default-sort">作者順</label>
-							<input type="radio" class="btn-check" data-sort="date" name="dataSort" id="date-sort" autocomplete="off" />
-							<label class="btn btn-outline-primary" for="date-sort" data-key="date">日付順</label>
-							<input type="radio" class="btn-check" data-sort="title" name="dataSort" id="title-sort" autocomplete="off" />
-							<label class="btn btn-outline-primary" for="title-sort" data-key="title">タイトル順</label>
+					<div class="offcanvas-body-content">
+						<div class="row g-2 mb-3">
+							<div class="col btn-group btn-group-sm" id="sortButtons" role="group" aria-label="Radio toggle button group">
+								<input type="radio" class="btn-check" data-sort="default" name="dataSort" id="default-sort" autocomplete="off" checked />
+								<label class="btn btn-outline-primary" for="default-sort">作者順</label>
+								<input type="radio" class="btn-check" data-sort="date" name="dataSort" id="date-sort" autocomplete="off" />
+								<label class="btn btn-outline-primary" for="date-sort" data-key="date">日付順</label>
+								<input type="radio" class="btn-check" data-sort="title" name="dataSort" id="title-sort" autocomplete="off" />
+								<label class="btn btn-outline-primary" for="title-sort" data-key="title">タイトル順</label>
+							</div>
+							<div class="col-auto btn-group btn-group-sm" id="sortTypeButtons" role="group" aria-label="Radio toggle button group">
+								<input type="radio" class="btn-check" name="sortType" id="sortTypeAsc" data-sort_type="asc" autocomplete="off" checked />
+								<label class="btn btn-outline-primary col-6" for="sortTypeAsc">昇順</label>
+								<input type="radio" class="btn-check sort" name="sortType" id="sortTypeDesc" data-sort_type="desc" autocomplete="off" />
+								<label class="btn btn-outline-primary col-6" for="sortTypeDesc">降順</label>
+							</div>
 						</div>
-						<div class="col-auto btn-group btn-group-sm" id="sortTypeButtons" role="group" aria-label="Radio toggle button group">
-							<input type="radio" class="btn-check" name="sortType" id="sortTypeAsc" data-sort_type="asc" autocomplete="off" checked />
-							<label class="btn btn-outline-primary col-6" for="sortTypeAsc">昇順</label>
-							<input type="radio" class="btn-check sort" name="sortType" id="sortTypeDesc" data-sort_type="desc" autocomplete="off" />
-							<label class="btn btn-outline-primary col-6" for="sortTypeDesc">降順</label>
-						</div>
-					</div>
-					<div class="row g-2 mb-3">
-						<label class="col-auto col-form-label col-form-label-sm" for="searchInput">検索</label>
-						<div class="col"><input type="search" class="search form-control form-control-sm" id="searchInput" placeholder=""></div>
-					</div>
-					<div class="row g-2 mb-3">
-						<div class="col-6">
-							<fieldset class="checkbox-field">
-								<legend>カテゴリ</legend>
-								<div class="ms-3">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" id="categoryAll" value="any" checked>
-										<label class="form-check-label" for="categoryAll">すべて</label>
+						<div class="row g-2 mb-3">
+							<div class="col-6">
+								<fieldset class="checkbox-field">
+									<legend>カテゴリ</legend>
+									<div class="ms-3">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" id="categoryAll" value="any" checked>
+											<label class="form-check-label" for="categoryAll">すべて</label>
+										</div>
+										<fieldset id="categoryCheckboxes">
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" id="category-1" value="漫画" checked>
+												<label class="form-check-label" for="category-1">漫画</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" id="category-2" value="小説" checked>
+												<label class="form-check-label" for="category-2">小説</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" id="category-3" value="イラスト" checked>
+												<label class="form-check-label" for="category-3">イラスト</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" id="category-4" value="アンソロジー" checked>
+												<label class="form-check-label" for="category-4">アンソロジー</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" id="category-5" value="カタログ" checked>
+												<label class="form-check-label" for="category-5">カタログ</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" id="category-6" value="設定資料集" checked>
+												<label class="form-check-label" for="category-6">設定資料集</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" id="category-7" value="その他" checked>
+												<label class="form-check-label" for="category-7">その他</label>
+											</div>
+										</fieldset>
 									</div>
-									<fieldset id="categoryCheckboxes">
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" id="category-1" value="漫画" checked>
-											<label class="form-check-label" for="category-1">漫画</label>
-										</div>
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" id="category-2" value="小説" checked>
-											<label class="form-check-label" for="category-2">小説</label>
-										</div>
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" id="category-3" value="イラスト" checked>
-											<label class="form-check-label" for="category-3">イラスト</label>
-										</div>
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" id="category-4" value="アンソロジー" checked>
-											<label class="form-check-label" for="category-4">アンソロジー</label>
-										</div>
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" id="category-5" value="カタログ" checked>
-											<label class="form-check-label" for="category-5">カタログ</label>
-										</div>
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" id="category-6" value="設定資料集" checked>
-											<label class="form-check-label" for="category-6">設定資料集</label>
-										</div>
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" id="category-7" value="その他" checked>
-											<label class="form-check-label" for="category-7">その他</label>
-										</div>
-									</fieldset>
+								</fieldset>
+							</div>
+							<div class="col-6">
+								<div class="mb-4">
+									<label class="form-label" for="ratingSelector">年齢制限</label>
+									<select class="form-select" id="ratingSelector" required>
+										<option value="all" selected>すべて</option>
+										<option value="without">全年齢のみ</option>
+										<option value="only">R-18のみ</option>
+									</select>
 								</div>
-							</fieldset>
-						</div>
-						<div class="col-6">
-							<div class="mb-4">
-								<label class="form-label" for="ratingSelector">年齢制限</label>
-								<select class="form-select" id="ratingSelector" required>
-									<option value="all" selected>すべて</option>
-									<option value="without">全年齢のみ</option>
-									<option value="only">R-18のみ</option>
-								</select>
-							</div>
-							<div class="">
-								<label class="form-label" for="officialSelector">作者分類</label>
-								<select class="form-select" id="officialSelector" required>
-									<option value="all" selected>すべて</option>
-									<option value="only">公式作者</option>
-									<option value="without">公式作者以外</option>
-								</select>
+								<div class="">
+									<label class="form-label" for="officialSelector">作者分類</label>
+									<select class="form-select" id="officialSelector" required>
+										<option value="all" selected>すべて</option>
+										<option value="only">公式作者</option>
+										<option value="without">公式作者以外</option>
+									</select>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="mb-3">
-						<label class="form-label" for="referenceWorkSelector">元ネタ</label>
-						<select class="form-select" id="referenceWorkSelector" required>
-							<option data-filter="any" selected>すべて</option>
-							<option data-id="3" data-name="Summer Pockets" data-kana="Summer Pockets">Summer Pockets</option>
-							<option data-id="4" data-name="Unnamed Memory" data-kana="Unnamed Memory">Unnamed Memory</option>
-							<option data-id="2" data-name="転生王女と天才令嬢の魔法革命" data-kana="てんせいおうじょとてんさいれいじょうのまほうかくめい">転生王女と天才令嬢の魔法革命</option>
-							<option data-id="6" data-name="抜きゲーみたいな島に住んでる貧乳はどうすりゃいいですか？" data-kana="ぬきげーみたいなしまにすんでるわたしはどうすりゃいいですか？">抜きゲーみたいな島に住んでる貧乳はどうすりゃいいですか？</option>
-							<option data-id="5" data-name="負けヒロインが多すぎる！" data-kana="まけひろいんがおおすぎる！">負けヒロインが多すぎる！</option>
-							<option data-id="1" data-name="リコリス・リコイル" data-kana="りこりす・りこいる">リコリス・リコイル</option>
-						</select>
-					</div>
-					<div class="mb-3" style="height: 352px">
-						<label class="form-label" for="eventSelector">イベント</label>
-						<select class="form-select" id="eventSelector" required>
-							<option data-filter="any" selected>すべて</option>
-							<option data-name="通販のみ">通販のみ</option>
-							<option data-name="コミックマーケット94" data-date="2018-08-10" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット94</option>
-							<option data-name="KeyPoints14＋KTX" data-date="2018-10-07" data-venue="大田区産業プラザPiO" data-location="東京都 大田区">KeyPoints14＋KTX</option>
-							<option data-name="コミックマーケット96" data-date="2019-08-09" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット96</option>
-							<option data-name="陸海空魔合同演習2022秋フレンズ" data-date="2022-09-25" data-venue="東京ビッグサイト" data-location="東京都 江東区">陸海空魔合同演習2022秋フレンズ</option>
-							<option data-name="Comic Horizon 12 －いつか一緒に輝いて－百合向ONLY" data-date="2022-10-15" data-venue="三重総合体育館" data-location="台湾 新北市">Comic Horizon 12 －いつか一緒に輝いて－百合向ONLY</option>
-							<option data-name="リリリ(Girls Love Festival36)" data-date="2022-11-23" data-venue="都立産業貿易センター台東館" data-location="東京都 台東区">リリリ(Girls Love Festival36)</option>
-							<option data-name="コミックマーケット101" data-date="2022-12-30" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット101</option>
-							<option data-name="私は君と会えて" data-date="2023-02-18" data-venue="東京文具共和会館" data-location="東京都 台東区">私は君と会えて</option>
-							<option data-name="喫茶リコリコ営業中！3杯目 (スーパーヒロインタイム2023春)" data-date="2023-04-02" data-venue="大田区産業プラザPiO" data-location="東京都 大田区">喫茶リコリコ営業中！3杯目 (スーパーヒロインタイム2023春)</option>
-							<option data-name="リコリスナット4 (サンライズクリエイション京都2023)" data-date="2023-04-16" data-venue="京都みやこめっせ" data-location="京都府 京都市">リコリスナット4 (サンライズクリエイション京都2023)</option>
-							<option data-name="COMIC1☆22" data-date="2023-05-07" data-venue="東京ビッグサイト" data-location="東京都 江東区">COMIC1☆22</option>
-							<option data-name="Comic Horizon 13 －いつか一緒に輝いて－百合向ONLY (Imagination Field 創集絵)" data-date="2023-05-20" data-venue="花博公園 爭艷館" data-location="台湾 台北市">Comic Horizon 13 －いつか一緒に輝いて－百合向ONLY (Imagination Field 創集絵)</option>
-							<option data-name="喫茶リコリコ営業中！4杯目" data-date="2023-05-28" data-venue="大田区産業プラザPiO" data-location="東京都 大田区">喫茶リコリコ営業中！4杯目</option>
-							<option data-name="コミックマーケット102" data-date="2023-08-12" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット102</option>
-							<option data-name="私は君と会えて 2" data-date="2023-09-10" data-venue="川崎市産業振興会館" data-location="神奈川県 川崎市">私は君と会えて 2</option>
-							<option data-name="Comic Horizon 14 －いつか一緒に輝いて－百合向ONLY" data-date="2023-10-07" data-venue="三重総合体育館" data-location="台湾 新北市">Comic Horizon 14 －いつか一緒に輝いて－百合向ONLY</option>
-							<option data-name="GirlsLoveFestival39（ラブフェス202310）" data-date="2023-10-09" data-venue="都立産業貿易センター台東館" data-location="東京都 台東区">GirlsLoveFestival39（ラブフェス202310）</option>
-							<option data-name="コミックマーケット103" data-date="2023-12-30" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット103</option>
-							<option data-name="リコリスナット8 (サンライズクリエイション京都2024春)" data-date="2024-04-07" data-venue="京都みやこめっせ" data-location="京都府 京都市">リコリスナット8 (サンライズクリエイション京都2024春)</option>
-							<option data-name="リコリスナット9 (陸海空魔合同演習2024年春)" data-date="2024-04-29" data-venue="都立産業貿易センター台東館" data-location="東京都 台東区">リコリスナット9 (陸海空魔合同演習2024年春)</option>
-							<option data-name="DAの休日" data-date="2024-06-02" data-venue="KFC Hall Annex" data-location="東京都 墨田区">DAの休日</option>
-							<option data-name="私は君と会えて 3" data-date="2024-07-06" data-venue="東京文具共和会館" data-location="東京都 台東区">私は君と会えて 3</option>
-							<option data-name="コミックマーケット104" data-date="2024-08-11" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット104</option>
-							<option data-name="Comic Horizon 16 －いつか一緒に輝いて－百合向ONLY" data-date="2024-10-12" data-venue="三重総合体育館" data-location="台湾 新北市">Comic Horizon 16 －いつか一緒に輝いて－百合向ONLY</option>
-							<option data-name="COMITIA150" data-date="2024-11-17" data-venue="東京ビッグサイト" data-location="東京都 江東区">COMITIA150</option>
-							<option data-name="コミックマーケット105" data-date="2024-12-29" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット105</option>
-						</select>
+						<div class="mb-3">
+							<label class="form-label" for="referenceWorkSelector">元ネタ</label>
+							<select class="form-select" id="referenceWorkSelector" required>
+								<option data-filter="any" selected>すべて</option>
+								<option data-id="3" data-name="Summer Pockets" data-kana="Summer Pockets">Summer Pockets</option>
+								<option data-id="4" data-name="Unnamed Memory" data-kana="Unnamed Memory">Unnamed Memory</option>
+								<option data-id="2" data-name="転生王女と天才令嬢の魔法革命" data-kana="てんせいおうじょとてんさいれいじょうのまほうかくめい">転生王女と天才令嬢の魔法革命</option>
+								<option data-id="6" data-name="抜きゲーみたいな島に住んでる貧乳はどうすりゃいいですか？" data-kana="ぬきげーみたいなしまにすんでるわたしはどうすりゃいいですか？">抜きゲーみたいな島に住んでる貧乳はどうすりゃいいですか？</option>
+								<option data-id="5" data-name="負けヒロインが多すぎる！" data-kana="まけひろいんがおおすぎる！">負けヒロインが多すぎる！</option>
+								<option data-id="1" data-name="リコリス・リコイル" data-kana="りこりす・りこいる">リコリス・リコイル</option>
+							</select>
+						</div>
+						<div class="mb-3" style="height: 352px">
+							<label class="form-label" for="eventSelector">イベント</label>
+							<select class="form-select" id="eventSelector" required>
+								<option data-filter="any" selected>すべて</option>
+								<option data-name="通販のみ">通販のみ</option>
+								<option data-name="コミックマーケット94" data-date="2018-08-10" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット94</option>
+								<option data-name="KeyPoints14＋KTX" data-date="2018-10-07" data-venue="大田区産業プラザPiO" data-location="東京都 大田区">KeyPoints14＋KTX</option>
+								<option data-name="コミックマーケット96" data-date="2019-08-09" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット96</option>
+								<option data-name="陸海空魔合同演習2022秋フレンズ" data-date="2022-09-25" data-venue="東京ビッグサイト" data-location="東京都 江東区">陸海空魔合同演習2022秋フレンズ</option>
+								<option data-name="Comic Horizon 12 －いつか一緒に輝いて－百合向ONLY" data-date="2022-10-15" data-venue="三重総合体育館" data-location="台湾 新北市">Comic Horizon 12 －いつか一緒に輝いて－百合向ONLY</option>
+								<option data-name="リリリ(Girls Love Festival36)" data-date="2022-11-23" data-venue="都立産業貿易センター台東館" data-location="東京都 台東区">リリリ(Girls Love Festival36)</option>
+								<option data-name="コミックマーケット101" data-date="2022-12-30" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット101</option>
+								<option data-name="私は君と会えて" data-date="2023-02-18" data-venue="東京文具共和会館" data-location="東京都 台東区">私は君と会えて</option>
+								<option data-name="喫茶リコリコ営業中！3杯目 (スーパーヒロインタイム2023春)" data-date="2023-04-02" data-venue="大田区産業プラザPiO" data-location="東京都 大田区">喫茶リコリコ営業中！3杯目 (スーパーヒロインタイム2023春)</option>
+								<option data-name="リコリスナット4 (サンライズクリエイション京都2023)" data-date="2023-04-16" data-venue="京都みやこめっせ" data-location="京都府 京都市">リコリスナット4 (サンライズクリエイション京都2023)</option>
+								<option data-name="COMIC1☆22" data-date="2023-05-07" data-venue="東京ビッグサイト" data-location="東京都 江東区">COMIC1☆22</option>
+								<option data-name="Comic Horizon 13 －いつか一緒に輝いて－百合向ONLY (Imagination Field 創集絵)" data-date="2023-05-20" data-venue="花博公園 爭艷館" data-location="台湾 台北市">Comic Horizon 13 －いつか一緒に輝いて－百合向ONLY (Imagination Field 創集絵)</option>
+								<option data-name="喫茶リコリコ営業中！4杯目" data-date="2023-05-28" data-venue="大田区産業プラザPiO" data-location="東京都 大田区">喫茶リコリコ営業中！4杯目</option>
+								<option data-name="コミックマーケット102" data-date="2023-08-12" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット102</option>
+								<option data-name="私は君と会えて 2" data-date="2023-09-10" data-venue="川崎市産業振興会館" data-location="神奈川県 川崎市">私は君と会えて 2</option>
+								<option data-name="Comic Horizon 14 －いつか一緒に輝いて－百合向ONLY" data-date="2023-10-07" data-venue="三重総合体育館" data-location="台湾 新北市">Comic Horizon 14 －いつか一緒に輝いて－百合向ONLY</option>
+								<option data-name="GirlsLoveFestival39（ラブフェス202310）" data-date="2023-10-09" data-venue="都立産業貿易センター台東館" data-location="東京都 台東区">GirlsLoveFestival39（ラブフェス202310）</option>
+								<option data-name="コミックマーケット103" data-date="2023-12-30" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット103</option>
+								<option data-name="リコリスナット8 (サンライズクリエイション京都2024春)" data-date="2024-04-07" data-venue="京都みやこめっせ" data-location="京都府 京都市">リコリスナット8 (サンライズクリエイション京都2024春)</option>
+								<option data-name="リコリスナット9 (陸海空魔合同演習2024年春)" data-date="2024-04-29" data-venue="都立産業貿易センター台東館" data-location="東京都 台東区">リコリスナット9 (陸海空魔合同演習2024年春)</option>
+								<option data-name="DAの休日" data-date="2024-06-02" data-venue="KFC Hall Annex" data-location="東京都 墨田区">DAの休日</option>
+								<option data-name="私は君と会えて 3" data-date="2024-07-06" data-venue="東京文具共和会館" data-location="東京都 台東区">私は君と会えて 3</option>
+								<option data-name="コミックマーケット104" data-date="2024-08-11" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット104</option>
+								<option data-name="Comic Horizon 16 －いつか一緒に輝いて－百合向ONLY" data-date="2024-10-12" data-venue="三重総合体育館" data-location="台湾 新北市">Comic Horizon 16 －いつか一緒に輝いて－百合向ONLY</option>
+								<option data-name="COMITIA150" data-date="2024-11-17" data-venue="東京ビッグサイト" data-location="東京都 江東区">COMITIA150</option>
+								<option data-name="コミックマーケット105" data-date="2024-12-29" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット105</option>
+							</select>
+						</div>
 					</div>
 				</div>
 			</div>
 		</nav>
 		<main id="fanBookList" class="fanBook-content">
-			<div class="d-flex mb-3">
-				<div class="d-none d-lg-block">
-					<input type="checkbox" class="btn-check" id="btn-filter" autocomplete="off">
-					<label class="btn btn-outline-primary rounded-pill" for="btn-filter"><i class="bi bi-filter me-1"></i>Filters</label>
-				</div>
-				<div class="d-lg-none">
-					<button class="btn btn-outline-primary rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
-						<i class="bi bi-filter me-1"></i>Filters
-					</button>
-				</div>
-				<div id="numberOfData"></div>
-			</div>
-			<div class="list row row-cols-2 row-cols-md-3 row-cols-xxl-4 row-cols-wxg-5 row-cols-fhd-6 row-cols-qhd-8 row-cols-wqp-10 row-cols-uhd-12 g-2 mx-0">
+			<div class="list row row-cols-2 row-cols-md-3 row-cols-xxl-4 row-cols-wxg-5 row-cols-fhd-6 row-cols-qhd-8 row-cols-wqp-10 row-cols-uhd-12 g-2">
 				<div class="col" data-default="1" data-title_kana="わたしはきみとあえて" data-author_kana="Wal-DAM, いすみ">
 					<div class="card h-100">
 						<div class="card-img-area">

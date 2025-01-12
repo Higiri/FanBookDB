@@ -184,6 +184,8 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         });
         handleBlurrySwitch();
+
+        document.getElementById("numberOfData").innerText = `全 ${fanbooks.items.length} 件中 ${fanbooks.matchingItems.length} 件 `;
     };
     document.getElementById("categoryAll").addEventListener("change", () => applyFilters());
     Array.from(document.getElementById("categoryCheckboxes").getElementsByTagName("INPUT")).forEach((checkbox) => {
@@ -193,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("officialSelector").addEventListener("change", () => applyFilters());
     document.getElementById("referenceWorkSelector").addEventListener("change", () => applyFilters());
     document.getElementById("eventSelector").addEventListener("change", () => applyFilters());
-
+    applyFilters();
     // 検索
     document.getElementById("searchInput").addEventListener("input", () => {
         const searchString = document.getElementById("searchInput").value;
