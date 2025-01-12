@@ -137,6 +137,7 @@ fieldset.checkbox-field legend {
 	text-shadow: 2px 0 5px var(--bs-body-bg), -2px 0 5px var(--bs-body-bg), 0 2px 5px var(--bs-body-bg), 0
 		-2px 5px var(--bs-body-bg);
 	padding: 32px 6px 6px 6px;
+	border-radius: 0 0 var(--bs-card-border-radius) var(--bs-card-border-radius);
 }
 
 .title-area {
@@ -466,11 +467,11 @@ input.sort.desc:checked+label::after {
 }
 
 .offcanvas-body {
-	transition: all 0.2s ease-in-out;
+	transition: padding 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .container-fluid {
-	transition: padding-left 0.2s ease-in-out;
+	transition: padding 0.2s ease-in-out;
 }
 
 .sidebar .offcanvas-header h4 {
@@ -486,12 +487,13 @@ input.sort.desc:checked+label::after {
 	left: 0;
 	right: 0;
 	z-index: 1000;
-	transition: all 0.2s ease-in-out;
+	transition: padding 0.2s ease-in-out;
 }
 
 .fanBook-content {
 	margin-top: 98px;
-	padding: 0.75rem 0;
+	padding: 0.5rem 0;
+	transition: margin 0.2s ease-in-out;
 }
 @media (min-width: 768px) {
 	.fanBook-content {
@@ -505,19 +507,20 @@ input.sort.desc:checked+label::after {
 	}
 
 	.sidebar {
+		background-color: var(--bs-tertiary-bg);
 		position: fixed;
 		top: 0;
 		z-index: 1020;
 		margin-bottom: 2rem;
 		border-right: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
-		transition: all 0.2s ease-in-out;
+		transition: opacity 0.2s ease-in-out, padding 0.2s ease-in-out, transform 0.2s ease-in-out;
 		opacity: 1;
 	}
 
 	.sidebar .offcanvas-body {
 		height: calc(100vh - 3.5rem);
 		overflow-y: auto;
-		padding: 0.75rem 0.5rem 3.5rem 0.75rem;
+		padding: 0.5rem 0.5rem 3.5rem 0.75rem;
 		width: 348px;
 	}
 
@@ -536,7 +539,6 @@ input.sort.desc:checked+label::after {
 	.fanBook-content {
 		position: relative;
 		display: block;
-		transition: all 0.2s ease-in-out;
 	}
 
 	.main-header:has( + .container-fluid .sidebar:not(.hidden-filter)) {
