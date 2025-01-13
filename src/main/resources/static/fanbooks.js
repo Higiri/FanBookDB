@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
             option: (data, escape) => {
                 const html =
                     "<div>" +
-                    escape(data.value) +
+                    escape(data.text) +
                     (data.date || data.venue ? '<div class="ms-4 d-flex flex-wrap gap-0 column-gap-2">' : "") +
                     (data.date ? '<span class="combo-subtext">' + escape(data.date) + "</span>" : "") +
                     (data.venue ? '<span class="combo-subtext">' + escape(data.venue) + "</span>" : "") +
