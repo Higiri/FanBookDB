@@ -5,7 +5,6 @@
 	<title>蔵書DB</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" /> -->
 	<link rel="stylesheet" href="tom-select.css">
 	<link rel="stylesheet" href="bootstrap_Higiri.css">
 	<link rel="stylesheet" href="style.css">
@@ -89,7 +88,7 @@
 			</div>
 			<div class="d-none d-lg-block order-md-1">
 				<input type="checkbox" class="btn-check" id="btn-filter" autocomplete="off">
-				<label class="btn btn-outline-primary rounded-pill" for="btn-filter"><i class="bi material-symbols-outlined me-1">tune</i>Filters</label>
+				<label class="btn btn-outline-primary rounded-pill" for="btn-filter"><i id="filter-icon" class="bi material-symbols-outlined me-1">tune</i>Filters</label>
 			</div>
 			<div class="d-lg-none order-md-1">
 				<button class="btn btn-outline-primary rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
@@ -98,7 +97,7 @@
 			</div>
 			<div class="order-md-3 me-auto">
 				<input type="checkbox" class="btn-check" id="blurrySwitch" autocomplete="off" checked>
-				<label class="btn btn-outline-primary rounded-pill" for="blurrySwitch"><i class="bi material-symbols-outlined me-1">blur_on</i>Blur</label>
+				<label class="btn btn-outline-primary rounded-pill" for="blurrySwitch"><i id="blur-icon" class="bi material-symbols-outlined me-1">blur_on</i>Blur</label>
 			</div>
 			<div class="align-self-end dropdown order-md-4 d-none d-sm-block">
 				<button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Link</button>
@@ -118,8 +117,9 @@
 	<div class="container-fluid">
 		<nav id="filter-area" class="sidebar hidden-filter">
 			<div class="offcanvas-lg offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvas">
-				<div class="offcanvas-header bg-body-tertiary d-md-flex" style="height: 54px;">
-					<h4 class="offcanvas-title" id="offcanvasScrollingLabel"><i class="bi material-symbols-outlined me-2">manage_search</i>Sort & Filter</h4>
+				<div class="offcanvas-header d-md-flex" style="height: 54px;">
+					<h4 class="offcanvas-title me-auto" id="offcanvasScrollingLabel"><i class="bi material-symbols-outlined me-2">manage_search</i>Sort & Filter</h4>
+					<button id="filter-reset" type="button" class="btn-filter-reset me-0"></button>
 					<button type="button" class="btn-close d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#offcanvas" aria-label="Close"></button>
 					<label class="btn-close d-none d-lg-block" for="btn-filter" aria-label="Close"></label>
 				</div>
@@ -144,7 +144,7 @@
 						<div class="row g-2 mb-3">
 							<div class="col-6">
 								<fieldset class="checkbox-field">
-									<legend>カテゴリ</legend>
+									<legend><i class="bi material-symbols-outlined me-1">category</i>カテゴリ</legend>
 									<div class="ms-3">
 										<div class="form-check">
 											<input class="form-check-input" type="checkbox" id="categoryAll" value="any" checked>
@@ -161,7 +161,7 @@
 							</div>
 							<div class="col-6">
 								<div class="mb-4">
-									<label class="form-label" for="ratingSelector">年齢制限</label>
+									<label class="form-label" for="ratingSelector"><i class="bi material-symbols-outlined me-1">18_up_rating</i>年齢制限</label>
 									<select class="form-select" id="ratingSelector" required>
 										<option value="all" selected>すべて</option>
 										<option value="without">全年齢のみ</option>
@@ -169,7 +169,7 @@
 									</select>
 								</div>
 								<div class="">
-									<label class="form-label" for="officialSelector">作者分類</label>
+									<label class="form-label" for="officialSelector"><i class="bi material-symbols-outlined me-1">person</i>作者分類</label>
 									<select class="form-select" id="officialSelector" required>
 										<option value="all" selected>すべて</option>
 										<option value="only">公式作者</option>
@@ -179,17 +179,17 @@
 							</div>
 						</div>
 						<div class="mb-3">
-							<label class="form-label" for="referenceWorkSelector">元ネタ</label>
+							<label class="form-label" for="referenceWorkSelector"><i class="bi material-symbols-outlined me-1">palette</i>元ネタ</label>
 							<select class="form-select" id="referenceWorkSelector" required>
-								<option data-filter="any" selected>すべて</option>
-								<option th:each="reference_work : ${reference_works}" th:object="${reference_works}" th:data-id="${reference_work.id}" th:data-name="${reference_work.name}" th:data-kana="${reference_work.kana}" th:text="${reference_work.name}"></option>
+								<option data-filter="any" value="any" selected>すべて</option>
+								<option th:each="reference_work : ${reference_works}" th:object="${reference_works}" th:value="${reference_work.name}" th:data-id="${reference_work.id}" th:data-name="${reference_work.name}" th:data-kana="${reference_work.kana}" th:text="${reference_work.name}"></option>
 							</select>
 						</div>
 						<div class="mb-3" style="height: 352px">
-							<label class="form-label" for="eventSelector">イベント</label>
+							<label class="form-label" for="eventSelector"><i class="bi material-symbols-outlined me-1">event</i>イベント</label>
 							<select class="form-select" id="eventSelector" required>
-								<option data-filter="any" selected>すべて</option>
-								<option th:each="event : ${events}" th:object="${events}" th:data-name="${event.name}" th:data-date="${event.date}" th:data-venue="${event.venue}" th:data-location="${event.location}" th:text="${event.name}"></option>
+								<option data-filter="any" value="any" selected>すべて</option>
+								<option th:each="event : ${events}" th:object="${events}" th:value="${event.name}" th:data-name="${event.name}" th:data-date="${event.date}" th:data-venue="${event.venue}" th:data-location="${event.location}" th:text="${event.name}"></option>
 							</select>
 						</div>
 					</div>
@@ -278,7 +278,7 @@
 													</tr>
 													<tr th:if="*{genre}">
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap" th:utext="*{genre}"></td>
+														<td class="word-wrap genre" th:utext="*{genre}"></td>
 													</tr>
 													<tr th:if="*{summary}">
 														<th scope="col">概要</th>

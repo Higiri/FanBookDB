@@ -89,7 +89,7 @@
 			</div>
 			<div class="d-none d-lg-block order-md-1">
 				<input type="checkbox" class="btn-check" id="btn-filter" autocomplete="off">
-				<label class="btn btn-outline-primary rounded-pill" for="btn-filter"><i class="bi material-symbols-outlined me-1">tune</i>Filters</label>
+				<label class="btn btn-outline-primary rounded-pill" for="btn-filter"><i id="filter-icon" class="bi material-symbols-outlined me-1">tune</i>Filters</label>
 			</div>
 			<div class="d-lg-none order-md-1">
 				<button class="btn btn-outline-primary rounded-pill" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
@@ -98,7 +98,7 @@
 			</div>
 			<div class="order-md-3 me-auto">
 				<input type="checkbox" class="btn-check" id="blurrySwitch" autocomplete="off" checked>
-				<label class="btn btn-outline-primary rounded-pill" for="blurrySwitch"><i class="bi material-symbols-outlined me-1">blur_on</i>Blur</label>
+				<label class="btn btn-outline-primary rounded-pill" for="blurrySwitch"><i id="blur-icon" class="bi material-symbols-outlined me-1">blur_on</i>Blur</label>
 			</div>
 			<div class="align-self-end dropdown order-md-4 d-none d-sm-block">
 				<button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Link</button>
@@ -118,8 +118,9 @@
 	<div class="container-fluid">
 		<nav id="filter-area" class="sidebar hidden-filter">
 			<div class="offcanvas-lg offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvas">
-				<div class="offcanvas-header bg-body-tertiary d-md-flex" style="height: 54px;">
-					<h4 class="offcanvas-title" id="offcanvasScrollingLabel"><i class="bi material-symbols-outlined me-2">manage_search</i>Sort & Filter</h4>
+				<div class="offcanvas-header d-md-flex" style="height: 54px;">
+					<h4 class="offcanvas-title me-auto" id="offcanvasScrollingLabel"><i class="bi material-symbols-outlined me-2">manage_search</i>Sort & Filter</h4>
+					<button id="filter-reset" type="button" class="btn-filter-reset me-0"></button>
 					<button type="button" class="btn-close d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#offcanvas" aria-label="Close"></button>
 					<label class="btn-close d-none d-lg-block" for="btn-filter" aria-label="Close"></label>
 				</div>
@@ -144,7 +145,7 @@
 						<div class="row g-2 mb-3">
 							<div class="col-6">
 								<fieldset class="checkbox-field">
-									<legend>カテゴリ</legend>
+									<legend><i class="bi material-symbols-outlined me-1">category</i>カテゴリ</legend>
 									<div class="ms-3">
 										<div class="form-check">
 											<input class="form-check-input" type="checkbox" id="categoryAll" value="any" checked>
@@ -185,7 +186,7 @@
 							</div>
 							<div class="col-6">
 								<div class="mb-4">
-									<label class="form-label" for="ratingSelector">年齢制限</label>
+									<label class="form-label" for="ratingSelector"><i class="bi material-symbols-outlined me-1">18_up_rating</i>年齢制限</label>
 									<select class="form-select" id="ratingSelector" required>
 										<option value="all" selected>すべて</option>
 										<option value="without">全年齢のみ</option>
@@ -193,7 +194,7 @@
 									</select>
 								</div>
 								<div class="">
-									<label class="form-label" for="officialSelector">作者分類</label>
+									<label class="form-label" for="officialSelector"><i class="bi material-symbols-outlined me-1">person</i>作者分類</label>
 									<select class="form-select" id="officialSelector" required>
 										<option value="all" selected>すべて</option>
 										<option value="only">公式作者</option>
@@ -203,48 +204,48 @@
 							</div>
 						</div>
 						<div class="mb-3">
-							<label class="form-label" for="referenceWorkSelector">元ネタ</label>
+							<label class="form-label" for="referenceWorkSelector"><i class="bi material-symbols-outlined me-1">palette</i>元ネタ</label>
 							<select class="form-select" id="referenceWorkSelector" required>
-								<option data-filter="any" selected>すべて</option>
-								<option data-id="3" data-name="Summer Pockets" data-kana="Summer Pockets">Summer Pockets</option>
-								<option data-id="4" data-name="Unnamed Memory" data-kana="Unnamed Memory">Unnamed Memory</option>
-								<option data-id="2" data-name="転生王女と天才令嬢の魔法革命" data-kana="てんせいおうじょとてんさいれいじょうのまほうかくめい">転生王女と天才令嬢の魔法革命</option>
-								<option data-id="6" data-name="抜きゲーみたいな島に住んでる貧乳はどうすりゃいいですか？" data-kana="ぬきげーみたいなしまにすんでるわたしはどうすりゃいいですか？">抜きゲーみたいな島に住んでる貧乳はどうすりゃいいですか？</option>
-								<option data-id="5" data-name="負けヒロインが多すぎる！" data-kana="まけひろいんがおおすぎる！">負けヒロインが多すぎる！</option>
-								<option data-id="1" data-name="リコリス・リコイル" data-kana="りこりす・りこいる">リコリス・リコイル</option>
+								<option data-filter="any" value="any" selected>すべて</option>
+								<option value="Summer Pockets" data-id="3" data-name="Summer Pockets" data-kana="Summer Pockets">Summer Pockets</option>
+								<option value="Unnamed Memory" data-id="4" data-name="Unnamed Memory" data-kana="Unnamed Memory">Unnamed Memory</option>
+								<option value="転生王女と天才令嬢の魔法革命" data-id="2" data-name="転生王女と天才令嬢の魔法革命" data-kana="てんせいおうじょとてんさいれいじょうのまほうかくめい">転生王女と天才令嬢の魔法革命</option>
+								<option value="抜きゲーみたいな島に住んでる貧乳はどうすりゃいいですか？" data-id="6" data-name="抜きゲーみたいな島に住んでる貧乳はどうすりゃいいですか？" data-kana="ぬきげーみたいなしまにすんでるわたしはどうすりゃいいですか？">抜きゲーみたいな島に住んでる貧乳はどうすりゃいいですか？</option>
+								<option value="負けヒロインが多すぎる！" data-id="5" data-name="負けヒロインが多すぎる！" data-kana="まけひろいんがおおすぎる！">負けヒロインが多すぎる！</option>
+								<option value="リコリス・リコイル" data-id="1" data-name="リコリス・リコイル" data-kana="りこりす・りこいる">リコリス・リコイル</option>
 							</select>
 						</div>
 						<div class="mb-3" style="height: 352px">
-							<label class="form-label" for="eventSelector">イベント</label>
+							<label class="form-label" for="eventSelector"><i class="bi material-symbols-outlined me-1">event</i>イベント</label>
 							<select class="form-select" id="eventSelector" required>
-								<option data-filter="any" selected>すべて</option>
-								<option data-name="通販のみ">通販のみ</option>
-								<option data-name="コミックマーケット94" data-date="2018-08-10" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット94</option>
-								<option data-name="KeyPoints14＋KTX" data-date="2018-10-07" data-venue="大田区産業プラザPiO" data-location="東京都 大田区">KeyPoints14＋KTX</option>
-								<option data-name="コミックマーケット96" data-date="2019-08-09" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット96</option>
-								<option data-name="陸海空魔合同演習2022秋フレンズ" data-date="2022-09-25" data-venue="東京ビッグサイト" data-location="東京都 江東区">陸海空魔合同演習2022秋フレンズ</option>
-								<option data-name="Comic Horizon 12 －いつか一緒に輝いて－百合向ONLY" data-date="2022-10-15" data-venue="三重総合体育館" data-location="台湾 新北市">Comic Horizon 12 －いつか一緒に輝いて－百合向ONLY</option>
-								<option data-name="リリリ(Girls Love Festival36)" data-date="2022-11-23" data-venue="都立産業貿易センター台東館" data-location="東京都 台東区">リリリ(Girls Love Festival36)</option>
-								<option data-name="コミックマーケット101" data-date="2022-12-30" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット101</option>
-								<option data-name="私は君と会えて" data-date="2023-02-18" data-venue="東京文具共和会館" data-location="東京都 台東区">私は君と会えて</option>
-								<option data-name="喫茶リコリコ営業中！3杯目 (スーパーヒロインタイム2023春)" data-date="2023-04-02" data-venue="大田区産業プラザPiO" data-location="東京都 大田区">喫茶リコリコ営業中！3杯目 (スーパーヒロインタイム2023春)</option>
-								<option data-name="リコリスナット4 (サンライズクリエイション京都2023)" data-date="2023-04-16" data-venue="京都みやこめっせ" data-location="京都府 京都市">リコリスナット4 (サンライズクリエイション京都2023)</option>
-								<option data-name="COMIC1☆22" data-date="2023-05-07" data-venue="東京ビッグサイト" data-location="東京都 江東区">COMIC1☆22</option>
-								<option data-name="Comic Horizon 13 －いつか一緒に輝いて－百合向ONLY (Imagination Field 創集絵)" data-date="2023-05-20" data-venue="花博公園 爭艷館" data-location="台湾 台北市">Comic Horizon 13 －いつか一緒に輝いて－百合向ONLY (Imagination Field 創集絵)</option>
-								<option data-name="喫茶リコリコ営業中！4杯目" data-date="2023-05-28" data-venue="大田区産業プラザPiO" data-location="東京都 大田区">喫茶リコリコ営業中！4杯目</option>
-								<option data-name="コミックマーケット102" data-date="2023-08-12" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット102</option>
-								<option data-name="私は君と会えて 2" data-date="2023-09-10" data-venue="川崎市産業振興会館" data-location="神奈川県 川崎市">私は君と会えて 2</option>
-								<option data-name="Comic Horizon 14 －いつか一緒に輝いて－百合向ONLY" data-date="2023-10-07" data-venue="三重総合体育館" data-location="台湾 新北市">Comic Horizon 14 －いつか一緒に輝いて－百合向ONLY</option>
-								<option data-name="GirlsLoveFestival39（ラブフェス202310）" data-date="2023-10-09" data-venue="都立産業貿易センター台東館" data-location="東京都 台東区">GirlsLoveFestival39（ラブフェス202310）</option>
-								<option data-name="コミックマーケット103" data-date="2023-12-30" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット103</option>
-								<option data-name="リコリスナット8 (サンライズクリエイション京都2024春)" data-date="2024-04-07" data-venue="京都みやこめっせ" data-location="京都府 京都市">リコリスナット8 (サンライズクリエイション京都2024春)</option>
-								<option data-name="リコリスナット9 (陸海空魔合同演習2024年春)" data-date="2024-04-29" data-venue="都立産業貿易センター台東館" data-location="東京都 台東区">リコリスナット9 (陸海空魔合同演習2024年春)</option>
-								<option data-name="DAの休日" data-date="2024-06-02" data-venue="KFC Hall Annex" data-location="東京都 墨田区">DAの休日</option>
-								<option data-name="私は君と会えて 3" data-date="2024-07-06" data-venue="東京文具共和会館" data-location="東京都 台東区">私は君と会えて 3</option>
-								<option data-name="コミックマーケット104" data-date="2024-08-11" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット104</option>
-								<option data-name="Comic Horizon 16 －いつか一緒に輝いて－百合向ONLY" data-date="2024-10-12" data-venue="三重総合体育館" data-location="台湾 新北市">Comic Horizon 16 －いつか一緒に輝いて－百合向ONLY</option>
-								<option data-name="COMITIA150" data-date="2024-11-17" data-venue="東京ビッグサイト" data-location="東京都 江東区">COMITIA150</option>
-								<option data-name="コミックマーケット105" data-date="2024-12-29" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット105</option>
+								<option data-filter="any" value="any" selected>すべて</option>
+								<option value="通販のみ" data-name="通販のみ">通販のみ</option>
+								<option value="コミックマーケット94" data-name="コミックマーケット94" data-date="2018-08-10" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット94</option>
+								<option value="KeyPoints14＋KTX" data-name="KeyPoints14＋KTX" data-date="2018-10-07" data-venue="大田区産業プラザPiO" data-location="東京都 大田区">KeyPoints14＋KTX</option>
+								<option value="コミックマーケット96" data-name="コミックマーケット96" data-date="2019-08-09" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット96</option>
+								<option value="陸海空魔合同演習2022秋フレンズ" data-name="陸海空魔合同演習2022秋フレンズ" data-date="2022-09-25" data-venue="東京ビッグサイト" data-location="東京都 江東区">陸海空魔合同演習2022秋フレンズ</option>
+								<option value="Comic Horizon 12 －いつか一緒に輝いて－百合向ONLY" data-name="Comic Horizon 12 －いつか一緒に輝いて－百合向ONLY" data-date="2022-10-15" data-venue="三重総合体育館" data-location="台湾 新北市">Comic Horizon 12 －いつか一緒に輝いて－百合向ONLY</option>
+								<option value="リリリ(Girls Love Festival36)" data-name="リリリ(Girls Love Festival36)" data-date="2022-11-23" data-venue="都立産業貿易センター台東館" data-location="東京都 台東区">リリリ(Girls Love Festival36)</option>
+								<option value="コミックマーケット101" data-name="コミックマーケット101" data-date="2022-12-30" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット101</option>
+								<option value="私は君と会えて" data-name="私は君と会えて" data-date="2023-02-18" data-venue="東京文具共和会館" data-location="東京都 台東区">私は君と会えて</option>
+								<option value="喫茶リコリコ営業中！3杯目 (スーパーヒロインタイム2023春)" data-name="喫茶リコリコ営業中！3杯目 (スーパーヒロインタイム2023春)" data-date="2023-04-02" data-venue="大田区産業プラザPiO" data-location="東京都 大田区">喫茶リコリコ営業中！3杯目 (スーパーヒロインタイム2023春)</option>
+								<option value="リコリスナット4 (サンライズクリエイション京都2023)" data-name="リコリスナット4 (サンライズクリエイション京都2023)" data-date="2023-04-16" data-venue="京都みやこめっせ" data-location="京都府 京都市">リコリスナット4 (サンライズクリエイション京都2023)</option>
+								<option value="COMIC1☆22" data-name="COMIC1☆22" data-date="2023-05-07" data-venue="東京ビッグサイト" data-location="東京都 江東区">COMIC1☆22</option>
+								<option value="Comic Horizon 13 －いつか一緒に輝いて－百合向ONLY (Imagination Field 創集絵)" data-name="Comic Horizon 13 －いつか一緒に輝いて－百合向ONLY (Imagination Field 創集絵)" data-date="2023-05-20" data-venue="花博公園 爭艷館" data-location="台湾 台北市">Comic Horizon 13 －いつか一緒に輝いて－百合向ONLY (Imagination Field 創集絵)</option>
+								<option value="喫茶リコリコ営業中！4杯目" data-name="喫茶リコリコ営業中！4杯目" data-date="2023-05-28" data-venue="大田区産業プラザPiO" data-location="東京都 大田区">喫茶リコリコ営業中！4杯目</option>
+								<option value="コミックマーケット102" data-name="コミックマーケット102" data-date="2023-08-12" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット102</option>
+								<option value="私は君と会えて 2" data-name="私は君と会えて 2" data-date="2023-09-10" data-venue="川崎市産業振興会館" data-location="神奈川県 川崎市">私は君と会えて 2</option>
+								<option value="Comic Horizon 14 －いつか一緒に輝いて－百合向ONLY" data-name="Comic Horizon 14 －いつか一緒に輝いて－百合向ONLY" data-date="2023-10-07" data-venue="三重総合体育館" data-location="台湾 新北市">Comic Horizon 14 －いつか一緒に輝いて－百合向ONLY</option>
+								<option value="GirlsLoveFestival39（ラブフェス202310）" data-name="GirlsLoveFestival39（ラブフェス202310）" data-date="2023-10-09" data-venue="都立産業貿易センター台東館" data-location="東京都 台東区">GirlsLoveFestival39（ラブフェス202310）</option>
+								<option value="コミックマーケット103" data-name="コミックマーケット103" data-date="2023-12-30" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット103</option>
+								<option value="リコリスナット8 (サンライズクリエイション京都2024春)" data-name="リコリスナット8 (サンライズクリエイション京都2024春)" data-date="2024-04-07" data-venue="京都みやこめっせ" data-location="京都府 京都市">リコリスナット8 (サンライズクリエイション京都2024春)</option>
+								<option value="リコリスナット9 (陸海空魔合同演習2024年春)" data-name="リコリスナット9 (陸海空魔合同演習2024年春)" data-date="2024-04-29" data-venue="都立産業貿易センター台東館" data-location="東京都 台東区">リコリスナット9 (陸海空魔合同演習2024年春)</option>
+								<option value="DAの休日" data-name="DAの休日" data-date="2024-06-02" data-venue="KFC Hall Annex" data-location="東京都 墨田区">DAの休日</option>
+								<option value="私は君と会えて 3" data-name="私は君と会えて 3" data-date="2024-07-06" data-venue="東京文具共和会館" data-location="東京都 台東区">私は君と会えて 3</option>
+								<option value="コミックマーケット104" data-name="コミックマーケット104" data-date="2024-08-11" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット104</option>
+								<option value="Comic Horizon 16 －いつか一緒に輝いて－百合向ONLY" data-name="Comic Horizon 16 －いつか一緒に輝いて－百合向ONLY" data-date="2024-10-12" data-venue="三重総合体育館" data-location="台湾 新北市">Comic Horizon 16 －いつか一緒に輝いて－百合向ONLY</option>
+								<option value="COMITIA150" data-name="COMITIA150" data-date="2024-11-17" data-venue="東京ビッグサイト" data-location="東京都 江東区">COMITIA150</option>
+								<option value="コミックマーケット105" data-name="コミックマーケット105" data-date="2024-12-29" data-venue="東京ビッグサイト" data-location="東京都 江東区">コミックマーケット105</option>
 							</select>
 						</div>
 					</div>
@@ -430,7 +431,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">現パロ/現代パロディ</td>
+														<td class="word-wrap genre">現パロ/現代パロディ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -537,7 +538,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ファンアートイラスト集</td>
+														<td class="word-wrap genre">ファンアートイラスト集</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -643,7 +644,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">設定資料集</td>
+														<td class="word-wrap genre">設定資料集</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -752,7 +753,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">設定資料集</td>
+														<td class="word-wrap genre">設定資料集</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -859,7 +860,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">設定資料集</td>
+														<td class="word-wrap genre">設定資料集</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -966,7 +967,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">設定資料集</td>
+														<td class="word-wrap genre">設定資料集</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -1073,7 +1074,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">設定資料集</td>
+														<td class="word-wrap genre">設定資料集</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -1177,7 +1178,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">設定資料集</td>
+														<td class="word-wrap genre">設定資料集</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -1284,7 +1285,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">設定資料集</td>
+														<td class="word-wrap genre">設定資料集</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -1391,7 +1392,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">SummerPockets合同誌</td>
+														<td class="word-wrap genre">SummerPockets合同誌</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -1598,7 +1599,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">バリタち小説合同本</td>
+														<td class="word-wrap genre">バリタち小説合同本</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -1705,7 +1706,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -1809,7 +1810,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -1913,7 +1914,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">リコリス</td>
+														<td class="word-wrap genre">リコリス</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -2019,7 +2020,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -2123,7 +2124,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">かばのり</td>
+														<td class="word-wrap genre">かばのり</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -2229,7 +2230,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -2434,7 +2435,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">サマポケ</td>
+														<td class="word-wrap genre">サマポケ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -2537,7 +2538,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ユフィアニ</td>
+														<td class="word-wrap genre">ユフィアニ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -2639,7 +2640,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ユフィアニ</td>
+														<td class="word-wrap genre">ユフィアニ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -2741,7 +2742,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ユフィアニ</td>
+														<td class="word-wrap genre">ユフィアニ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -2846,7 +2847,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ユフィアニ現パロ</td>
+														<td class="word-wrap genre">ユフィアニ現パロ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -2953,7 +2954,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ユフィアニftnr</td>
+														<td class="word-wrap genre">ユフィアニftnr</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -3055,7 +3056,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたきリバ</td>
+														<td class="word-wrap genre">ちさたきリバ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -3361,7 +3362,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -3463,7 +3464,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき体調不良SS</td>
+														<td class="word-wrap genre">ちさたき体調不良SS</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -3567,7 +3568,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -3671,7 +3672,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">たきちさ</td>
+														<td class="word-wrap genre">たきちさ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -3775,7 +3776,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき(25:24)</td>
+														<td class="word-wrap genre">ちさたき(25:24)</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -3877,7 +3878,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき(25:3)</td>
+														<td class="word-wrap genre">ちさたき(25:3)</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -3981,7 +3982,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき(25:12)</td>
+														<td class="word-wrap genre">ちさたき(25:12)</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -4085,7 +4086,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき(25:12) 千束ふたなり</td>
+														<td class="word-wrap genre">ちさたき(25:12) 千束ふたなり</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -4189,7 +4190,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -4291,7 +4292,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -4393,7 +4394,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき ケモたきな</td>
+														<td class="word-wrap genre">ちさたき ケモたきな</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -4894,7 +4895,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -4998,7 +4999,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -5300,7 +5301,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -5402,7 +5403,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">リコリス・リコイル</td>
+														<td class="word-wrap genre">リコリス・リコイル</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -6002,7 +6003,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -6104,7 +6105,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -6209,7 +6210,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -6410,7 +6411,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -6710,7 +6711,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -7109,7 +7110,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -7510,7 +7511,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -7612,7 +7613,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき事前事後</td>
+														<td class="word-wrap genre">ちさたき事前事後</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -7716,7 +7717,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき宮古島初夜本</td>
+														<td class="word-wrap genre">ちさたき宮古島初夜本</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -7820,7 +7821,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">たきちさ オメガバ</td>
+														<td class="word-wrap genre">たきちさ オメガバ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -7922,7 +7923,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -8327,7 +8328,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -8831,7 +8832,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -8935,7 +8936,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -9239,7 +9240,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたきリバあり</td>
+														<td class="word-wrap genre">ちさたきリバあり</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -9343,7 +9344,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -9444,7 +9445,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -9947,7 +9948,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -10343,7 +10344,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき転生パロ</td>
+														<td class="word-wrap genre">ちさたき転生パロ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -10639,7 +10640,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">たきちさ</td>
+														<td class="word-wrap genre">たきちさ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -10741,7 +10742,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ミズキとクルミ</td>
+														<td class="word-wrap genre">ミズキとクルミ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -11239,7 +11240,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき、フキサク</td>
+														<td class="word-wrap genre">ちさたき、フキサク</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -11840,7 +11841,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">かばのり</td>
+														<td class="word-wrap genre">かばのり</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -12236,7 +12237,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -12340,7 +12341,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -12442,7 +12443,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -12544,7 +12545,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき概念ポストまとめ本</td>
+														<td class="word-wrap genre">ちさたき概念ポストまとめ本</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -12951,7 +12952,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -13154,7 +13155,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -14058,7 +14059,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">アルファたきな×オメガ千束</td>
+														<td class="word-wrap genre">アルファたきな×オメガ千束</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -14160,7 +14161,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -14265,7 +14266,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -14367,7 +14368,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">執事たきな×お嬢様千束</td>
+														<td class="word-wrap genre">執事たきな×お嬢様千束</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -14469,7 +14470,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">狐神千束×人間たきな</td>
+														<td class="word-wrap genre">狐神千束×人間たきな</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -14672,7 +14673,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -14774,7 +14775,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき学パロ</td>
+														<td class="word-wrap genre">ちさたき学パロ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -14977,7 +14978,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -15279,7 +15280,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">アニメ後半イラスト</td>
+														<td class="word-wrap genre">アニメ後半イラスト</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -15579,7 +15580,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -15681,7 +15682,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -16082,7 +16083,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -16184,7 +16185,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">たきちさ</td>
+														<td class="word-wrap genre">たきちさ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -16288,7 +16289,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">たきちさ</td>
+														<td class="word-wrap genre">たきちさ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -16392,7 +16393,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき社会人パロ</td>
+														<td class="word-wrap genre">ちさたき社会人パロ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -16694,7 +16695,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -16798,7 +16799,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -16900,7 +16901,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">リコリス・リコイル</td>
+														<td class="word-wrap genre">リコリス・リコイル</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -17501,7 +17502,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき、けもみみパロ</td>
+														<td class="word-wrap genre">ちさたき、けもみみパロ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -17603,7 +17604,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -17804,7 +17805,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -17906,7 +17907,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">リコリス・リコイル</td>
+														<td class="word-wrap genre">リコリス・リコイル</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -18008,7 +18009,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -18615,7 +18616,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -18719,7 +18720,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -18823,7 +18824,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -18927,7 +18928,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたきオメガバース</td>
+														<td class="word-wrap genre">ちさたきオメガバース</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -19031,7 +19032,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -19133,7 +19134,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -19537,7 +19538,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -19639,7 +19640,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -20128,7 +20129,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき学パロ</td>
+														<td class="word-wrap genre">ちさたき学パロ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -20232,7 +20233,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">たきちさオメガバース</td>
+														<td class="word-wrap genre">たきちさオメガバース</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -20336,7 +20337,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">たきちさオメガバース</td>
+														<td class="word-wrap genre">たきちさオメガバース</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -20940,7 +20941,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたきオメガバース</td>
+														<td class="word-wrap genre">ちさたきオメガバース</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -21042,7 +21043,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -21449,7 +21450,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">たきちさ (ft)</td>
+														<td class="word-wrap genre">たきちさ (ft)</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -21848,7 +21849,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -21950,7 +21951,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -22052,7 +22053,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -22457,7 +22458,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -22559,7 +22560,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -22663,7 +22664,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -22866,7 +22867,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -23067,7 +23068,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">リコリコ 全年齢SS</td>
+														<td class="word-wrap genre">リコリコ 全年齢SS</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -23468,7 +23469,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -23572,7 +23573,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -23676,7 +23677,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -23976,7 +23977,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -24078,7 +24079,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -24182,7 +24183,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -24286,7 +24287,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">たきちさ</td>
+														<td class="word-wrap genre">たきちさ</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -24390,7 +24391,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたき</td>
+														<td class="word-wrap genre">ちさたき</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -24494,7 +24495,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたきオメガバース</td>
+														<td class="word-wrap genre">ちさたきオメガバース</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>
@@ -24598,7 +24599,7 @@
 													</tr>
 													<tr>
 														<th scope="col">ジャンル</th>
-														<td class="word-wrap">ちさたきオメガバース</td>
+														<td class="word-wrap genre">ちさたきオメガバース</td>
 													</tr>
 													<tr>
 														<th scope="col">概要</th>

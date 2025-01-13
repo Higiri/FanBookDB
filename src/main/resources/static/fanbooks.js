@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "event",
             "rating",
             "official",
+            "genre",
             { data: ["default"] },
             { data: ["title_kana"] },
             { data: ["author_kana"] },
@@ -68,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
             paginationClass: "pagination",
             item: `<li class="page-item"><button class="page page-link" type="button"></button></li>`,
         },
-        searchColumns: ["title", "title_kana", "author", "author_kana", "event", "date", "category"],
+        searchColumns: ["title", "title_kana", "author", "author_kana", "event", "date", "category", "genre"],
     };
 
     const fanbooks = new List("fanBookList", options);
@@ -80,9 +81,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //ぼかしスイッチ切り替え時の処理
     const handleBlurrySwitch = () => {
-        document.querySelectorAll(".image-overlay").forEach((imageOverlay) => {
+        Array.from(document.getElementsByClassName("image-overlay")).forEach((imageOverlay) => {
             imageOverlay.style.display = document.getElementById("blurrySwitch").checked ? "block" : "none";
         });
+
+        if (document.getElementById('blurrySwitch').checked) {
+            document.getElementById('blur-icon').innerHTML = "blur_off";
+        } else {
+            document.getElementById('blur-icon').innerHTML = "blur_on";
+        }
     };
 
     //更新時にぼかしスイッチの確認
@@ -138,11 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     settingPagenation();
 
     //ぼかしスイッチの切り替えを確認
-    document.addEventListener("change", (event) => {
-        if (event.target && event.target.id === "blurrySwitch") {
-            handleBlurrySwitch();
-        }
-    });
+    document.addEventListener("change", () => handleBlurrySwitch());
 
     // ページネーション押下時の処理
     document.querySelector(".pagination").addEventListener("click", (event) => {
@@ -158,11 +161,16 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('btn-filter').addEventListener('click', () => {
         if (document.getElementById('btn-filter').checked) {
             document.getElementById('filter-area').classList.remove('hidden-filter');
+            document.getElementById('filter-icon').innerHTML = "close";
         } else {
             document.getElementById('filter-area').classList.add('hidden-filter');
+            document.getElementById('filter-icon').innerHTML = "tune";
         }
     });
 
+    const updateNumberOfData = () => {
+        document.getElementById("numberOfData").innerText = `${fanbooks.matchingItems.length}/${fanbooks.items.length}`;
+    }
     //フィルター
     const applyFilters = () => {
         const categoryCheckboxes = Array.from(document.getElementById("categoryCheckboxes").getElementsByTagName("INPUT"))
@@ -179,13 +187,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 categoryCheckboxes.includes(item.values().category) &&
                 (ratingSelected === "all" || (ratingSelected === "without" && !item.values().rating) || (ratingSelected === "only" && item.values().rating)) &&
                 (officialSelected === "all" || (officialSelected === "without" && !item.values().official) || (officialSelected === "only" && item.values().official)) &&
-                (referenceWorkSelected === "すべて" || referenceWorkSelected.includes(item.values().reference_work)) &&
-                (eventSelected === "すべて" || eventSelected.includes(item.values().event))
+                (referenceWorkSelected === "any" || referenceWorkSelected.includes(item.values().reference_work)) &&
+                (eventSelected === "any" || eventSelected.includes(item.values().event))
             );
         });
         handleBlurrySwitch();
-
-        document.getElementById("numberOfData").innerText = `全 ${fanbooks.items.length} 件中 ${fanbooks.matchingItems.length} 件 `;
+        updateNumberOfData();
     };
     document.getElementById("categoryAll").addEventListener("change", () => applyFilters());
     Array.from(document.getElementById("categoryCheckboxes").getElementsByTagName("INPUT")).forEach((checkbox) => {
@@ -201,6 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const searchString = document.getElementById("searchInput").value;
         fanbooks.search(searchString);
         handleBlurrySwitch();
+        updateNumberOfData();
     });
 
     // ソートボタン
@@ -234,12 +242,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // セレクトボックス
-    new TomSelect("#referenceWorkSelector", {
+    const referenceworkTomSelect = new TomSelect("#referenceWorkSelector", {
         plugins: ["dropdown_input"],
         create: false,
         score: (search) => (item) => [item.value, item.kana].filter((field) => field).some((field) => field.toLowerCase().includes(search.toLowerCase())) ? 1 : 0,
     });
-    new TomSelect("#eventSelector", {
+    const eventTomSelect = new TomSelect("#eventSelector", {
         plugins: ["dropdown_input"],
         create: false,
         render: {
@@ -271,6 +279,29 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 500);
         }
     }, 10000);
+
+    // リセットボタン
+    document.getElementById("filter-reset").addEventListener('click', () => {
+        // カテゴリ
+        document.getElementById("categoryAll").checked = true;
+        Array.from(document.getElementById("categoryCheckboxes").getElementsByTagName("INPUT")).map((checkbox) => {
+            checkbox.checked = true;
+        });
+
+        // 年齢制限
+        document.getElementById("ratingSelector").value = "all";
+
+        // 作者分類
+        document.getElementById("officialSelector").value = "all";
+
+        // 元ネタ
+        referenceworkTomSelect.setValue("any");
+
+        // イベント
+        eventTomSelect.setValue("any");
+
+        applyFilters();
+    });
 });
 
 window.addEventListener("load", () => {
