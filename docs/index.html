@@ -7,12 +7,15 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="tom-select.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker.min.css">
 	<link rel="stylesheet" href="bootstrap_Higiri.css">
 	<link rel="stylesheet" href="style.css">
 	<script type="text/javascript" src="list.js"></script>
 	<script type="text/javascript" src="tom-select.js"></script>
 	<script type="text/javascript" src="fanbooks.js"></script>
 	<script type="text/javascript" src="bs-theme.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/locales/ja.js"></script>
 </head>
 
 <body class="modal_bg">
@@ -141,6 +144,15 @@
 								<input type="radio" class="btn-check sort" name="sortType" id="sortTypeDesc" data-sort_type="desc" autocomplete="off" />
 								<label class="btn btn-outline-primary col-6" for="sortTypeDesc">降順</label>
 							</div>
+						</div>
+						<div class="mb-3">
+							<label for="date-range-start" class="form-label"><i class="bi material-symbols-outlined me-1">date_range</i>発行日・頒布日</label>
+							<div id="dateRange" class="input-group">
+								<input id="date-range-start" class="form-control" type="text" name="start">
+								<label for="date-range-end" class="input-group-text">～</label>
+								<input id="date-range-end" class="form-control" type="text" name="end">
+							</div>
+							<div id="picker-container"></div>
 						</div>
 						<div class="row g-2 mb-3">
 							<div class="col-6">
@@ -784,7 +796,114 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="6" data-title_kana="IMIGI NO EHON 7" data-author_kana="いみぎむる">
+				<div class="col" data-default="6" data-title_kana="まけひろいんがおおすぎる！こまりえんでぃんぐせっていしりょうしゅう" data-author_kana="あおせきいろ">
+					<div class="card h-100">
+						<div class="card-img-area">
+							<img src="244.jpg" class="card-img" alt="負けヒロインが多すぎる！小鞠エンディング設定資料集" loading="lazy">
+							
+							<div class="badge-area pt-1 px-2 position-absolute top-0 start-0 end-0">
+								<div class="row g-1 pb-2">
+									
+									<div class="col-auto">
+										<span class="badge official text-bg-primary badge-dark-bg"><i class="bi bi-star-fill"></i></span>
+									</div>
+									
+								</div>
+							</div>
+							<div class="title-container position-absolute bottom-0 start-0 end-0 overflow-hidden">
+								<div class="title-area">
+									<div class="text-truncate title-area-author">青瀬きいろ</div>
+									<h3 class="text-truncate-2line card-title word-wrap mb-0">負けヒロインが多すぎる！小鞠エンディング設定資料集</h3>
+								</div>
+							</div>
+							<div class="detail-button-container">
+								<button type="button" class="btn btn-sm btn-success detail-button" data-bs-toggle="modal" data-bs-target="#detailModal244" title="詳細表示">
+									<i class="bi bi-table"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="modal modal-lg fade" id="detailModal244" tabindex="-1" role="dialog" aria-labelledby="fanBookModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h2 class="modal-title fs-5" id="fanBookModalLabel">負けヒロインが多すぎる！小鞠エンディング設定資料集</h2>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<div class="row g-3">
+										<div class="col-lg-6">
+											<img src="244.jpg" class="card-img" alt="負けヒロインが多すぎる！小鞠エンディング設定資料集" loading="lazy" />
+										</div>
+										<div class="col-lg-6">
+											<div class="d-flex flex-wrap gap-1 mb-2">
+												<button type="button" class="btn btn-sm btn-secondary">244</button>
+												
+												<button type="button" class="btn btn-sm btn-lime category" data-category-id="6">設定資料集</button>
+												<button type="button" class="btn btn-sm btn-cyan reference_work" data-reference_work-id="5">負けヒロインが多すぎる！</button>
+											</div>
+											<table class="table th-nowrap">
+												<tbody class="th-nowrap">
+													<tr>
+														<th scope="col">タイトル</th>
+														<td class="word-wrap title">負けヒロインが多すぎる！小鞠エンディング設定資料集</td>
+													</tr>
+													<tr>
+														<th scope="col">作者</th>
+														<td class="word-wrap author">青瀬きいろ</td>
+													</tr>
+													<tr>
+														<th scope="col">サークル</th>
+														<td class="word-wrap circle">ねむねむめろん</td>
+													</tr>
+													<tr>
+														<th scope="col">イベント</th>
+														<td>
+															<div class="word-wrap event">コミックマーケット105</div>
+															<div class="d-flex gap-1">
+																<div class="word-wrap text-body-secondary fs-7">東京ビッグサイト</div>
+																<div class="word-wrap text-body-secondary fs-7 supplementary">東京都 江東区</div>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<th scope="col">日付</th>
+														<td class="date">2024-12-29</td>
+													</tr>
+													<tr>
+														<th scope="col">ジャンル</th>
+														<td class="word-wrap genre">設定資料集</td>
+													</tr>
+													<tr>
+														<th scope="col">概要</th>
+														<td class="word-wrap">アニメ【負けヒロインが多すぎる!】のエンディング小鞠バージョンで制作した水彩画原画(ほぼ全素材)や設定資料などを収録した全120ページの設定資料集です。</td>
+													</tr>
+													<tr>
+														<th scope="col">メモ</th>
+														<td class="word-wrap">東6 ス30b</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer justify-content-between flex-wrap">
+									<div class="d-flex justify-content-start flex-grow-1 gap-2">
+										
+										<div><a href="https://x.com/AOSE_KIIRO/status/1871536363910332902" class="icon_link_x" target="_blank"></a></div>
+										<div><a href="https://www.melonbooks.co.jp/detail/detail.php?product_id=2718809" class="btn btn-pink hover-white" role="button" target="_blank"><i class="bi bi-cart-fill"></i></a></div>
+										
+									</div>
+									<div class="d-flex justify-content-end flex-grow-1 gap-1">
+										<div><a class="btn btn-primary" href="/id=244" role="button">編集</a></div>
+										<div><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col" data-default="7" data-title_kana="IMIGI NO EHON 7" data-author_kana="いみぎむる">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="240.jpg" class="card-img" alt="IMIGI NO EHON 7" loading="lazy">
@@ -891,7 +1010,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="7" data-title_kana="IMIGI NO EHON LR" data-author_kana="いみぎむる">
+				<div class="col" data-default="8" data-title_kana="IMIGI NO EHON LR" data-author_kana="いみぎむる">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="237.jpg" class="card-img" alt="IMIGI NO EHON LR" loading="lazy">
@@ -998,7 +1117,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="8" data-title_kana="リコリス・リコイル　ぼつ・ぼん★" data-author_kana="ぬくもりさん">
+				<div class="col" data-default="9" data-title_kana="リコリス・リコイル　ぼつ・ぼん★" data-author_kana="ぬくもりさん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="136.jpg" class="card-img" alt="リコリス・リコイル　BOTU・BON★" loading="lazy">
@@ -1102,7 +1221,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="9" data-title_kana="リコリスリコイルおつかれさまぼん" data-author_kana="もちづきたかひろ">
+				<div class="col" data-default="10" data-title_kana="リコリスリコイルおつかれさまぼん" data-author_kana="もちづきたかひろ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="239.jpg" class="card-img" alt="リコリスリコイルお疲れ様本" loading="lazy">
@@ -1209,7 +1328,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="10" data-title_kana="Lycoris Recoil Yamamoto Yumiko ANIMATION WORKS" data-author_kana="やまもとゆみこ">
+				<div class="col" data-default="11" data-title_kana="Lycoris Recoil Yamamoto Yumiko ANIMATION WORKS" data-author_kana="やまもとゆみこ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="238.jpg" class="card-img" alt="Lycoris Recoil Yamamoto Yumiko ANIMATION WORKS" loading="lazy">
@@ -1316,7 +1435,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="11" data-title_kana="とりしろじまえにっき" data-author_kana="あゆまさゆ, はのはるか">
+				<div class="col" data-default="12" data-title_kana="とりしろじまえにっき" data-author_kana="あゆまさゆ, はのはるか">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="153.jpg" class="card-img" alt="とりしろじま絵日記" loading="lazy">
@@ -1420,7 +1539,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="12" data-title_kana="このじかんがぜんぶすき。" data-author_kana="いむ・ぽてむ, あまみひより, こしみずかしこ, しりうす184, オーミヤ, あっぷるふ, ゆるもっくす, とーくん, たまだかしわ, いぬぺん, きびの">
+				<div class="col" data-default="13" data-title_kana="このじかんがぜんぶすき。" data-author_kana="いむ・ぽてむ, あまみひより, こしみずかしこ, しりうす184, オーミヤ, あっぷるふ, ゆるもっくす, とーくん, たまだかしわ, いぬぺん, きびの">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="025.jpg" class="card-img" alt="この時間が全部好き。" loading="lazy">
@@ -1521,7 +1640,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="13" data-title_kana="ちょうあい" data-author_kana="かみせゆう, けだまだらけ, ゼロ, つかさかな, とりさし, はてな, ハーフアップ, ヒノタロウ, もり, まよ, Mac, mobu">
+				<div class="col" data-default="14" data-title_kana="ちょうあい" data-author_kana="かみせゆう, けだまだらけ, ゼロ, つかさかな, とりさし, はてな, ハーフアップ, ヒノタロウ, もり, まよ, Mac, mobu">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="006.jpg" class="card-img" alt="寵愛" loading="lazy">
@@ -1630,7 +1749,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="14" data-title_kana="Stand by Me ちさたきアンソロジー" data-author_kana="さみだれはづき, あおいすず, あおば, あるぱかコ, 泉上楓, 磯辺, 上村なびあ, おゆゆ, カボちゃ, 銀, くるみ屋さん(N&#39;s), くろと, Ca-ke, ごましを, Koyomania, 櫻田円, 自家製, 四季みつば, ソラナミもんき, 鷹なゆ, 徒歩10分, にいな涼, Pt, ハリルネル, びびり, ベニカ, まち, 虫原, 紫のあ, 村田駿, ヤマトバンビーズ, yR., ろここ">
+				<div class="col" data-default="15" data-title_kana="Stand by Me ちさたきアンソロジー" data-author_kana="さみだれはづき, あおいすず, あおば, あるぱかコ, 泉上楓, 磯辺, 上村なびあ, おゆゆ, カボちゃ, 銀, くるみ屋さん(N&#39;s), くろと, Ca-ke, ごましを, Koyomania, 櫻田円, 自家製, 四季みつば, ソラナミもんき, 鷹なゆ, 徒歩10分, にいな涼, Pt, ハリルネル, びびり, ベニカ, まち, 虫原, 紫のあ, 村田駿, ヤマトバンビーズ, yR., ろここ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="026.jpg" class="card-img" alt="Stand by Me ちさたきアンソロジー" loading="lazy">
@@ -1734,7 +1853,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="15" data-title_kana="Stay with You ちさたきアンソロジー2" data-author_kana="さみだれはづき, あるぱかコ, イム・ぽてむ, お茶, おゆゆ, かげお, カボちゃ, 銀, きんく, 草葉える, 櫻田円, 紫のあ, ソラナミもんき, 炭酸, Chiaya, てぃつ丸, とむ, とりごん, Pt, 古本屋, 兵衛, ベニカ, 村田駿, もーりす, 夜船ユウキ, Яui, ロシマ, 割れたメガネ">
+				<div class="col" data-default="16" data-title_kana="Stay with You ちさたきアンソロジー2" data-author_kana="さみだれはづき, あるぱかコ, イム・ぽてむ, お茶, おゆゆ, かげお, カボちゃ, 銀, きんく, 草葉える, 櫻田円, 紫のあ, ソラナミもんき, 炭酸, Chiaya, てぃつ丸, とむ, とりごん, Pt, 古本屋, 兵衛, ベニカ, 村田駿, もーりす, 夜船ユウキ, Яui, ロシマ, 割れたメガネ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="027.jpg" class="card-img" alt="Stay with You ちさたきアンソロジー2" loading="lazy">
@@ -1838,7 +1957,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="16" data-title_kana="DA -Dauntless Alpha-" data-author_kana="ともよラプター, さばなつき, あお, Ali, うすいあずき, けだまだらけ, こまり, こうきどうねこにゃーにゃー, すー&amp;BT7, そらなみもんき, てんみょ, とーくん, ばにら, みさかまりす, やまもとこりす, りくしぇる, ろしま, わりばし">
+				<div class="col" data-default="17" data-title_kana="DA -Dauntless Alpha-" data-author_kana="ともよラプター, さばなつき, あお, Ali, うすいあずき, けだまだらけ, こまり, こうきどうねこにゃーにゃー, すー&amp;BT7, そらなみもんき, てんみょ, とーくん, ばにら, みさかまりす, やまもとこりす, りくしぇる, ろしま, わりばし">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="176.jpg" class="card-img" alt="DA -Dauntless Alpha-" loading="lazy">
@@ -1942,7 +2061,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="17" data-title_kana="らくえん" data-author_kana="ねこたると, うすい, むしはら, 荒鷹, 銀, とむ, ぴろん, 年上受け好き太郎, あるぱかコ, 環月紙袋, バスロマン, うりおじ, 櫻田 円, 理尽, かんせら, Mac, らずーり, 空布, オーミヤ, ヒノタロウ, カメタ, Ree, もーりす, 織日ちひろ">
+				<div class="col" data-default="18" data-title_kana="らくえん" data-author_kana="ねこたると, うすい, むしはら, 荒鷹, 銀, とむ, ぴろん, 年上受け好き太郎, あるぱかコ, 環月紙袋, バスロマン, うりおじ, 櫻田 円, 理尽, かんせら, Mac, らずーり, 空布, オーミヤ, ヒノタロウ, カメタ, Ree, もーりす, 織日ちひろ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="112.jpg" class="card-img" alt="楽園" loading="lazy">
@@ -2048,7 +2167,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="18" data-title_kana="MISSION START" data-author_kana="ふじさわ, あるぱかこ, いむ・ぽてむ, おちゃ, こまり, やろう, Rui,  かめた, けだまだらけ, たちばなやまと, もーりす">
+				<div class="col" data-default="19" data-title_kana="MISSION START" data-author_kana="ふじさわ, あるぱかこ, いむ・ぽてむ, おちゃ, こまり, やろう, Rui,  かめた, けだまだらけ, たちばなやまと, もーりす">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="195.jpg" class="card-img" alt="MISSION START" loading="lazy">
@@ -2152,7 +2271,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="19" data-title_kana="じんじつ" data-author_kana="むねた, とどん, いればたふ, さち, うーろん, ハリルネル, ぶん, mobu, ぷこ, みっちゃ, Ying, ふるほんや, バスロマン, Ree, あぶぶ, null, 渚, うかい, 彩羽柑凪, こんぺい, 律空, Яui, ルー, ヒノタロウ">
+				<div class="col" data-default="20" data-title_kana="じんじつ" data-author_kana="むねた, とどん, いればたふ, さち, うーろん, ハリルネル, ぶん, mobu, ぷこ, みっちゃ, Ying, ふるほんや, バスロマン, Ree, あぶぶ, null, 渚, うかい, 彩羽柑凪, こんぺい, 律空, Яui, ルー, ヒノタロウ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="044.png" class="card-img" alt="尽日" loading="lazy">
@@ -2258,7 +2377,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="20" data-title_kana="unceasing rhyme" data-author_kana="るー, ying, 狼瀬游, 笹塚, しらたま, バスロマン, mobu, 律空, 理尽">
+				<div class="col" data-default="21" data-title_kana="unceasing rhyme" data-author_kana="るー, ying, 狼瀬游, 笹塚, しらたま, バスロマン, mobu, 律空, 理尽">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="109.png" class="card-img" alt="unceasing rhyme" loading="lazy">
@@ -2361,7 +2480,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="21" data-title_kana="ふゆポケぼん。" data-author_kana="あきら">
+				<div class="col" data-default="22" data-title_kana="ふゆポケぼん。" data-author_kana="あきら">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="154.jpg" class="card-img" alt="冬ポケ本。" loading="lazy">
@@ -2463,7 +2582,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="22" data-title_kana="みわくのボンボンショコラ　じょうかん" data-author_kana="machine
+				<div class="col" data-default="23" data-title_kana="みわくのボンボンショコラ　じょうかん" data-author_kana="machine
 ">
 					<div class="card h-100">
 						<div class="card-img-area">
@@ -2566,7 +2685,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="23" data-title_kana="かわいいっていうのきんし" data-author_kana="mato">
+				<div class="col" data-default="24" data-title_kana="かわいいっていうのきんし" data-author_kana="mato">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="155.jpg" class="card-img" alt="可愛いって言うの禁止" loading="lazy">
@@ -2668,7 +2787,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="24" data-title_kana="じょうおうへいかのそらもよう。" data-author_kana="sana*">
+				<div class="col" data-default="25" data-title_kana="じょうおうへいかのそらもよう。" data-author_kana="sana*">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="165.jpg" class="card-img" alt="女王陛下のそらもよう。" loading="lazy">
@@ -2773,7 +2892,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="25" data-title_kana="あのひびをもういちど" data-author_kana="じょー">
+				<div class="col" data-default="26" data-title_kana="あのひびをもういちど" data-author_kana="じょー">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="164.jpg" class="card-img" alt="あの日々をもう一度" loading="lazy">
@@ -2878,7 +2997,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="26" data-title_kana="てんせいおうじょとてんさいれいじょうのさいいんかくめい" data-author_kana="ちんげろ">
+				<div class="col" data-default="27" data-title_kana="てんせいおうじょとてんさいれいじょうのさいいんかくめい" data-author_kana="ちんげろ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="163.jpg" class="card-img" alt="転生王女と天才令嬢の催淫革命" loading="lazy">
@@ -2982,7 +3101,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="27" data-title_kana="もうにげない" data-author_kana="daimyo0208">
+				<div class="col" data-default="28" data-title_kana="もうにげない" data-author_kana="daimyo0208">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="212.jpg" class="card-img" alt="もう逃げない" loading="lazy">
@@ -3084,7 +3203,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="28" data-title_kana="しょうそう" data-author_kana="Koshion">
+				<div class="col" data-default="29" data-title_kana="しょうそう" data-author_kana="Koshion">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="131.jpg" class="card-img" alt="焦燥" loading="lazy">
@@ -3185,7 +3304,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="29" data-title_kana="えいえんにみたして。" data-author_kana="Koshion">
+				<div class="col" data-default="30" data-title_kana="えいえんにみたして。" data-author_kana="Koshion">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="119.jpg" class="card-img" alt="永遠に満たして。" loading="lazy">
@@ -3286,7 +3405,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="30" data-title_kana="いままでも、これからも。" data-author_kana="Koshion">
+				<div class="col" data-default="31" data-title_kana="いままでも、これからも。" data-author_kana="Koshion">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="203.png" class="card-img" alt="いままでも、これからも。" loading="lazy">
@@ -3390,7 +3509,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="31" data-title_kana="MEDICINE" data-author_kana="mist">
+				<div class="col" data-default="32" data-title_kana="MEDICINE" data-author_kana="mist">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="220.png" class="card-img" alt="MEDICINE" loading="lazy">
@@ -3492,7 +3611,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="32" data-title_kana="とあるファーストのねかしつけかた" data-author_kana="Mytyl">
+				<div class="col" data-default="33" data-title_kana="とあるファーストのねかしつけかた" data-author_kana="Mytyl">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="148.jpg" class="card-img" alt="とあるファーストの寝かしつけ方" loading="lazy">
@@ -3596,7 +3715,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="33" data-title_kana="Subsolar Point" data-author_kana="PND">
+				<div class="col" data-default="34" data-title_kana="Subsolar Point" data-author_kana="PND">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="149.jpg" class="card-img" alt="Subsolar Point" loading="lazy">
@@ -3700,7 +3819,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="34" data-title_kana="Angraecum" data-author_kana="Rui">
+				<div class="col" data-default="35" data-title_kana="Angraecum" data-author_kana="Rui">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="001.jpg" class="card-img" alt="Angraecum" loading="lazy">
@@ -3804,7 +3923,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="35" data-title_kana="Lupinus" data-author_kana="Rui">
+				<div class="col" data-default="36" data-title_kana="Lupinus" data-author_kana="Rui">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="003.jpg" class="card-img" alt="Lupinus" loading="lazy">
@@ -3906,7 +4025,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="36" data-title_kana="Tulip" data-author_kana="Rui">
+				<div class="col" data-default="37" data-title_kana="Tulip" data-author_kana="Rui">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="004.jpg" class="card-img" alt="Tulip" loading="lazy">
@@ -4010,7 +4129,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="37" data-title_kana="Tulip〜after that〜" data-author_kana="Rui">
+				<div class="col" data-default="38" data-title_kana="Tulip〜after that〜" data-author_kana="Rui">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="007.jpg" class="card-img" alt="Tulip〜after that〜" loading="lazy">
@@ -4114,7 +4233,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="38" data-title_kana="Tatarian Aster" data-author_kana="Rui">
+				<div class="col" data-default="39" data-title_kana="Tatarian Aster" data-author_kana="Rui">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="173.jpg" class="card-img" alt="Tatarian Aster" loading="lazy">
@@ -4218,7 +4337,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="39" data-title_kana="Edelweiss" data-author_kana="Rui">
+				<div class="col" data-default="40" data-title_kana="Edelweiss" data-author_kana="Rui">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="174.jpg" class="card-img" alt="Edelweiss" loading="lazy">
@@ -4320,7 +4439,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="40" data-title_kana="ネコのいくせいしゅけい" data-author_kana="TaBoom">
+				<div class="col" data-default="41" data-title_kana="ネコのいくせいしゅけい" data-author_kana="TaBoom">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="234.jpg" class="card-img" alt="ネコの育成手計" loading="lazy">
@@ -4425,7 +4544,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="41" data-title_kana="Where there is a will, there is a way" data-author_kana="Takumi">
+				<div class="col" data-default="42" data-title_kana="Where there is a will, there is a way" data-author_kana="Takumi">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="091.jpg" class="card-img" alt="Where there is a will, there is a way" loading="lazy">
@@ -4524,7 +4643,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="42" data-title_kana="りここのほん" data-author_kana="Tiv, 英貴">
+				<div class="col" data-default="43" data-title_kana="りここのほん" data-author_kana="Tiv, 英貴">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="102.jpg" class="card-img" alt="利己々の本" loading="lazy">
@@ -4623,7 +4742,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="43" data-title_kana="RIDE or DIE" data-author_kana="あかべこ">
+				<div class="col" data-default="44" data-title_kana="RIDE or DIE" data-author_kana="あかべこ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="089.jpg" class="card-img" alt="RIDE or DIE" loading="lazy">
@@ -4722,7 +4841,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="44" data-title_kana="Same Shit Different Day" data-author_kana="あかべこ">
+				<div class="col" data-default="45" data-title_kana="Same Shit Different Day" data-author_kana="あかべこ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="088.jpg" class="card-img" alt="Same Shit Different Day" loading="lazy">
@@ -4821,7 +4940,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="45" data-title_kana="CERCA TROVA" data-author_kana="あかべこ">
+				<div class="col" data-default="46" data-title_kana="CERCA TROVA" data-author_kana="あかべこ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="232.jpg" class="card-img" alt="CERCA TROVA" loading="lazy">
@@ -4923,7 +5042,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="46" data-title_kana="Too Loud a Solitude" data-author_kana="あずもん">
+				<div class="col" data-default="47" data-title_kana="Too Loud a Solitude" data-author_kana="あずもん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="016.jpg" class="card-img" alt="Too Loud a Solitude" loading="lazy">
@@ -5027,7 +5146,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="47" data-title_kana="ゆうえい" data-author_kana="あるぱかコ">
+				<div class="col" data-default="48" data-title_kana="ゆうえい" data-author_kana="あるぱかコ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="030.jpg" class="card-img" alt="遊泳" loading="lazy">
@@ -5126,7 +5245,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="48" data-title_kana="キミとしたいこと。" data-author_kana="あるぱかコ">
+				<div class="col" data-default="49" data-title_kana="キミとしたいこと。" data-author_kana="あるぱかコ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="031.jpg" class="card-img" alt="キミとしたいこと。" loading="lazy">
@@ -5227,7 +5346,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="49" data-title_kana="きみにすきっていえたなら" data-author_kana="あるぱかコ">
+				<div class="col" data-default="50" data-title_kana="きみにすきっていえたなら" data-author_kana="あるぱかコ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="187.jpg" class="card-img" alt="キミに好きって言えたなら" loading="lazy">
@@ -5329,7 +5448,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="50" data-title_kana="ひとしおり" data-author_kana="あをもみじ, まだい">
+				<div class="col" data-default="51" data-title_kana="ひとしおり" data-author_kana="あをもみじ, まだい">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="215.jpg" class="card-img" alt="ひとしおり" loading="lazy">
@@ -5434,7 +5553,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="51" data-title_kana="はじまりへのこどう" data-author_kana="いすみ">
+				<div class="col" data-default="52" data-title_kana="はじまりへのこどう" data-author_kana="いすみ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="064.png" class="card-img" alt="始まりへの鼓動" loading="lazy">
@@ -5533,7 +5652,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="52" data-title_kana="ちさたきのがくパロぼん" data-author_kana="いすみ">
+				<div class="col" data-default="53" data-title_kana="ちさたきのがくパロぼん" data-author_kana="いすみ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="063.jpg" class="card-img" alt="ちさたきの学パロ本" loading="lazy">
@@ -5632,7 +5751,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="53" data-title_kana="ちさたきごうどうぼん" data-author_kana="いすみ, ゆきうさぎ">
+				<div class="col" data-default="54" data-title_kana="ちさたきごうどうぼん" data-author_kana="いすみ, ゆきうさぎ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="065.png" class="card-img" alt="ちさたき合同本" loading="lazy">
@@ -5731,7 +5850,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="54" data-title_kana="ペンギンのめがみさま" data-author_kana="いのり">
+				<div class="col" data-default="55" data-title_kana="ペンギンのめがみさま" data-author_kana="いのり">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="032.png" class="card-img" alt="ペンギンの女神さま" loading="lazy">
@@ -5830,7 +5949,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="55" data-title_kana="かげふみハイビスカス" data-author_kana="いのり">
+				<div class="col" data-default="56" data-title_kana="かげふみハイビスカス" data-author_kana="いのり">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="033.png" class="card-img" alt="かげふみハイビスカス" loading="lazy">
@@ -5929,7 +6048,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="56" data-title_kana="いきのこりはわたしたちだけなんだ" data-author_kana="いのり">
+				<div class="col" data-default="57" data-title_kana="いきのこりはわたしたちだけなんだ" data-author_kana="いのり">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="182.png" class="card-img" alt="生き残りは私たちだけなんだ" loading="lazy">
@@ -6031,7 +6150,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="57" data-title_kana="そばからみたらつきあってる!" data-author_kana="いのり">
+				<div class="col" data-default="58" data-title_kana="そばからみたらつきあってる!" data-author_kana="いのり">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="229.jpg" class="card-img" alt="傍から見たら付き合ってる!" loading="lazy">
@@ -6136,7 +6255,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="58" data-title_kana="すえながくおしあわせに!" data-author_kana="いむ・ぽてむ">
+				<div class="col" data-default="59" data-title_kana="すえながくおしあわせに!" data-author_kana="いむ・ぽてむ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="188.jpg" class="card-img" alt="末永くお幸せに!" loading="lazy">
@@ -6238,7 +6357,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="59" data-title_kana="きみにもらったものばかり" data-author_kana="いむ・ぽてむ・ぽてむ">
+				<div class="col" data-default="60" data-title_kana="きみにもらったものばかり" data-author_kana="いむ・ぽてむ・ぽてむ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="024.jpg" class="card-img" alt="君にもらったものばかり" loading="lazy">
@@ -6337,7 +6456,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="60" data-title_kana="become a family" data-author_kana="うすいあずき">
+				<div class="col" data-default="61" data-title_kana="become a family" data-author_kana="うすいあずき">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="202.jpg" class="card-img" alt="become a family" loading="lazy">
@@ -6439,7 +6558,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="61" data-title_kana="いっしょう、はなすもんですか。せきにんとってもらいますよ。" data-author_kana="うすいあずき, フミオト">
+				<div class="col" data-default="62" data-title_kana="いっしょう、はなすもんですか。せきにんとってもらいますよ。" data-author_kana="うすいあずき, フミオト">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="122.jpg" class="card-img" alt="一生、離すもんですか。責任とってもらいますよ。" loading="lazy">
@@ -6538,7 +6657,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="62" data-title_kana="Lilium・Relation" data-author_kana="うやゆう">
+				<div class="col" data-default="63" data-title_kana="Lilium・Relation" data-author_kana="うやゆう">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="067.jpg" class="card-img" alt="Lilium・Relation" loading="lazy">
@@ -6637,7 +6756,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="63" data-title_kana="いっぬとぬこ" data-author_kana="うやゆう">
+				<div class="col" data-default="64" data-title_kana="いっぬとぬこ" data-author_kana="うやゆう">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="180.jpg" class="card-img" alt="イッヌとぬこ" loading="lazy">
@@ -6739,7 +6858,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="64" data-title_kana="Tea Time" data-author_kana="おちゃ">
+				<div class="col" data-default="65" data-title_kana="Tea Time" data-author_kana="おちゃ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="017.jpg" class="card-img" alt="Tea Time" loading="lazy">
@@ -6838,7 +6957,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="65" data-title_kana="First Emotion" data-author_kana="おちゃ">
+				<div class="col" data-default="66" data-title_kana="First Emotion" data-author_kana="おちゃ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="018.jpg" class="card-img" alt="First Emotion" loading="lazy">
@@ -6937,7 +7056,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="66" data-title_kana="Season" data-author_kana="おちゃ">
+				<div class="col" data-default="67" data-title_kana="Season" data-author_kana="おちゃ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="019.jpg" class="card-img" alt="Season" loading="lazy">
@@ -7036,7 +7155,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="67" data-title_kana="そのいのちは" data-author_kana="おちゃ">
+				<div class="col" data-default="68" data-title_kana="そのいのちは" data-author_kana="おちゃ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="181.jpg" class="card-img" alt="その命は" loading="lazy">
@@ -7138,7 +7257,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="68" data-title_kana="ちさととたきなはぜったいいっしょ" data-author_kana="おーみや（みやじ）">
+				<div class="col" data-default="69" data-title_kana="ちさととたきなはぜったいいっしょ" data-author_kana="おーみや（みやじ）">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="045.jpg" class="card-img" alt="千束とたきなは絶対いっしょ" loading="lazy">
@@ -7237,7 +7356,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="69" data-title_kana="リコリス・リコイル Special Days" data-author_kana="おーみや（みやじ）">
+				<div class="col" data-default="70" data-title_kana="リコリス・リコイル Special Days" data-author_kana="おーみや（みやじ）">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="046.jpg" class="card-img" alt="リコリス・リコイル Special Days" loading="lazy">
@@ -7336,7 +7455,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="70" data-title_kana="いきにしてにしきぎちさとといのうえたきなはあいしあうようになったか" data-author_kana="おーみや（みやじ）">
+				<div class="col" data-default="71" data-title_kana="いきにしてにしきぎちさとといのうえたきなはあいしあうようになったか" data-author_kana="おーみや（みやじ）">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="047.jpg" class="card-img" alt="いかにして錦木千束と井ノ上たきなは愛し合うようになったか" loading="lazy">
@@ -7435,7 +7554,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="71" data-title_kana="むらさき" data-author_kana="おーみや（みやじ）">
+				<div class="col" data-default="72" data-title_kana="むらさき" data-author_kana="おーみや（みやじ）">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="190.jpg" class="card-img" alt="むらさき" loading="lazy">
@@ -7539,7 +7658,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="72" data-title_kana="first night" data-author_kana="かいむ・ぽてむ・ぽてむ">
+				<div class="col" data-default="73" data-title_kana="first night" data-author_kana="かいむ・ぽてむ・ぽてむ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="073.jpg" class="card-img" alt="first night" loading="lazy">
@@ -7641,7 +7760,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="73" data-title_kana="Star gazer" data-author_kana="かげお">
+				<div class="col" data-default="74" data-title_kana="Star gazer" data-author_kana="かげお">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="074.jpg" class="card-img" alt="Star gazer" loading="lazy">
@@ -7745,7 +7864,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="74" data-title_kana="たきな(α)がちさと(Ω)にしぼりとられるオメガバコピぼん" data-author_kana="かげお">
+				<div class="col" data-default="75" data-title_kana="たきな(α)がちさと(Ω)にしぼりとられるオメガバコピぼん" data-author_kana="かげお">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="235.png" class="card-img" alt="たきな(α)が千束(Ω)に搾り取られるオメガバコピ本" loading="lazy">
@@ -7849,7 +7968,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="75" data-title_kana="きみといれば" data-author_kana="かげお">
+				<div class="col" data-default="76" data-title_kana="きみといれば" data-author_kana="かげお">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="177.jpg" class="card-img" alt="君と居れば" loading="lazy">
@@ -7951,7 +8070,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="76" data-title_kana="fall in love, lycoris" data-author_kana="かみむらなびあ">
+				<div class="col" data-default="77" data-title_kana="fall in love, lycoris" data-author_kana="かみむらなびあ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="096.jpg" class="card-img" alt="fall in love, lycoris" loading="lazy">
@@ -8052,7 +8171,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="77" data-title_kana="きみとわたしの、かんけいの、しょうめい。" data-author_kana="かみむらなびあ">
+				<div class="col" data-default="78" data-title_kana="きみとわたしの、かんけいの、しょうめい。" data-author_kana="かみむらなびあ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="097.jpg" class="card-img" alt="君と私の、関係の、証明。" loading="lazy">
@@ -8153,7 +8272,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="78" data-title_kana="Mating between Spider Lilies" data-author_kana="かみむらなびあ">
+				<div class="col" data-default="79" data-title_kana="Mating between Spider Lilies" data-author_kana="かみむらなびあ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="098.jpg" class="card-img" alt="Mating between Spider Lilies" loading="lazy">
@@ -8254,7 +8373,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="79" data-title_kana="リコリスのとうひこう" data-author_kana="かみむらなびあ">
+				<div class="col" data-default="80" data-title_kana="リコリスのとうひこう" data-author_kana="かみむらなびあ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="140.png" class="card-img" alt="リコリスの逃避行" loading="lazy">
@@ -8356,7 +8475,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="80" data-title_kana="はなのいろ" data-author_kana="がみらす">
+				<div class="col" data-default="81" data-title_kana="はなのいろ" data-author_kana="がみらす">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="050.jpg" class="card-img" alt="はなのいろ" loading="lazy">
@@ -8455,7 +8574,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="81" data-title_kana="Teacher × Teacher" data-author_kana="かめた">
+				<div class="col" data-default="82" data-title_kana="Teacher × Teacher" data-author_kana="かめた">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="113.jpg" class="card-img" alt="Teacher × Teacher" loading="lazy">
@@ -8556,7 +8675,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="82" data-title_kana="Ribbon" data-author_kana="かめた">
+				<div class="col" data-default="83" data-title_kana="Ribbon" data-author_kana="かめた">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="114.jpg" class="card-img" alt="Ribbon" loading="lazy">
@@ -8657,7 +8776,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="83" data-title_kana="SAY Cheese!" data-author_kana="かめた">
+				<div class="col" data-default="84" data-title_kana="SAY Cheese!" data-author_kana="かめた">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="115.jpg" class="card-img" alt="SAY Cheese!" loading="lazy">
@@ -8758,7 +8877,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="84" data-title_kana="kametter" data-author_kana="かめた">
+				<div class="col" data-default="85" data-title_kana="kametter" data-author_kana="かめた">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="169.jpg" class="card-img" alt="kametter" loading="lazy">
@@ -8860,7 +8979,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="85" data-title_kana="situation" data-author_kana="かめた">
+				<div class="col" data-default="86" data-title_kana="situation" data-author_kana="かめた">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="194.jpg" class="card-img" alt="situation" loading="lazy">
@@ -8964,7 +9083,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="86" data-title_kana="New Year’s Day" data-author_kana="かやぶき">
+				<div class="col" data-default="87" data-title_kana="New Year’s Day" data-author_kana="かやぶき">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="039.jpg" class="card-img" alt="New Year’s Day" loading="lazy">
@@ -9063,7 +9182,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="87" data-title_kana="ふたりめせん" data-author_kana="きたく">
+				<div class="col" data-default="88" data-title_kana="ふたりめせん" data-author_kana="きたく">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="075.jpg" class="card-img" alt="ふたり目線" loading="lazy">
@@ -9164,7 +9283,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="88" data-title_kana="めっちゃLOVEホリデー" data-author_kana="きたく">
+				<div class="col" data-default="89" data-title_kana="めっちゃLOVEホリデー" data-author_kana="きたく">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="138.jpg" class="card-img" alt="めっちゃLOVEホリデー" loading="lazy">
@@ -9268,7 +9387,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="89" data-title_kana="りたてきえもーしょん" data-author_kana="きたく">
+				<div class="col" data-default="90" data-title_kana="りたてきえもーしょん" data-author_kana="きたく">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="179.png" class="card-img" alt="利他的エモーション" loading="lazy">
@@ -9372,7 +9491,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="90" data-title_kana="いつもこころにどきどきを。" data-author_kana="きたく">
+				<div class="col" data-default="91" data-title_kana="いつもこころにどきどきを。" data-author_kana="きたく">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="243.jpg" class="card-img" alt="いつも心にドキドキを。" loading="lazy">
@@ -9476,7 +9595,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="91" data-title_kana="ぼくにはちょっぴり ぜいたくなきみへ" data-author_kana="きびの">
+				<div class="col" data-default="92" data-title_kana="ぼくにはちょっぴり ぜいたくなきみへ" data-author_kana="きびの">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="040.jpg" class="card-img" alt="ぼくにはちょっぴり ぜいたくなきみへ" loading="lazy">
@@ -9575,7 +9694,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="92" data-title_kana="ちぃとたきな" data-author_kana="ぎん">
+				<div class="col" data-default="93" data-title_kana="ちぃとたきな" data-author_kana="ぎん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="076.jpg" class="card-img" alt="ちぃとたきな" loading="lazy">
@@ -9674,7 +9793,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="93" data-title_kana="たぁとちさと" data-author_kana="ぎん">
+				<div class="col" data-default="94" data-title_kana="たぁとちさと" data-author_kana="ぎん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="077.jpg" class="card-img" alt="たぁと千束" loading="lazy">
@@ -9773,7 +9892,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="94" data-title_kana="すこしだけ、のぞきみ" data-author_kana="くまシャ">
+				<div class="col" data-default="95" data-title_kana="すこしだけ、のぞきみ" data-author_kana="くまシャ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="041.jpg" class="card-img" alt="少しだけ、覗き見。" loading="lazy">
@@ -9872,7 +9991,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="95" data-title_kana="ちさとさんがきゅうけつき（？）になってえっちなことするほん" data-author_kana="くまｼｬ">
+				<div class="col" data-default="96" data-title_kana="ちさとさんがきゅうけつき（？）になってえっちなことするほん" data-author_kana="くまｼｬ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="186.jpg" class="card-img" alt="千束さんが吸血鬼（？）になってえっちなことする本" loading="lazy">
@@ -9976,7 +10095,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="96" data-title_kana="なんでもないよ" data-author_kana="くろごま">
+				<div class="col" data-default="97" data-title_kana="なんでもないよ" data-author_kana="くろごま">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="042.jpg" class="card-img" alt="何でもないよ" loading="lazy">
@@ -10075,7 +10194,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="97" data-title_kana="あだばなにさく" data-author_kana="くろだ">
+				<div class="col" data-default="98" data-title_kana="あだばなにさく" data-author_kana="くろだ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="078.jpg" class="card-img" alt="徒花に咲く" loading="lazy">
@@ -10174,7 +10293,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="98" data-title_kana="あたりまえになるまでに" data-author_kana="くろだ">
+				<div class="col" data-default="99" data-title_kana="あたりまえになるまでに" data-author_kana="くろだ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="079.jpg" class="card-img" alt="当たり前になるまでに" loading="lazy">
@@ -10273,7 +10392,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="99" data-title_kana="またあえるひをたのしみに" data-author_kana="くろたけじっぽ">
+				<div class="col" data-default="100" data-title_kana="またあえるひをたのしみに" data-author_kana="くろたけじっぽ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="008.jpg" class="card-img" alt="また会える日を楽しみに" loading="lazy">
@@ -10375,7 +10494,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="100" data-title_kana="リンガーリンガー" data-author_kana="くろたけじっぽ">
+				<div class="col" data-default="101" data-title_kana="リンガーリンガー" data-author_kana="くろたけじっぽ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="135.jpg" class="card-img" alt="リンガーリンガー" loading="lazy">
@@ -10471,7 +10590,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="101" data-title_kana="キミのトリコ" data-author_kana="けだまだらけ">
+				<div class="col" data-default="102" data-title_kana="キミのトリコ" data-author_kana="けだまだらけ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="043.jpg" class="card-img" alt="キミのトリコ" loading="lazy">
@@ -10569,7 +10688,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="102" data-title_kana="おーるとのくも" data-author_kana="けだまだらけ">
+				<div class="col" data-default="103" data-title_kana="おーるとのくも" data-author_kana="けだまだらけ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="219.jpg" class="card-img" alt="オールトの雲" loading="lazy">
@@ -10668,7 +10787,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="103" data-title_kana="かのじょとかのじょのものがたり" data-author_kana="こいん">
+				<div class="col" data-default="104" data-title_kana="かのじょとかのじょのものがたり" data-author_kana="こいん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="152.jpg" class="card-img" alt="彼女と彼女の物語" loading="lazy">
@@ -10770,7 +10889,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="104" data-title_kana="ひとりごとにしないで" data-author_kana="ごどー">
+				<div class="col" data-default="105" data-title_kana="ひとりごとにしないで" data-author_kana="ごどー">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="051.jpg" class="card-img" alt="ひとりごとにしないで" loading="lazy">
@@ -10869,7 +10988,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="105" data-title_kana="シャッターをきって" data-author_kana="ざいふぉー,  律空Rikuu">
+				<div class="col" data-default="106" data-title_kana="シャッターをきって" data-author_kana="ざいふぉー,  律空Rikuu">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="121.jpg" class="card-img" alt="シャッターを切って" loading="lazy">
@@ -10968,7 +11087,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="106" data-title_kana="もしもキミが" data-author_kana="さくらだえん">
+				<div class="col" data-default="107" data-title_kana="もしもキミが" data-author_kana="さくらだえん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="028.jpg" class="card-img" alt="もしもキミが" loading="lazy">
@@ -11067,7 +11186,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="107" data-title_kana="The Little First !" data-author_kana="さくらだえん">
+				<div class="col" data-default="108" data-title_kana="The Little First !" data-author_kana="さくらだえん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="029.jpg" class="card-img" alt="The Little First !" loading="lazy">
@@ -11166,7 +11285,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="108" data-title_kana="ちぐはぐわるつ" data-author_kana="さくらだえん">
+				<div class="col" data-default="109" data-title_kana="ちぐはぐわるつ" data-author_kana="さくらだえん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="208.jpg" class="card-img" alt="チグハグワルツ" loading="lazy">
@@ -11268,7 +11387,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="109" data-title_kana="ゆめといし" data-author_kana="さつにゃん, xin">
+				<div class="col" data-default="110" data-title_kana="ゆめといし" data-author_kana="さつにゃん, xin">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="082.jpg" class="card-img" alt="夢と意志" loading="lazy">
@@ -11369,7 +11488,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="110" data-title_kana="ことばをつかわなくても" data-author_kana="さつにゃん, アカミ">
+				<div class="col" data-default="111" data-title_kana="ことばをつかわなくても" data-author_kana="さつにゃん, アカミ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="080.jpg" class="card-img" alt="言葉を使わなくても" loading="lazy">
@@ -11468,7 +11587,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="111" data-title_kana="きずにはだんがんを" data-author_kana="さつにゃん, てる">
+				<div class="col" data-default="112" data-title_kana="きずにはだんがんを" data-author_kana="さつにゃん, てる">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="081.jpg" class="card-img" alt="傷には弾丸を" loading="lazy">
@@ -11569,7 +11688,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="112" data-title_kana="てぇてぇしないとでれないしま。" data-author_kana="さんごう">
+				<div class="col" data-default="113" data-title_kana="てぇてぇしないとでれないしま。" data-author_kana="さんごう">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="085.png" class="card-img" alt="てぇてぇしないと出れない島。" loading="lazy">
@@ -11668,7 +11787,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="113" data-title_kana="きみがすきですきでしかたがない" data-author_kana="さんごう">
+				<div class="col" data-default="114" data-title_kana="きみがすきですきでしかたがない" data-author_kana="さんごう">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="086.png" class="card-img" alt="君が好きで好きでしかたがない" loading="lazy">
@@ -11767,7 +11886,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="114" data-title_kana="こいするならきみと" data-author_kana="さんごう">
+				<div class="col" data-default="115" data-title_kana="こいするならきみと" data-author_kana="さんごう">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="151.jpg" class="card-img" alt="恋するなら君と" loading="lazy">
@@ -11869,7 +11988,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="115" data-title_kana="ふたりごと" data-author_kana="さんごう, いつつば">
+				<div class="col" data-default="116" data-title_kana="ふたりごと" data-author_kana="さんごう, いつつば">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="083.png" class="card-img" alt="ふたりごと" loading="lazy">
@@ -11968,7 +12087,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="116" data-title_kana="キスしないとでれないへや" data-author_kana="さんごう, いつつば">
+				<div class="col" data-default="117" data-title_kana="キスしないとでれないへや" data-author_kana="さんごう, いつつば">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="084.png" class="card-img" alt="キスしないと出れない部屋" loading="lazy">
@@ -12067,7 +12186,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="117" data-title_kana="SECRET REPORT" data-author_kana="しまりすきゅうびん">
+				<div class="col" data-default="118" data-title_kana="SECRET REPORT" data-author_kana="しまりすきゅうびん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="134.png" class="card-img" alt="SECRET REPORT" loading="lazy">
@@ -12166,7 +12285,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="118" data-title_kana="リコリコごちゃまぜBOOK" data-author_kana="じょあ">
+				<div class="col" data-default="119" data-title_kana="リコリコごちゃまぜBOOK" data-author_kana="じょあ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="233.jpg" class="card-img" alt="リコリコごちゃまぜBOOK" loading="lazy">
@@ -12265,7 +12384,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="119" data-title_kana="bicolor" data-author_kana="しろすけ">
+				<div class="col" data-default="120" data-title_kana="bicolor" data-author_kana="しろすけ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="204.jpg" class="card-img" alt="bicolor" loading="lazy">
@@ -12369,7 +12488,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="120" data-title_kana="Rumor" data-author_kana="しろすけ">
+				<div class="col" data-default="121" data-title_kana="Rumor" data-author_kana="しろすけ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="205.jpg" class="card-img" alt="Rumor" loading="lazy">
@@ -12471,7 +12590,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="121" data-title_kana="Slosh" data-author_kana="しろすけ">
+				<div class="col" data-default="122" data-title_kana="Slosh" data-author_kana="しろすけ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="225.jpg" class="card-img" alt="Slosh" loading="lazy">
@@ -12573,7 +12692,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="122" data-title_kana="ふたりのつむぐみらい1" data-author_kana="せいじゅ">
+				<div class="col" data-default="123" data-title_kana="ふたりのつむぐみらい1" data-author_kana="せいじゅ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="132.jpg" class="card-img" alt="二人の紡ぐ未来Ⅰ" loading="lazy">
@@ -12674,7 +12793,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="123" data-title_kana="なかぬほたるがみをこがす" data-author_kana="ぜろ">
+				<div class="col" data-default="124" data-title_kana="なかぬほたるがみをこがす" data-author_kana="ぜろ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="125.jpg" class="card-img" alt="鳴かぬ蛍が身を焦がす" loading="lazy">
@@ -12775,7 +12894,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="124" data-title_kana="さくらふぶき" data-author_kana="そらぬの">
+				<div class="col" data-default="125" data-title_kana="さくらふぶき" data-author_kana="そらぬの">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="060.png" class="card-img" alt="桜吹雪" loading="lazy">
@@ -12876,7 +12995,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="125" data-title_kana="ふらぐめんと" data-author_kana="そらぬの">
+				<div class="col" data-default="126" data-title_kana="ふらぐめんと" data-author_kana="そらぬの">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="214.png" class="card-img" alt="フラグメント" loading="lazy">
@@ -12980,7 +13099,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="126" data-title_kana="ねむれるけもの" data-author_kana="たちばなやまと">
+				<div class="col" data-default="127" data-title_kana="ねむれるけもの" data-author_kana="たちばなやまと">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="116.jpg" class="card-img" alt="ねむれるけもの" loading="lazy">
@@ -13081,7 +13200,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="127" data-title_kana="はなのようなあなた" data-author_kana="たちばな ゆたか">
+				<div class="col" data-default="128" data-title_kana="はなのようなあなた" data-author_kana="たちばな ゆたか">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="231.jpg" class="card-img" alt="花のようなあなた" loading="lazy">
@@ -13186,7 +13305,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="128" data-title_kana="ふたりはなかよし" data-author_kana="たちばな ゆたか
+				<div class="col" data-default="129" data-title_kana="ふたりはなかよし" data-author_kana="たちばな ゆたか
 ">
 					<div class="card h-100">
 						<div class="card-img-area">
@@ -13286,7 +13405,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="129" data-title_kana="My Dear Flower" data-author_kana="たぶんいぬ">
+				<div class="col" data-default="130" data-title_kana="My Dear Flower" data-author_kana="たぶんいぬ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="012.png" class="card-img" alt="My Dear Flower" loading="lazy">
@@ -13387,7 +13506,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="130" data-title_kana="Pact of Flower" data-author_kana="たぶんいぬ">
+				<div class="col" data-default="131" data-title_kana="Pact of Flower" data-author_kana="たぶんいぬ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="011.jpg" class="card-img" alt="Pact of Flower" loading="lazy">
@@ -13486,7 +13605,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="131" data-title_kana="とこよどうじにはなかんざし" data-author_kana="たぶんいぬ">
+				<div class="col" data-default="132" data-title_kana="とこよどうじにはなかんざし" data-author_kana="たぶんいぬ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="010.png" class="card-img" alt="常夜童子に花簪" loading="lazy">
@@ -13585,7 +13704,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="132" data-title_kana="リュコーリアス" data-author_kana="たぶんいぬ">
+				<div class="col" data-default="133" data-title_kana="リュコーリアス" data-author_kana="たぶんいぬ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="009.png" class="card-img" alt="リュコーリアス" loading="lazy">
@@ -13684,7 +13803,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="133" data-title_kana="Move Forward" data-author_kana="たぶんいぬ">
+				<div class="col" data-default="134" data-title_kana="Move Forward" data-author_kana="たぶんいぬ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="013.png" class="card-img" alt="Move Forward" loading="lazy">
@@ -13783,7 +13902,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="134" data-title_kana="Not Terminate" data-author_kana="たぶんいぬ">
+				<div class="col" data-default="135" data-title_kana="Not Terminate" data-author_kana="たぶんいぬ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="014.png" class="card-img" alt="Not Terminate" loading="lazy">
@@ -13884,7 +14003,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="135" data-title_kana="とあるたんていのじけんぼ1" data-author_kana="たぶんいぬ">
+				<div class="col" data-default="136" data-title_kana="とあるたんていのじけんぼ1" data-author_kana="たぶんいぬ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="015.png" class="card-img" alt="とある探偵の事件簿１" loading="lazy">
@@ -13983,7 +14102,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="136" data-title_kana="Love begets love" data-author_kana="たぶんいぬ">
+				<div class="col" data-default="137" data-title_kana="Love begets love" data-author_kana="たぶんいぬ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="161.jpg" class="card-img" alt="Love begets love" loading="lazy">
@@ -14087,7 +14206,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="137" data-title_kana="むだい" data-author_kana="たぶんいぬ">
+				<div class="col" data-default="138" data-title_kana="むだい" data-author_kana="たぶんいぬ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="172.jpg" class="card-img" alt="無題" loading="lazy">
@@ -14192,7 +14311,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="138" data-title_kana="あおいいろ" data-author_kana="たぶんいぬ">
+				<div class="col" data-default="139" data-title_kana="あおいいろ" data-author_kana="たぶんいぬ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="207.jpg" class="card-img" alt="アオイイロ" loading="lazy">
@@ -14294,7 +14413,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="139" data-title_kana="Je t&#39;aime à croquer" data-author_kana="たぶんいぬ">
+				<div class="col" data-default="140" data-title_kana="Je t&#39;aime à croquer" data-author_kana="たぶんいぬ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="222.jpg" class="card-img" alt="Je t&#39;aime à croquer" loading="lazy">
@@ -14396,7 +14515,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="140" data-title_kana="はからすからすのゆめひとつ" data-author_kana="たぶんいぬ">
+				<div class="col" data-default="141" data-title_kana="はからすからすのゆめひとつ" data-author_kana="たぶんいぬ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="221.jpg" class="card-img" alt="はじめは鴉の夢ひとつ" loading="lazy">
@@ -14498,7 +14617,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="141" data-title_kana="Lycoris Color" data-author_kana="だーす">
+				<div class="col" data-default="142" data-title_kana="Lycoris Color" data-author_kana="だーす">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="087.jpg" class="card-img" alt="Lycoris Color" loading="lazy">
@@ -14597,7 +14716,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="142" data-title_kana="たいくつなえいがは××のあいず" data-author_kana="ちょりsow">
+				<div class="col" data-default="143" data-title_kana="たいくつなえいがは××のあいず" data-author_kana="ちょりsow">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="137.jpg" class="card-img" alt="たいくつな映画は××の合図" loading="lazy">
@@ -14701,7 +14820,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="143" data-title_kana="せいとかいちょうはてんこうせいがおすき" data-author_kana="ちょりsow">
+				<div class="col" data-default="144" data-title_kana="せいとかいちょうはてんこうせいがおすき" data-author_kana="ちょりsow">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="185.jpg" class="card-img" alt="生徒会長は転校生がお好き" loading="lazy">
@@ -14803,7 +14922,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="144" data-title_kana="WANNA TOUCH YOU, SINCERELY" data-author_kana="つかさ かな">
+				<div class="col" data-default="145" data-title_kana="WANNA TOUCH YOU, SINCERELY" data-author_kana="つかさ かな">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="130.png" class="card-img" alt="WANNA TOUCH YOU, SINCERELY" loading="lazy">
@@ -14902,7 +15021,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="145" data-title_kana="りこりすのえっちなほん　Lilly　プレビューばん" data-author_kana="つみき">
+				<div class="col" data-default="146" data-title_kana="りこりすのえっちなほん　Lilly　プレビューばん" data-author_kana="つみき">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="178.jpg" class="card-img" alt="リコリスのえっちなほん Lilly プレビュー版" loading="lazy">
@@ -15006,7 +15125,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="146" data-title_kana="Koi" data-author_kana="といろトイ">
+				<div class="col" data-default="147" data-title_kana="Koi" data-author_kana="といろトイ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="110.jpg" class="card-img" alt="Koi" loading="lazy">
@@ -15107,7 +15226,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="147" data-title_kana="リコリコリフレイン" data-author_kana="とおか">
+				<div class="col" data-default="148" data-title_kana="リコリコリフレイン" data-author_kana="とおか">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="092.jpg" class="card-img" alt="リコリコリフレイン" loading="lazy">
@@ -15206,7 +15325,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="148" data-title_kana="リコリコリフレインvol.2" data-author_kana="とおか">
+				<div class="col" data-default="149" data-title_kana="リコリコリフレインvol.2" data-author_kana="とおか">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="141.jpg" class="card-img" alt="リコリコリフレインvol.2" loading="lazy">
@@ -15308,7 +15427,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="149" data-title_kana="ちさたきのそのご" data-author_kana="とりごん">
+				<div class="col" data-default="150" data-title_kana="ちさたきのそのご" data-author_kana="とりごん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="093.jpg" class="card-img" alt="ちさたきのその後" loading="lazy">
@@ -15407,7 +15526,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="150" data-title_kana="ちさたきのそのご2" data-author_kana="とりごん">
+				<div class="col" data-default="151" data-title_kana="ちさたきのそのご2" data-author_kana="とりごん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="094.jpg" class="card-img" alt="ちさたきとその後2" loading="lazy">
@@ -15506,7 +15625,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="151" data-title_kana="ちさたきのそのご3" data-author_kana="とりごん">
+				<div class="col" data-default="152" data-title_kana="ちさたきのそのご3" data-author_kana="とりごん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="147.jpg" class="card-img" alt="ちさたきのその後3" loading="lazy">
@@ -15608,7 +15727,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="152" data-title_kana="Lustrousness" data-author_kana="とーくん, ゅ">
+				<div class="col" data-default="153" data-title_kana="Lustrousness" data-author_kana="とーくん, ゅ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="167.jpg" class="card-img" alt="Lustrousness" loading="lazy">
@@ -15710,7 +15829,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="153" data-title_kana="Their other story" data-author_kana="なおきひろ, あきのかえで">
+				<div class="col" data-default="154" data-title_kana="Their other story" data-author_kana="なおきひろ, あきのかえで">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="133.jpg" class="card-img" alt="Their other story" loading="lazy">
@@ -15809,7 +15928,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="154" data-title_kana="Lycoris Kemomimi Book" data-author_kana="なちみかん">
+				<div class="col" data-default="155" data-title_kana="Lycoris Kemomimi Book" data-author_kana="なちみかん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="095.jpg" class="card-img" alt="Lycoris Kemomimi Book" loading="lazy">
@@ -15908,7 +16027,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="155" data-title_kana="Live, love, laugh and be happy" data-author_kana="なないろ">
+				<div class="col" data-default="156" data-title_kana="Live, love, laugh and be happy" data-author_kana="なないろ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="066.png" class="card-img" alt="Live, love, laugh and be happy" loading="lazy">
@@ -16007,7 +16126,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="156" data-title_kana="ゆきがとけたら" data-author_kana="なないろ">
+				<div class="col" data-default="157" data-title_kana="ゆきがとけたら" data-author_kana="なないろ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="145.png" class="card-img" alt="雪が溶けたら" loading="lazy">
@@ -16111,7 +16230,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="157" data-title_kana="たきちさと××しないとでられないへや" data-author_kana="なないろ">
+				<div class="col" data-default="158" data-title_kana="たきちさと××しないとでられないへや" data-author_kana="なないろ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="224.png" class="card-img" alt="たきちさと××しないと出られない部屋" loading="lazy">
@@ -16213,7 +16332,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="158" data-title_kana="たきちさと××しないとでられないへやリターンズ" data-author_kana="なないろ">
+				<div class="col" data-default="159" data-title_kana="たきちさと××しないとでられないへやリターンズ" data-author_kana="なないろ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="230.png" class="card-img" alt="たきちさと××しないと出られない部屋リターンズ" loading="lazy">
@@ -16317,7 +16436,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="159" data-title_kana="はじめまして、うんめいのひと" data-author_kana="なんとか">
+				<div class="col" data-default="160" data-title_kana="はじめまして、うんめいのひと" data-author_kana="なんとか">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="166.jpg" class="card-img" alt="はじめまして、運命のひと" loading="lazy">
@@ -16421,7 +16540,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="160" data-title_kana="Especially for you" data-author_kana="ばすろまん">
+				<div class="col" data-default="161" data-title_kana="Especially for you" data-author_kana="ばすろまん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="034.jpg" class="card-img" alt="Especially for you" loading="lazy">
@@ -16520,7 +16639,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="161" data-title_kana="Feel Good?" data-author_kana="ばすろまん">
+				<div class="col" data-default="162" data-title_kana="Feel Good?" data-author_kana="ばすろまん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="035.jpg" class="card-img" alt="Feel Good?" loading="lazy">
@@ -16621,7 +16740,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="162" data-title_kana="ちさたきまんが" data-author_kana="ばすろまん">
+				<div class="col" data-default="163" data-title_kana="ちさたきまんが" data-author_kana="ばすろまん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="210.jpg" class="card-img" alt="ちさたきまんが" loading="lazy">
@@ -16723,7 +16842,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="163" data-title_kana="ばんさんのかのじょをみつめて" data-author_kana="ばすろまん, ぜろ, ぴよ">
+				<div class="col" data-default="164" data-title_kana="ばんさんのかのじょをみつめて" data-author_kana="ばすろまん, ぜろ, ぴよ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="209.jpg" class="card-img" alt="晩餐の彼女を見つめて" loading="lazy">
@@ -16827,7 +16946,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="164" data-title_kana="JOKER" data-author_kana="はせがわ">
+				<div class="col" data-default="165" data-title_kana="JOKER" data-author_kana="はせがわ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="201.jpg" class="card-img" alt="JOKER" loading="lazy">
@@ -16929,7 +17048,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="165" data-title_kana="きみのひとみの りんごにしてよ" data-author_kana="はそ">
+				<div class="col" data-default="166" data-title_kana="きみのひとみの りんごにしてよ" data-author_kana="はそ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="048.png" class="card-img" alt="きみのひとみの りんごにしてよ" loading="lazy">
@@ -17028,7 +17147,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="166" data-title_kana="こうはいにあしあとをきざむ" data-author_kana="はてな">
+				<div class="col" data-default="167" data-title_kana="こうはいにあしあとをきざむ" data-author_kana="はてな">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="049.jpg" class="card-img" alt="荒廃に足跡を刻む" loading="lazy">
@@ -17129,7 +17248,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="167" data-title_kana="Snatched!" data-author_kana="はてな, よしいそめの">
+				<div class="col" data-default="168" data-title_kana="Snatched!" data-author_kana="はてな, よしいそめの">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="062.jpg" class="card-img" alt="Snatched!" loading="lazy">
@@ -17230,7 +17349,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="168" data-title_kana="ふたりのじかん、たいせつなたからもの" data-author_kana="はなぞめなぎさ, すずかぜりん">
+				<div class="col" data-default="169" data-title_kana="ふたりのじかん、たいせつなたからもの" data-author_kana="はなぞめなぎさ, すずかぜりん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="099.jpg" class="card-img" alt="ふたりの時間、大切な宝物" loading="lazy">
@@ -17329,7 +17448,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="169" data-title_kana="わたしのすきなもの" data-author_kana="はなたに">
+				<div class="col" data-default="170" data-title_kana="わたしのすきなもの" data-author_kana="はなたに">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="052.jpg" class="card-img" alt="わたしのすきなもの" loading="lazy">
@@ -17428,7 +17547,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="170" data-title_kana="きらきらぼしのあつめかた" data-author_kana="はなたに">
+				<div class="col" data-default="171" data-title_kana="きらきらぼしのあつめかた" data-author_kana="はなたに">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="198.jpg" class="card-img" alt="きらきら星のあつめかた" loading="lazy">
@@ -17530,7 +17649,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="171" data-title_kana="HANEHON-LycoRecoVer-" data-author_kana="はりるねる">
+				<div class="col" data-default="172" data-title_kana="HANEHON-LycoRecoVer-" data-author_kana="はりるねる">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="100.jpg" class="card-img" alt="HANEHON-LycoRecoVer-" loading="lazy">
@@ -17632,7 +17751,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="172" data-title_kana="キミとわたしともういちど" data-author_kana="はりるねる">
+				<div class="col" data-default="173" data-title_kana="キミとわたしともういちど" data-author_kana="はりるねる">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="023.jpg" class="card-img" alt="キミと私ともう一度" loading="lazy">
@@ -17731,7 +17850,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="173" data-title_kana="HANEHON-LycoRecoVer2-" data-author_kana="はりるねる">
+				<div class="col" data-default="174" data-title_kana="HANEHON-LycoRecoVer2-" data-author_kana="はりるねる">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="175.jpg" class="card-img" alt="HANEHON-LycoRecoVer2-" loading="lazy">
@@ -17833,7 +17952,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="174" data-title_kana="そろそろつけよっか" data-author_kana="ぱわー">
+				<div class="col" data-default="175" data-title_kana="そろそろつけよっか" data-author_kana="ぱわー">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="184.jpg" class="card-img" alt="そろそろつけよっか" loading="lazy">
@@ -17935,7 +18054,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="175" data-title_kana="Flower Memory" data-author_kana="ぱわー, うさうさ">
+				<div class="col" data-default="176" data-title_kana="Flower Memory" data-author_kana="ぱわー, うさうさ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="183.jpg" class="card-img" alt="Flower Memory" loading="lazy">
@@ -18037,7 +18156,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="176" data-title_kana="このよるをこえたら" data-author_kana="ぴかち">
+				<div class="col" data-default="177" data-title_kana="このよるをこえたら" data-author_kana="ぴかち">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="069.jpg" class="card-img" alt="この夜を越えたら" loading="lazy">
@@ -18138,7 +18257,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="177" data-title_kana="たいおん、こどう" data-author_kana="ぴかち">
+				<div class="col" data-default="178" data-title_kana="たいおん、こどう" data-author_kana="ぴかち">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="068.jpg" class="card-img" alt="体温、鼓動" loading="lazy">
@@ -18239,7 +18358,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="178" data-title_kana="えいがをみよう" data-author_kana="ぴかち">
+				<div class="col" data-default="179" data-title_kana="えいがをみよう" data-author_kana="ぴかち">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="070.jpg" class="card-img" alt="映画を観よう" loading="lazy">
@@ -18340,7 +18459,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="179" data-title_kana="あと -KIZUATO-" data-author_kana="ぴかち">
+				<div class="col" data-default="180" data-title_kana="あと -KIZUATO-" data-author_kana="ぴかち">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="071.jpg" class="card-img" alt="痕-KIZUATO-" loading="lazy">
@@ -18441,7 +18560,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="180" data-title_kana="きっさリコリコげんていなまはいしん -LycoReco Limited Live-" data-author_kana="ぴかち">
+				<div class="col" data-default="181" data-title_kana="きっさリコリコげんていなまはいしん -LycoReco Limited Live-" data-author_kana="ぴかち">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="072.jpg" class="card-img" alt="喫茶リコリコ限定生配信 -LycoReco Limited Live-" loading="lazy">
@@ -18542,7 +18661,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="181" data-title_kana="たきなかわいい!" data-author_kana="ぴかち">
+				<div class="col" data-default="182" data-title_kana="たきなかわいい!" data-author_kana="ぴかち">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="143.jpg" class="card-img" alt="たきなかわいい!" loading="lazy">
@@ -18644,7 +18763,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="182" data-title_kana="きょう、ちさとと" data-author_kana="ぴかち">
+				<div class="col" data-default="183" data-title_kana="きょう、ちさとと" data-author_kana="ぴかち">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="226.jpg" class="card-img" alt="今日、千束と" loading="lazy">
@@ -18748,7 +18867,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="183" data-title_kana="すはだ" data-author_kana="ぴかち">
+				<div class="col" data-default="184" data-title_kana="すはだ" data-author_kana="ぴかち">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="227.jpg" class="card-img" alt="素肌" loading="lazy">
@@ -18852,7 +18971,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="184" data-title_kana="いとしいひとはずるいひと" data-author_kana="ひのたろう">
+				<div class="col" data-default="185" data-title_kana="いとしいひとはずるいひと" data-author_kana="ひのたろう">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="002.png" class="card-img" alt="いとしい人は、ずるい人。" loading="lazy">
@@ -18956,7 +19075,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="185" data-title_kana="せいりげきおもたきなちゃんぼん(けんぜん)＊おうともあるよ" data-author_kana="ひのたろう">
+				<div class="col" data-default="186" data-title_kana="せいりげきおもたきなちゃんぼん(けんぜん)＊おうともあるよ" data-author_kana="ひのたろう">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="171.png" class="card-img" alt="生理激重たきなちゃん本(健全)＊嘔吐もあるよ" loading="lazy">
@@ -19060,7 +19179,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="186" data-title_kana="ちさたきすべてをさとりしつれんするもぶおんなめせんわかしゅう" data-author_kana="ひのたろう, さんごう, みずあめ, ぴよ, mac, お茶, かめた, かげお, ぜろ, Rui, Ree, ばすろまん, ぶん, へーたろー, たちばなやまと, はりるねる, おーみや（みやじ）, あるぱかこ, とりさし, あずもん, かみせゆう, とおか, さま, りっくう">
+				<div class="col" data-default="187" data-title_kana="ちさたきすべてをさとりしつれんするもぶおんなめせんわかしゅう" data-author_kana="ひのたろう, さんごう, みずあめ, ぴよ, mac, お茶, かめた, かげお, ぜろ, Rui, Ree, ばすろまん, ぶん, へーたろー, たちばなやまと, はりるねる, おーみや（みやじ）, あるぱかこ, とりさし, あずもん, かみせゆう, とおか, さま, りっくう">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="206.jpg" class="card-img" alt="ちさたき全悟失恋モ女和歌集" loading="lazy">
@@ -19165,7 +19284,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="187" data-title_kana="Three Months" data-author_kana="ふじさわ">
+				<div class="col" data-default="188" data-title_kana="Three Months" data-author_kana="ふじさわ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="020.jpg" class="card-img" alt="Three Months" loading="lazy">
@@ -19266,7 +19385,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="188" data-title_kana="キミガスキ" data-author_kana="ふじさわ">
+				<div class="col" data-default="189" data-title_kana="キミガスキ" data-author_kana="ふじさわ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="021.jpg" class="card-img" alt="キミガスキ" loading="lazy">
@@ -19365,7 +19484,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="189" data-title_kana="これからもヨロシク" data-author_kana="ふじさわ">
+				<div class="col" data-default="190" data-title_kana="これからもヨロシク" data-author_kana="ふじさわ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="022.jpg" class="card-img" alt="これからもヨロシク" loading="lazy">
@@ -19464,7 +19583,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="190" data-title_kana="ちさたきこばなし" data-author_kana="ふじさわ">
+				<div class="col" data-default="191" data-title_kana="ちさたきこばなし" data-author_kana="ふじさわ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="196.jpg" class="card-img" alt="ちさたきこばなし" loading="lazy">
@@ -19566,7 +19685,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="191" data-title_kana="わたしのとなり" data-author_kana="ふじさわ">
+				<div class="col" data-default="192" data-title_kana="わたしのとなり" data-author_kana="ふじさわ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="197.jpg" class="card-img" alt="ワタシノトナリ" loading="lazy">
@@ -19668,7 +19787,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="192" data-title_kana="LOL LOL" data-author_kana="ふどう/ぴがし">
+				<div class="col" data-default="193" data-title_kana="LOL LOL" data-author_kana="ふどう/ぴがし">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="101.jpg" class="card-img" alt="LOL LOL" loading="lazy">
@@ -19767,7 +19886,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="193" data-title_kana="ゆうひときみにみらいをちかう" data-author_kana="ふるほんや">
+				<div class="col" data-default="194" data-title_kana="ゆうひときみにみらいをちかう" data-author_kana="ふるほんや">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="103.jpg" class="card-img" alt="夕日と君に未来を誓う" loading="lazy">
@@ -19866,7 +19985,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="194" data-title_kana="Spring" data-author_kana="ふるほんや">
+				<div class="col" data-default="195" data-title_kana="Spring" data-author_kana="ふるほんや">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="104.jpg" class="card-img" alt="Spring" loading="lazy">
@@ -19962,7 +20081,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="195" data-title_kana="LYCORIS SCHOOL LIFE" data-author_kana="ふるほんや">
+				<div class="col" data-default="196" data-title_kana="LYCORIS SCHOOL LIFE" data-author_kana="ふるほんや">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="105.png" class="card-img" alt="LYCORIS SCHOOL LIFE" loading="lazy">
@@ -20058,7 +20177,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="196" data-title_kana="Lycoris School Life Vol2" data-author_kana="ふるほんや">
+				<div class="col" data-default="197" data-title_kana="Lycoris School Life Vol2" data-author_kana="ふるほんや">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="218.jpg" class="card-img" alt="Lycoris School Life Vol2" loading="lazy">
@@ -20157,7 +20276,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="197" data-title_kana="ふぇろもんのどれい(1)" data-author_kana="ぶん">
+				<div class="col" data-default="198" data-title_kana="ふぇろもんのどれい(1)" data-author_kana="ぶん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="199.jpg" class="card-img" alt="フェロモンの奴隷(上)" loading="lazy">
@@ -20261,7 +20380,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="198" data-title_kana="ふぇろもんのどれい(2)" data-author_kana="ぶん">
+				<div class="col" data-default="199" data-title_kana="ふぇろもんのどれい(2)" data-author_kana="ぶん">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="200.jpg" class="card-img" alt="フェロモンの奴隷(下)" loading="lazy">
@@ -20365,7 +20484,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="199" data-title_kana="たきなとちさと。" data-author_kana="まゆなし">
+				<div class="col" data-default="200" data-title_kana="たきなとちさと。" data-author_kana="まゆなし">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="056.jpg" class="card-img" alt="たきなとちさと。" loading="lazy">
@@ -20466,7 +20585,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="200" data-title_kana="ワタシに" data-author_kana="まゆなし">
+				<div class="col" data-default="201" data-title_kana="ワタシに" data-author_kana="まゆなし">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="055.jpg" class="card-img" alt="ワタシ似" loading="lazy">
@@ -20567,7 +20686,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="201" data-title_kana="うけいれてぜんりょく!" data-author_kana="まゆなし">
+				<div class="col" data-default="202" data-title_kana="うけいれてぜんりょく!" data-author_kana="まゆなし">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="057.jpg" class="card-img" alt="受け入れて全力!" loading="lazy">
@@ -20666,7 +20785,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="202" data-title_kana="これからもずっと" data-author_kana="まよ">
+				<div class="col" data-default="203" data-title_kana="これからもずっと" data-author_kana="まよ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="117.png" class="card-img" alt="これからもずっと" loading="lazy">
@@ -20764,7 +20883,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="203" data-title_kana="あさとまくまとよる" data-author_kana="みさかまりす">
+				<div class="col" data-default="204" data-title_kana="あさとまくまとよる" data-author_kana="みさかまりす">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="118.jpg" class="card-img" alt="朝と幕間と夜" loading="lazy">
@@ -20865,7 +20984,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="204" data-title_kana="とあるきせきのいんたーちぇんじ" data-author_kana="みさかまりす">
+				<div class="col" data-default="205" data-title_kana="とあるきせきのいんたーちぇんじ" data-author_kana="みさかまりす">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="217.jpg" class="card-img" alt="とある軌跡の分岐点" loading="lazy">
@@ -20969,7 +21088,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="205" data-title_kana="peace time planet" data-author_kana="みみすけ">
+				<div class="col" data-default="206" data-title_kana="peace time planet" data-author_kana="みみすけ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="168.png" class="card-img" alt="peace time planet" loading="lazy">
@@ -21071,7 +21190,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="206" data-title_kana="Record &amp; Recording" data-author_kana="むしはら">
+				<div class="col" data-default="207" data-title_kana="Record &amp; Recording" data-author_kana="むしはら">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="036.jpg" class="card-img" alt="Record &amp; Recording" loading="lazy">
@@ -21172,7 +21291,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="207" data-title_kana="Surprise &amp; Seduce" data-author_kana="むしはら">
+				<div class="col" data-default="208" data-title_kana="Surprise &amp; Seduce" data-author_kana="むしはら">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="037.jpg" class="card-img" alt="Surprise &amp; Seduce" loading="lazy">
@@ -21273,7 +21392,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="208" data-title_kana="Tempt &amp; Throb" data-author_kana="むしはら">
+				<div class="col" data-default="209" data-title_kana="Tempt &amp; Throb" data-author_kana="むしはら">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="038.jpg" class="card-img" alt="Tempt &amp; Throb" loading="lazy">
@@ -21374,7 +21493,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="209" data-title_kana="はしとはし" data-author_kana="むしハラ">
+				<div class="col" data-default="210" data-title_kana="はしとはし" data-author_kana="むしハラ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="139.jpg" class="card-img" alt="端と端" loading="lazy">
@@ -21478,7 +21597,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="210" data-title_kana="きみとあえてうれしい" data-author_kana="むねた">
+				<div class="col" data-default="211" data-title_kana="きみとあえてうれしい" data-author_kana="むねた">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="053.jpg" class="card-img" alt="きみと会えて嬉しい" loading="lazy">
@@ -21577,7 +21696,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="211" data-title_kana="ちさたきのあったかもしれないはなし" data-author_kana="めきめき">
+				<div class="col" data-default="212" data-title_kana="ちさたきのあったかもしれないはなし" data-author_kana="めきめき">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="107.jpg" class="card-img" alt="ちさたきのあったかもしれない話" loading="lazy">
@@ -21676,7 +21795,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="212" data-title_kana="おたがいのかおりにさそわれるちさたきのはなし" data-author_kana="めきめき">
+				<div class="col" data-default="213" data-title_kana="おたがいのかおりにさそわれるちさたきのはなし" data-author_kana="めきめき">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="108.jpg" class="card-img" alt="お互いの香りに誘われるちさたきの話" loading="lazy">
@@ -21775,7 +21894,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="213" data-title_kana="ちさととたきなのはつデートきねんび" data-author_kana="めきめき">
+				<div class="col" data-default="214" data-title_kana="ちさととたきなのはつデートきねんび" data-author_kana="めきめき">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="142.jpg" class="card-img" alt="千束とたきなの初デート記念日" loading="lazy">
@@ -21877,7 +21996,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="214" data-title_kana="かみぐせのついたちさとをしつけるたきなのはなし" data-author_kana="めきめき">
+				<div class="col" data-default="215" data-title_kana="かみぐせのついたちさとをしつけるたきなのはなし" data-author_kana="めきめき">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="228.jpg" class="card-img" alt="噛み癖のついた千束を躾けるたきなの話" loading="lazy">
@@ -21979,7 +22098,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="215" data-title_kana="ぬいかつってなんですか？" data-author_kana="もちゃ">
+				<div class="col" data-default="216" data-title_kana="ぬいかつってなんですか？" data-author_kana="もちゃ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="189.jpg" class="card-img" alt="ぬい活ってなんですか？" loading="lazy">
@@ -22081,7 +22200,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="216" data-title_kana="あいのしるし ‘A‘ohe mea ‘imi a ka maka." data-author_kana="もつに, せつなりおり">
+				<div class="col" data-default="217" data-title_kana="あいのしるし ‘A‘ohe mea ‘imi a ka maka." data-author_kana="もつに, せつなりおり">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="054.jpg" class="card-img" alt="愛のしるし ‘A‘ohe mea ‘imi a ka maka." loading="lazy">
@@ -22180,7 +22299,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="217" data-title_kana="くがつにじゅうさんにち、ようやくほおをなぐられた" data-author_kana="もり">
+				<div class="col" data-default="218" data-title_kana="くがつにじゅうさんにち、ようやくほおをなぐられた" data-author_kana="もり">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="124.jpg" class="card-img" alt="九月二三日、漸く頬を殴られた。" loading="lazy">
@@ -22281,7 +22400,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="218" data-title_kana="なっとるやろがい！" data-author_kana="もり">
+				<div class="col" data-default="219" data-title_kana="なっとるやろがい！" data-author_kana="もり">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="127.jpg" class="card-img" alt="なっとるやろがい！" loading="lazy">
@@ -22382,7 +22501,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="219" data-title_kana="かこいきれっしゃはのりかえふよう!!" data-author_kana="もり">
+				<div class="col" data-default="220" data-title_kana="かこいきれっしゃはのりかえふよう!!" data-author_kana="もり">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="193.jpg" class="card-img" alt="過去行列車は乗換不要!!" loading="lazy">
@@ -22486,7 +22605,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="220" data-title_kana="さがしものは、ゆめのなか。" data-author_kana="もり">
+				<div class="col" data-default="221" data-title_kana="さがしものは、ゆめのなか。" data-author_kana="もり">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="191.jpg" class="card-img" alt="さがしものは、ゆめのなか。" loading="lazy">
@@ -22588,7 +22707,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="221" data-title_kana="ばんかんかんそく" data-author_kana="もり">
+				<div class="col" data-default="222" data-title_kana="ばんかんかんそく" data-author_kana="もり">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="192.jpg" class="card-img" alt="万感観測" loading="lazy">
@@ -22692,7 +22811,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="222" data-title_kana="ほしがまたたくよるに" data-author_kana="もーりす, 櫻田円">
+				<div class="col" data-default="223" data-title_kana="ほしがまたたくよるに" data-author_kana="もーりす, 櫻田円">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="126.jpg" class="card-img" alt="星が瞬く夜に" loading="lazy">
@@ -22791,7 +22910,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="223" data-title_kana="YOLO" data-author_kana="もーりす, ｶﾒﾀ">
+				<div class="col" data-default="224" data-title_kana="YOLO" data-author_kana="もーりす, ｶﾒﾀ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="170.jpg" class="card-img" alt="YOLO" loading="lazy">
@@ -22895,7 +23014,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="224" data-title_kana="Flowers of Unfaded" data-author_kana="やまもとコリス">
+				<div class="col" data-default="225" data-title_kana="Flowers of Unfaded" data-author_kana="やまもとコリス">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="128.png" class="card-img" alt="Flowers of Unfaded" loading="lazy">
@@ -22994,7 +23113,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="225" data-title_kana="INTO THE DREAM(s)" data-author_kana="やまもとコリス">
+				<div class="col" data-default="226" data-title_kana="INTO THE DREAM(s)" data-author_kana="やまもとコリス">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="223.jpg" class="card-img" alt="INTO THE DREAM(s)" loading="lazy">
@@ -23096,7 +23215,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="226" data-title_kana="Maybe it was like this..." data-author_kana="やまもとコリス, あっぷるふ">
+				<div class="col" data-default="227" data-title_kana="Maybe it was like this..." data-author_kana="やまもとコリス, あっぷるふ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="123.png" class="card-img" alt="Maybe it was like this..." loading="lazy">
@@ -23195,7 +23314,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="227" data-title_kana="しろのきせつ" data-author_kana="ゅ">
+				<div class="col" data-default="228" data-title_kana="しろのきせつ" data-author_kana="ゅ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="058.png" class="card-img" alt="白の季節" loading="lazy">
@@ -23294,7 +23413,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="228" data-title_kana="にじのきせつ" data-author_kana="ゅ">
+				<div class="col" data-default="229" data-title_kana="にじのきせつ" data-author_kana="ゅ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="059.png" class="card-img" alt="虹の季節" loading="lazy">
@@ -23393,7 +23512,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="229" data-title_kana="Blue Attack" data-author_kana="ゅ">
+				<div class="col" data-default="230" data-title_kana="Blue Attack" data-author_kana="ゅ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="146.jpg" class="card-img" alt="Blue Attack" loading="lazy">
@@ -23497,7 +23616,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="230" data-title_kana="Red Attack" data-author_kana="ゅ">
+				<div class="col" data-default="231" data-title_kana="Red Attack" data-author_kana="ゅ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="211.png" class="card-img" alt="Red Attack" loading="lazy">
@@ -23601,7 +23720,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="231" data-title_kana="Dear My Baby!" data-author_kana="ゆうき">
+				<div class="col" data-default="232" data-title_kana="Dear My Baby!" data-author_kana="ゆうき">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="162.jpg" class="card-img" alt="Dear My Baby!" loading="lazy">
@@ -23705,7 +23824,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="232" data-title_kana="フォーカスモード" data-author_kana="よしいそめの">
+				<div class="col" data-default="233" data-title_kana="フォーカスモード" data-author_kana="よしいそめの">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="061.jpg" class="card-img" alt="フォーカスモード" loading="lazy">
@@ -23804,7 +23923,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="233" data-title_kana="イッヌとメガネ" data-author_kana="りた">
+				<div class="col" data-default="234" data-title_kana="イッヌとメガネ" data-author_kana="りた">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="111.jpg" class="card-img" alt="イッヌとメガネ" loading="lazy">
@@ -23903,7 +24022,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="234" data-title_kana="フラグはこわすもの" data-author_kana="りた">
+				<div class="col" data-default="235" data-title_kana="フラグはこわすもの" data-author_kana="りた">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="144.jpg" class="card-img" alt="フラグは壊すもの" loading="lazy">
@@ -24005,7 +24124,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="235" data-title_kana="リ・マトメ" data-author_kana="りた">
+				<div class="col" data-default="236" data-title_kana="リ・マトメ" data-author_kana="りた">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="150.jpg" class="card-img" alt="リ・マトメ" loading="lazy">
@@ -24107,7 +24226,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="236" data-title_kana="My Sweet Bodyguard" data-author_kana="りっくう">
+				<div class="col" data-default="237" data-title_kana="My Sweet Bodyguard" data-author_kana="りっくう">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="157.png" class="card-img" alt="My Sweet Bodyguard" loading="lazy">
@@ -24211,7 +24330,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="237" data-title_kana="わたしのよめになりませんか？" data-author_kana="りっくう">
+				<div class="col" data-default="238" data-title_kana="わたしのよめになりませんか？" data-author_kana="りっくう">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="158.png" class="card-img" alt="私の嫁になりませんか？" loading="lazy">
@@ -24315,7 +24434,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="238" data-title_kana="きみのことずっとおぼえていたい" data-author_kana="りっくう">
+				<div class="col" data-default="239" data-title_kana="きみのことずっとおぼえていたい" data-author_kana="りっくう">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="159.jpg" class="card-img" alt="君のことずっと覚えていたい" loading="lazy">
@@ -24419,7 +24538,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="239" data-title_kana="キミへのあいはほんのうに" data-author_kana="りっくう">
+				<div class="col" data-default="240" data-title_kana="キミへのあいはほんのうに" data-author_kana="りっくう">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="160.png" class="card-img" alt="キミへの愛は本能に" loading="lazy">
@@ -24523,7 +24642,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="240" data-title_kana="きみへのあいはえいえんに" data-author_kana="りっくう">
+				<div class="col" data-default="241" data-title_kana="きみへのあいはえいえんに" data-author_kana="りっくう">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="213.jpg" class="card-img" alt="キミへの愛は永遠に" loading="lazy">
@@ -24627,7 +24746,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="241" data-title_kana="BlueBird" data-author_kana="ろまんすたけのこ">
+				<div class="col" data-default="242" data-title_kana="BlueBird" data-author_kana="ろまんすたけのこ">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="120.jpg" class="card-img" alt="BlueBird" loading="lazy">
@@ -24726,7 +24845,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="242" data-title_kana="ダイヤモンドリリーのはなびら" data-author_kana="わりばし">
+				<div class="col" data-default="243" data-title_kana="ダイヤモンドリリーのはなびら" data-author_kana="わりばし">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="129.jpg" class="card-img" alt="ダイヤモンドリリーの花びら" loading="lazy">
@@ -24825,7 +24944,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col" data-default="243" data-title_kana="じゅんけつのさいのう" data-author_kana="壞茸社, ChickeIII, 4why">
+				<div class="col" data-default="244" data-title_kana="じゅんけつのさいのう" data-author_kana="壞茸社, ChickeIII, 4why">
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img src="090.jpg" class="card-img" alt="純潔の才能" loading="lazy">
@@ -24935,6 +25054,7 @@
 		</main>
 	</div>
 	<button id="page-top" class="page-top side-button"><i class="bi bi-chevron-bar-up"></i></button>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 

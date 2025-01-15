@@ -30,6 +30,35 @@ document.addEventListener("DOMContentLoaded", () => {
         return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     };
 
+    // 日時範囲の設定
+    const toJST = (date) => {
+        date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+        return date;
+    };
+    const today = toJST(new Date());
+    const minDate = toJST(new Date('2018-08-01T00:00:00'));
+    const maxDate = toJST(new Date(today.getFullYear(), today.getMonth() + 1, 0, 14, 59, 59, 999));
+
+    const dateRangeStart = document.getElementById('date-range-start');
+    const dateRangeEnd = document.getElementById('date-range-end');
+    const dateRangeElement = document.getElementById('dateRange');
+
+    const dateRangePicker = new DateRangePicker(dateRangeElement, {
+        autohide: true,
+        buttonClass: 'btn',
+        clearBtn: true,
+        container: document.getElementById('picker-container'),
+        format: 'yyyy/mm/dd',
+        language: 'ja',
+        maxDate: maxDate,
+        maxView: 2,
+        minDate: minDate,
+        pickLevel: 1,
+        startView: 1,
+        todayHighlight: true,
+        inputs: [dateRangeStart, dateRangeEnd]
+    });
+
     const options = {
         valueNames: [
             "title",
@@ -180,15 +209,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const officialSelected = document.getElementById("officialSelector").value;
         const referenceWorkSelected = document.getElementById("referenceWorkSelector").value;
         const eventSelected = document.getElementById("eventSelector").value;
+        const dateRange = dateRangePicker.getDates(false);
 
         fanbooks.filter((item) => {
             return (
-                categoryCheckboxes.length !== 0 &&
-                categoryCheckboxes.includes(item.values().category) &&
+                (!categoryCheckboxes.length || categoryCheckboxes.includes(item.values().category)) &&
                 (ratingSelected === "all" || (ratingSelected === "without" && !item.values().rating) || (ratingSelected === "only" && item.values().rating)) &&
                 (officialSelected === "all" || (officialSelected === "without" && !item.values().official) || (officialSelected === "only" && item.values().official)) &&
                 (referenceWorkSelected === "any" || referenceWorkSelected.includes(item.values().reference_work)) &&
-                (eventSelected === "any" || eventSelected.includes(item.values().event))
+                (eventSelected === "any" || eventSelected.includes(item.values().event)) &&
+                ((!dateRange?.[0] && !dateRange?.[1]) || (dateRange[0] <= new Date(`${item.values().date}T00:00:00`) && new Date(`${item.values().date}T00:00:00`) <= dateRange[1]))
             );
         });
         handleBlurrySwitch();
@@ -287,21 +317,26 @@ document.addEventListener("DOMContentLoaded", () => {
         Array.from(document.getElementById("categoryCheckboxes").getElementsByTagName("INPUT")).map((checkbox) => {
             checkbox.checked = true;
         });
-
         // 年齢制限
         document.getElementById("ratingSelector").value = "all";
-
         // 作者分類
         document.getElementById("officialSelector").value = "all";
-
         // 元ネタ
         referenceworkTomSelect.setValue("any");
-
         // イベント
         eventTomSelect.setValue("any");
-
+        // 日時
+        dateRangePicker.setDates({clear: true}, {clear: true});
+        // 検索
+        const searchInput = document.getElementById("searchInput");
+        searchInput.value = "";
+        fanbooks.search(searchInput.value);
         applyFilters();
     });
+
+    // 日付範囲更新イベント
+    dateRangeStart.addEventListener('changeDate', () => applyFilters());
+    dateRangeEnd.addEventListener('changeDate', () => applyFilters());
 });
 
 window.addEventListener("load", () => {

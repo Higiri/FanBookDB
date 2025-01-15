@@ -6,12 +6,15 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="tom-select.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker.min.css">
 	<link rel="stylesheet" href="bootstrap_Higiri.css">
 	<link rel="stylesheet" href="style.css">
 	<script type="text/javascript" src="list.js"></script>
 	<script type="text/javascript" src="tom-select.js"></script>
 	<script type="text/javascript" src="fanbooks.js"></script>
 	<script type="text/javascript" src="bs-theme.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/locales/ja.js"></script>
 </head>
 
 <body class="modal_bg">
@@ -140,6 +143,15 @@
 								<input type="radio" class="btn-check sort" name="sortType" id="sortTypeDesc" data-sort_type="desc" autocomplete="off" />
 								<label class="btn btn-outline-primary col-6" for="sortTypeDesc">降順</label>
 							</div>
+						</div>
+						<div class="mb-3">
+							<label for="date-range-start" class="form-label"><i class="bi material-symbols-outlined me-1">date_range</i>発行日・頒布日</label>
+							<div id="dateRange" class="input-group">
+								<input id="date-range-start" class="form-control" type="text" name="start">
+								<label for="date-range-end" class="input-group-text">～</label>
+								<input id="date-range-end" class="form-control" type="text" name="end">
+							</div>
+							<div id="picker-container"></div>
 						</div>
 						<div class="row g-2 mb-3">
 							<div class="col-6">
@@ -318,6 +330,7 @@
 		</main>
 	</div>
 	<button id="page-top" class="page-top side-button"><i class="bi bi-chevron-bar-up"></i></button>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 
