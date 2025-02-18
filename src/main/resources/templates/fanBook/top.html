@@ -19,7 +19,7 @@
 
 <body class="modal_bg">
 	<div id="loadWindow">
-		<div class="spinner-grow" role="status" style="width: 4rem; height: 4rem;">
+		<div id="spinner" class="spinner-grow" role="status" style="width: 4rem; height: 4rem;">
 			<span class="visually-hidden">Loading...</span>
 		</div>
 	</div>
@@ -213,7 +213,7 @@
 				<div class="col" th:each="fanBook, iterStat : ${fanBookList}" th:object="${fanBook}" th:data-default="${iterStat.count}" th:data-title_kana="*{title_kana}" th:data-author_kana="*{author_kana}">
 					<div class="card h-100">
 						<div class="card-img-area">
-							<img th:if="${fanBook.picture != null}" th:src="${fanBook.picture.filepath} + ${fanBook.picture.filename}" class="card-img" th:alt="*{title}" loading="lazy">
+							<img th:if="${fanBook.picture != null}" th:src="${fanBook.picture.filepath} + 'placeholder/' + *{toPlaceholderName()}" th:data-src="${fanBook.picture.filepath} + ${fanBook.picture.filename}" class="card-img book-cover-img" th:alt="*{title}">
 							<div th:if="${fanBook.is_adult}" class="image-overlay"></div>
 							<div class="badge-area pt-1 px-2 position-absolute top-0 start-0 end-0">
 								<div class="row g-1 pb-2">

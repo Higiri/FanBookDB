@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dateRangeElement = document.getElementById('dateRange');
 
     const dateRangePicker = new DateRangePicker(dateRangeElement, {
-        autohide: true,
+        autohide: false,
         buttonClass: 'btn',
         clearBtn: true,
         container: document.getElementById('picker-container'),
@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 (ratingSelected === "all" || (ratingSelected === "without" && !item.values().rating) || (ratingSelected === "only" && item.values().rating)) &&
                 (officialSelected === "all" || (officialSelected === "without" && !item.values().official) || (officialSelected === "only" && item.values().official)) &&
                 (referenceWorkSelected === "any" || referenceWorkSelected.includes(item.values().reference_work)) &&
-                (eventSelected === "any" || eventSelected.includes(item.values().event)) &&
+                (eventSelected === "any" || eventSelected === item.values().event) &&
                 ((!dateRange?.[0] && !dateRange?.[1]) || (dateRange[0] <= new Date(`${item.values().date}T00:00:00`) && new Date(`${item.values().date}T00:00:00`) <= dateRange[1]))
             );
         });
@@ -297,19 +297,6 @@ document.addEventListener("DOMContentLoaded", () => {
             [item.value, item.venue, item.date, item.location].filter((field) => field).some((field) => field.toLowerCase().includes(search.toLowerCase())) ? 1 : 0,
     });
 
-    const loadWindow = document.getElementById("loadWindow");
-    const spinner = document.querySelector("#loadWindow .spinner-grow");
-    setTimeout(() => {
-        if (!loadWindow.classList.contains("hidden")) {
-            loadWindow.classList.add("hidden");
-            spinner.classList.add("hidden");
-            setTimeout(() => {
-                loadWindow.style.display = "none";
-                spinner.style.display = "none";
-            }, 500);
-        }
-    }, 10000);
-
     // リセットボタン
     document.getElementById("filter-reset").addEventListener('click', () => {
         // カテゴリ
@@ -339,15 +326,17 @@ document.addEventListener("DOMContentLoaded", () => {
     dateRangeEnd.addEventListener('changeDate', () => applyFilters());
 });
 
+/**
+ *
+ */
 window.addEventListener("load", () => {
-    const loadWindow = document.getElementById("loadWindow");
-    const spinner = document.querySelector("#loadWindow .spinner-grow");
-    setTimeout(() => {
-        loadWindow.classList.add("hidden");
-        spinner.classList.add("hidden");
-        setTimeout(() => {
-            loadWindow.style.display = "none";
-            spinner.style.display = "none";
-        }, 500);
-    }, 500);
+    document.getElementById("loadWindow").classList.add("hidden");
+    document.getElementById("spinner").classList.add("hidden");
+
+    for (const img of Array.from(document.getElementsByClassName("book-cover-img"))) {
+        img.setAttribute("src", img.getAttribute("data-src"));
+        img.onload = () => {
+            img.removeAttribute("data-src");
+        };
+    }
 });
