@@ -214,9 +214,10 @@
 					<div class="card h-100">
 						<div class="card-img-area">
 							<img th:if="${fanBook.picture != null}" th:src="${fanBook.picture.filepath} + 'placeholder/' + *{toPlaceholderName()}" th:data-src="${fanBook.picture.filepath} + ${fanBook.picture.filename}" class="card-img book-cover-img" th:alt="*{title}">
+							<div class="book-cover-img-loading"></div>
 							<div th:if="${fanBook.is_adult}" class="image-overlay"></div>
-							<div class="badge-area pt-1 px-2 position-absolute top-0 start-0 end-0">
-								<div class="row g-1 pb-2">
+							<div class="badge-area">
+								<div class="d-flex gap-1">
 									<div class="col-auto" th:if="${fanBook.is_adult}">
 										<span class="badge rating text-bg-danger badge-dark-bg">R-18</span>
 									</div>
@@ -228,7 +229,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="title-container position-absolute bottom-0 start-0 end-0 overflow-hidden">
+							<div class="title-container">
 								<div class="title-area">
 									<div class="text-truncate title-area-author" th:text="*{author}"></div>
 									<h3 class="text-truncate-2line card-title word-wrap mb-0" th:text="*{title}"></h3>

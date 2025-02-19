@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //ぼかしスイッチ切り替え時の処理
     const handleBlurrySwitch = () => {
         Array.from(document.getElementsByClassName("image-overlay")).forEach((imageOverlay) => {
-            imageOverlay.style.display = document.getElementById("blurrySwitch").checked ? "block" : "none";
+            document.getElementById("blurrySwitch").checked ? imageOverlay.classList.remove("hide") : imageOverlay.classList.add("hide");
         });
 
         if (document.getElementById('blurrySwitch').checked) {
