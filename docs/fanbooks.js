@@ -1,3 +1,12 @@
+const loadFullsizeImage = () => {
+    for (const img of Array.from(document.getElementsByClassName("book-cover-img"))) {
+        img.setAttribute("src", img.getAttribute("data-src"));
+        img.onload = () => {
+            img.removeAttribute("data-src");
+        };
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     // 'detailModal' で始まるすべてのモーダルに対してイベントリスナーを追加
     // document.addEventListener("shown.bs.modal", (event) => {
@@ -106,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //ソート切り替え時に1ページ目へ
     fanbooks.on("sortStart", (list) => {
         list.i = 1;
+        loadFullsizeImage();
     });
 
     //ぼかしスイッチ切り替え時の処理
@@ -113,6 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         Array.from(document.getElementsByClassName("image-overlay")).forEach((imageOverlay) => {
             document.getElementById("blurrySwitch").checked ? imageOverlay.classList.remove("hide") : imageOverlay.classList.add("hide");
         });
+        loadFullsizeImage();
 
         if (document.getElementById('blurrySwitch').checked) {
             document.getElementById('blur-icon').innerHTML = "blur_off";
@@ -124,6 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //更新時にぼかしスイッチの確認
     fanbooks.on("updated", () => {
         handleBlurrySwitch();
+        loadFullsizeImage();
     });
 
     // ウィンドウサイズに応じたページサイズを返す関数
@@ -165,6 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
         fanbooks.page = getPageSize();
         fanbooks.update();
         settingPagenation();
+        loadFullsizeImage();
         if (getWindowSize() < 768) {
             document.getElementById('filter-area').classList.add('hidden-filter');
             document.getElementById('btn-filter').checked = false;
@@ -184,6 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 behavior: "smooth",
             });
         }
+        loadFullsizeImage();
     });
 
     // フィルタ表示制御
@@ -221,6 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ((!dateRange?.[0] && !dateRange?.[1]) || (dateRange[0] <= new Date(`${item.values().date}T00:00:00`) && new Date(`${item.values().date}T00:00:00`) <= dateRange[1]))
             );
         });
+        loadFullsizeImage();
         handleBlurrySwitch();
         updateNumberOfData();
     };
@@ -237,6 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("searchInput").addEventListener("input", () => {
         const searchString = document.getElementById("searchInput").value;
         fanbooks.search(searchString);
+        loadFullsizeImage();
         handleBlurrySwitch();
         updateNumberOfData();
     });
@@ -319,6 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
         searchInput.value = "";
         fanbooks.search(searchInput.value);
         applyFilters();
+        loadFullsizeImage();
     });
 
     // 日付範囲更新イベント
@@ -333,10 +350,5 @@ window.addEventListener("load", () => {
     document.getElementById("loadWindow").classList.add("hidden");
     document.getElementById("spinner").classList.add("hidden");
 
-    for (const img of Array.from(document.getElementsByClassName("book-cover-img"))) {
-        img.setAttribute("src", img.getAttribute("data-src"));
-        img.onload = () => {
-            img.removeAttribute("data-src");
-        };
-    }
+    loadFullsizeImage();
 });
