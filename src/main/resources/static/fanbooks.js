@@ -1,5 +1,5 @@
 const loadFullsizeImage = () => {
-    for (const img of Array.from(document.getElementsByClassName("book-cover-img"))) {
+    for (const img of Array.from(document.querySelectorAll('[data-src]'))) {
         img.setAttribute("src", img.getAttribute("data-src"));
         img.onload = () => {
             img.removeAttribute("data-src");
