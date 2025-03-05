@@ -115,7 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //ソート切り替え時に1ページ目へ
     fanbooks.on("sortStart", (list) => {
         list.i = 1;
-        loadFullsizeImage();
     });
 
     //ぼかしスイッチ切り替え時の処理
@@ -123,7 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
         Array.from(document.getElementsByClassName("image-overlay")).forEach((imageOverlay) => {
             document.getElementById("blurrySwitch").checked ? imageOverlay.classList.remove("hide") : imageOverlay.classList.add("hide");
         });
-        loadFullsizeImage();
 
         if (document.getElementById('blurrySwitch').checked) {
             document.getElementById('blur-icon').innerHTML = "blur_off";
@@ -135,7 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //更新時にぼかしスイッチの確認
     fanbooks.on("updated", () => {
         handleBlurrySwitch();
-        loadFullsizeImage();
     });
 
     // ウィンドウサイズに応じたページサイズを返す関数
