@@ -15,8 +15,9 @@
 	<script type="text/javascript" src="bs-theme.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/locales/ja.js"></script>
+	<th:block th:each="fanBook : ${fanBookList}"><link rel="preload" as="image" th:href="${fanBook.picture.filepath} + 'placeholder/' + ${fanBook.toPlaceholderName()}" type="image/jpg" />
+	</th:block>
 </head>
-
 <body class="modal_bg">
 	<div id="loadWindow">
 		<div id="spinner" class="spinner-grow" role="status" style="width: 4rem; height: 4rem;">

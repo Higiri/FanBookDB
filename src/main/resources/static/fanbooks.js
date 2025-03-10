@@ -9,10 +9,10 @@ const loadFullsizeImage = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     // 画像のプリロード
-    for (const img of Array.from(document.getElementsByClassName("book-cover-img"))) {
-        const imageElement = document.createElement("img");
-        imageElement.src = img.src;
-    }
+    // for (const img of Array.from(document.getElementsByClassName("book-cover-img"))) {
+    //     const imageElement = document.createElement("img");
+    //     imageElement.src = img.src;
+    // }
 
     // 'detailModal' で始まるすべてのモーダルに対してイベントリスナーを追加
     // document.addEventListener("shown.bs.modal", (event) => {
