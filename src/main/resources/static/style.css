@@ -189,10 +189,7 @@ fieldset.checkbox-field legend {
 .book-cover-img {
 	position: relative;
 	opacity: 1;
-	transition: opacity 1s ease-in-out;
-	@starting-style {
-		opacity: 0;
-	}
+	transition: opacity 1s ease-in-out, display 1s allow-discrete;
 }
 .book-cover-img[data-src] {
 	opacity: 0.25;
@@ -236,13 +233,11 @@ fieldset.checkbox-field legend {
 	backdrop-filter: blur(10px);
 	border-radius: var(--bs-card-border-radius);
 	opacity: 1;
-	transition: opacity 0.5s ease-in-out;
-	@starting-style {
-		opacity: 0;
-	}
+	transition: opacity 0.5s ease-in-out, display 1s allow-discrete;
 }
 .image-overlay.hide {
 	opacity: 0;
+	display: none;
 	@starting-style {
 		opacity: 1;
 	}
