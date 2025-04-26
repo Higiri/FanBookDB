@@ -79,4 +79,12 @@ public class FanBook {
 		return this.author.substring(0, 16) + "…";
 	}
 
+	public String toPlaceholderName() {
+		String fileName = this.picture.getFilename();
+		if (fileName == null || fileName.isEmpty()) {
+			return fileName.substring(0, fileName.lastIndexOf(".")) + ".jpg";
+		} else {
+			return fileName.substring(0, fileName.lastIndexOf(".")) + ".jpg";
+		}
+	}
 }
