@@ -44,45 +44,45 @@ public class FanBookController {
 	@GetMapping("/")
 	public String show(Model model) {
 		List<FanBook> fanBookList = service
-				.findAll()
-				.stream()
-				.sorted(Comparator
-						.comparing((FanBook fb) -> fb.getCategory().getId() == 5)
-						.thenComparing((FanBook fb) -> !fb.getIs_official_creator()).reversed()
-						.thenComparing(FanBook::getIs_collaboration).reversed()
-						.thenComparing(fb -> fb.getReference_work().getKana())
-						.thenComparing(Comparator.comparing(FanBook::getAuthor_kana, Collator.getInstance(Locale.JAPANESE)))
-						.thenComparing(FanBook::getDate)
-						.thenComparing(Comparator.comparing(FanBook::getTitle_kana, Collator.getInstance(Locale.JAPANESE))))
-				.toList();
+			.findAll()
+			.stream()
+			.sorted(Comparator
+				.comparing((FanBook fb) -> fb.getCategory().getId() == 5)
+				.thenComparing((FanBook fb) -> !fb.getIs_official_creator()).reversed()
+				.thenComparing(FanBook::getIs_collaboration).reversed()
+				.thenComparing(fb -> fb.getReference_work().getKana())
+				.thenComparing(Comparator.comparing(FanBook::getAuthor_kana, Collator.getInstance(Locale.JAPANESE)))
+				.thenComparing(FanBook::getDate)
+				.thenComparing(Comparator.comparing(FanBook::getTitle_kana, Collator.getInstance(Locale.JAPANESE))))
+			.toList();
 		fanBookList
-				.stream()
-				.filter(s -> s.getSummary() != null)
-				.forEach(fanBook -> {
-					fanBook.setSummary(toLineSeparateText(fanBook.getSummary()));
-				});
+			.stream()
+			.filter(s -> s.getSummary() != null)
+			.forEach(fanBook -> {
+				fanBook.setSummary(toLineSeparateText(fanBook.getSummary()));
+			});
 		model.addAttribute("fanBookList", fanBookList);
 
 		List<Category> categories = categoryService
-				.findAll()
-				.stream()
-				.sorted(Comparator.comparing(Category::getId))
-				.toList();
+			.findAll()
+			.stream()
+			.sorted(Comparator.comparing(Category::getId))
+			.toList();
 		model.addAttribute("categories", categories);
 
 		List<ReferenceWork> reference_works = referenceWorkService
-				.findAll()
-				.stream()
-				.sorted(Comparator.comparing(ReferenceWork::getKana))
-				.toList();
+			.findAll()
+			.stream()
+			.sorted(Comparator.comparing(ReferenceWork::getKana))
+			.toList();
 		model.addAttribute("reference_works", reference_works);
 
 		List<Event> events = eventService.findAll()
-				.stream()
-				.sorted(Comparator
-						.comparing((Event event) -> event.getDate() == null ? LocalDate.MIN : event.getDate())
-						.thenComparing(Event::getId))
-				.toList();
+			.stream()
+			.sorted(Comparator
+				.comparing((Event event) -> event.getDate() == null ? LocalDate.MIN : event.getDate())
+				.thenComparing(Event::getId))
+			.toList();
 		model.addAttribute("events", events);
 
 		return "fanBook/top";
@@ -91,15 +91,15 @@ public class FanBookController {
 	@GetMapping("/table")
 	public String showTable(Model model) {
 		List<FanBook> fanBookList = service
-				.findAll()
-				.stream()
-				.sorted(Comparator
-						.comparing(FanBook::getCircle_name)
-						.thenComparing(s -> s.getCategory().getId())
-						.thenComparing(FanBook::getAuthor)
-						.thenComparing(FanBook::getDate)
-						.thenComparing(FanBook::getTitle))
-				.toList();
+			.findAll()
+			.stream()
+			.sorted(Comparator
+				.comparing(FanBook::getCircle_name)
+				.thenComparing(s -> s.getCategory().getId())
+				.thenComparing(FanBook::getAuthor)
+				.thenComparing(FanBook::getDate)
+				.thenComparing(FanBook::getTitle))
+			.toList();
 		model.addAttribute("fanBookList", fanBookList);
 		return "fanBook/table";
 	}
@@ -110,25 +110,25 @@ public class FanBookController {
 		model.addAttribute("fanBook", fanBook);
 
 		List<Category> categories = categoryService
-				.findAll()
-				.stream()
-				.sorted(Comparator.comparing(Category::getId))
-				.toList();
+			.findAll()
+			.stream()
+			.sorted(Comparator.comparing(Category::getId))
+			.toList();
 		model.addAttribute("categories", categories);
 
 		List<ReferenceWork> reference_works = referenceWorkService
-				.findAll()
-				.stream()
-				.sorted(Comparator.comparing(ReferenceWork::getId))
-				.toList();
+			.findAll()
+			.stream()
+			.sorted(Comparator.comparing(ReferenceWork::getId))
+			.toList();
 		model.addAttribute("reference_works", reference_works);
 
 		List<Event> events = eventService.findAll()
-				.stream()
-				.sorted(Comparator
-						.comparing((Event event) -> event.getDate() == null ? LocalDate.MIN : event.getDate())
-						.thenComparing(Event::getId))
-				.toList();
+			.stream()
+			.sorted(Comparator
+				.comparing((Event event) -> event.getDate() == null ? LocalDate.MIN : event.getDate())
+				.thenComparing(Event::getId))
+			.toList();
 		model.addAttribute("events", events);
 
 		return "fanBook/regist";
